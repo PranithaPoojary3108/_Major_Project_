@@ -1,0 +1,23 @@
+{
+  "name": "secure-evoting-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.booth.config.js",
+    "dev:booth": "vite --config vite.booth.config.js",
+    "dev:admin": "vite --config vite.admin.config.js",
+    "build:booth": "vite build --config vite.booth.config.js",
+    "build:admin": "vite build --config vite.admin.config.js",
+    "build": "vite build --config vite.booth.config.js && vite build --config vite.admin.config.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.3"
+  }
+}

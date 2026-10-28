@@ -1,0 +1,1882 @@
+[
+  {
+    "usn": "NNM22IS173",
+    "name": "SRAJAN J POOJARY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 1,
+    "assigned_wallet": "0x664bc1948b657b159d002a7ea161c096b53e57ff"
+  },
+  {
+    "usn": "NNM23IS001",
+    "name": "AASHNA MATHIAS",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 2,
+    "assigned_wallet": "0x7876c5cef67a8f114487f0cd100ee6d758cd0a26"
+  },
+  {
+    "usn": "NNM23IS002",
+    "name": "ABHIMANYU RAI B S",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 3,
+    "assigned_wallet": "0x9c6bb0f9ef412a5b4e04bf9b354e28e2e4ab50e0"
+  },
+  {
+    "usn": "NNM23IS003",
+    "name": "ABHISHEK ACHARYA",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 4,
+    "assigned_wallet": "0x999b7a24aabf3ef175dc12ee780ea3c429f0d76e"
+  },
+  {
+    "usn": "NNM23IS004",
+    "name": "ABHISHEK S SHETTY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 5,
+    "assigned_wallet": "0x0dde8c147d4364b03489f9bfe504717ce673ceb9"
+  },
+  {
+    "usn": "NNM23IS005",
+    "name": "ACHAL HAREESH NAYAK",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 6,
+    "assigned_wallet": "0x436c0cb2b2021a92e6e5ff1cf9233937a84967ba"
+  },
+  {
+    "usn": "NNM23IS006",
+    "name": "ADITI SANDIKAR",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 7,
+    "assigned_wallet": "0xed5f6ecab4768b12a23d31037a6f3f9ac51a600d"
+  },
+  {
+    "usn": "NNM23IS007",
+    "name": "AKASH A MOGAVEEERA",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 8,
+    "assigned_wallet": "0x69a31a84f94fd5b86e8d94de79244275807325ba"
+  },
+  {
+    "usn": "NNM23IS008",
+    "name": "AKASH G",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 9,
+    "assigned_wallet": "0x55dca7a515cca6b72da7c5d2799685218ee6ac32"
+  },
+  {
+    "usn": "NNM23IS009",
+    "name": "AKSHATHA KINI",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 10,
+    "assigned_wallet": "0x2f69d6ad7983e304c8d68a8aa3f7ff2a61d58c3f"
+  },
+  {
+    "usn": "NNM23IS010",
+    "name": "AKSHAY H BANGERA",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 11,
+    "assigned_wallet": "0x66ccef0c4ad6235fe2fc3bead85ca24e666d0dd2"
+  },
+  {
+    "usn": "NNM23IS011",
+    "name": "AKSHAYA G",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 12,
+    "assigned_wallet": "0x9613b700c01a97edbafa6a2e3fe568e166301942"
+  },
+  {
+    "usn": "NNM23IS012",
+    "name": "ANANYA SHETTY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 13,
+    "assigned_wallet": "0x0ba0ebb3a5594e47b0727093d075fe0b18633e35"
+  },
+  {
+    "usn": "NNM23IS013",
+    "name": "ANCHAL RAO N.",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 14,
+    "assigned_wallet": "0x052c12937f9b32d2b403eac69f77c535e76beaac"
+  },
+  {
+    "usn": "NNM23IS014",
+    "name": "ANISH ULLAL ASHOK",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 15,
+    "assigned_wallet": "0x21a5bdab26e6990045fab7ddbaeaeb314ebc2196"
+  },
+  {
+    "usn": "NNM23IS015",
+    "name": "ANKITHA",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 16,
+    "assigned_wallet": "0xf9a8820737e94d424eb58b25ab623e604c40061d"
+  },
+  {
+    "usn": "NNM23IS016",
+    "name": "ANSHU S POOJARY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 17,
+    "assigned_wallet": "0x81196a8f8e823bfd32a08327620a9a12f050f686"
+  },
+  {
+    "usn": "NNM23IS017",
+    "name": "ANUSH SADASHIVA SHETTY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 18,
+    "assigned_wallet": "0x1bcb000a5094f41226ea64c2e0e50eea67c7fcf2"
+  },
+  {
+    "usn": "NNM23IS018",
+    "name": "ANVITH A POOJARY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 19,
+    "assigned_wallet": "0x6b0e3be62d53f9788813ca8a429676846d09244b"
+  },
+  {
+    "usn": "NNM23IS019",
+    "name": "ANVITH RAI",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 20,
+    "assigned_wallet": "0xd167f0b27a0b2da0c751d63b0585cd94440f057d"
+  },
+  {
+    "usn": "NNM23IS020",
+    "name": "ANVITHA V RAO",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 21,
+    "assigned_wallet": "0x827fdb8f697fd28078e23f470dc2c062ee2f38bb"
+  },
+  {
+    "usn": "NNM23IS021",
+    "name": "APOORVA SHETTY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 22,
+    "assigned_wallet": "0x51a9a3e10b75b0e4adeec28ce1f44f39f65d7e22"
+  },
+  {
+    "usn": "NNM23IS022",
+    "name": "ARHATHRAJ SHETTY M",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 23,
+    "assigned_wallet": "0xcdb1fdbd6b65464ba749aefb254cdb3a88e3a904"
+  },
+  {
+    "usn": "NNM23IS023",
+    "name": "ARJUN VINAYKUMAR POOJARI",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 24,
+    "assigned_wallet": "0x2bb0f45b4d336544ba82b7adb8c2336ae3d3f459"
+  },
+  {
+    "usn": "NNM23IS024",
+    "name": "ASHMITH D SUVARNA",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 25,
+    "assigned_wallet": "0x32e18d566a2290548b03787d6dcac6976c291ba9"
+  },
+  {
+    "usn": "NNM23IS025",
+    "name": "ASHWIN NELSON BARBOZA",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 26,
+    "assigned_wallet": "0xaff85c60b6f44cbfb4e1d156be5b08a65c757a3b"
+  },
+  {
+    "usn": "NNM23IS026",
+    "name": "ATISH KUMAR",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 27,
+    "assigned_wallet": "0xbe68f016208fcdcccaa64ff08bb4a69206911cbf"
+  },
+  {
+    "usn": "NNM23IS027",
+    "name": "AVANTHIKA U ACHAR",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 28,
+    "assigned_wallet": "0xcb2324c8daf16df53d0bec3f1b1daf3c2bedba5a"
+  },
+  {
+    "usn": "NNM23IS029",
+    "name": "AYUSH B SHETTY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 29,
+    "assigned_wallet": "0xaabbced04f98fb5013702fe6912a82f4eb5bb424"
+  },
+  {
+    "usn": "NNM23IS030",
+    "name": "AYUSH S SHETTY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 30,
+    "assigned_wallet": "0xbb7eb1921b2f5c8f4c2a2f06cccc0f64cb73e1eb"
+  },
+  {
+    "usn": "NNM23IS031",
+    "name": "B ABHAY KUMAR SHETTY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 31,
+    "assigned_wallet": "0x031bcb06428111623a5baff5df8b090d63274e5c"
+  },
+  {
+    "usn": "NNM23IS032",
+    "name": "BHAGYA P SHETTY",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 32,
+    "assigned_wallet": "0x4d90b955ccf392f6b3a45307772dad3f8bdac9a8"
+  },
+  {
+    "usn": "NNM23IS033",
+    "name": "BHARATH D NAYAK",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 33,
+    "assigned_wallet": "0x5de62af44b37c946f3ce2837609d5bba4abcaae2"
+  },
+  {
+    "usn": "NNM23IS034",
+    "name": "CADLEE KRISTON D SOUZA",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 34,
+    "assigned_wallet": "0xbcfec5ef2180643e1045fae1d8912f93d7610170"
+  },
+  {
+    "usn": "NNM23IS035",
+    "name": "CHAITHANYA N KAMATH",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 35,
+    "assigned_wallet": "0x78ef689d8aa6e2ef49345444fca1ffafc96cf4db"
+  },
+  {
+    "usn": "NNM23IS036",
+    "name": "CHINTHAN",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 36,
+    "assigned_wallet": "0x7e88d89fbc0bfe99efe1b24eb4fe221210412873"
+  },
+  {
+    "usn": "NNM23IS037",
+    "name": "CHIRAG RAI",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 37,
+    "assigned_wallet": "0x3e51011019468ffaa72b1883e4fa5b4aa0d12e98"
+  },
+  {
+    "usn": "NNM23IS038",
+    "name": "D VIVEK PAI",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 38,
+    "assigned_wallet": "0x86c01f3480a7dd139657ea114e57990f05940688"
+  },
+  {
+    "usn": "NNM23IS039",
+    "name": "DANIEL LEONARD",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 39,
+    "assigned_wallet": "0x580c00b87a79ae106d44cfa9454823e00f5b4178"
+  },
+  {
+    "usn": "NNM23IS040",
+    "name": "DARREN DSOUZA",
+    "section": "VII A",
+    "room": "LH 309",
+    "roll_no": 40,
+    "assigned_wallet": "0x9be583afefcde1beee6213076c1cb8733ffe2e9b"
+  },
+  {
+    "usn": "NNM23IS041",
+    "name": "DEEKSHA YOGISH KOTIAN",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 41,
+    "assigned_wallet": "0xdb25fb9dcf2c5001c7e6702c0e8a63efe4df264a"
+  },
+  {
+    "usn": "NNM23IS042",
+    "name": "DEEPTHI N RAIKAR",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 42,
+    "assigned_wallet": "0xee76b622ee4b916a4e6d2dc3204c772fb13bf808"
+  },
+  {
+    "usn": "NNM23IS043",
+    "name": "DEION BRYAN MATHIAS",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 43,
+    "assigned_wallet": "0x94f3aea889152c92024315e0551eaba45455f388"
+  },
+  {
+    "usn": "NNM23IS044",
+    "name": "DELSTON AARON PEREIRA",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 44,
+    "assigned_wallet": "0x797e473a0cfac5a9fc532b66c120602a5c561442"
+  },
+  {
+    "usn": "NNM23IS045",
+    "name": "DEVIKA P SHETTY",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 45,
+    "assigned_wallet": "0xc8bd936e41a5453e19b2d756fbe896afb3649db8"
+  },
+  {
+    "usn": "NNM23IS046",
+    "name": "DEVIKA SHETTY",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 46,
+    "assigned_wallet": "0x830a8512aa27093bac1df2635cee18035cb44169"
+  },
+  {
+    "usn": "NNM23IS047",
+    "name": "DEVIPRASAD",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 47,
+    "assigned_wallet": "0x2bf2bc533ea4583f2a357f2709646b0f57ecabf9"
+  },
+  {
+    "usn": "NNM23IS048",
+    "name": "DHANUSH D SHETTY",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 48,
+    "assigned_wallet": "0x9e4a6e19e532dc7767cfea29dda4ce738361bcfd"
+  },
+  {
+    "usn": "NNM23IS049",
+    "name": "DHANUSH G SHETTY",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 49,
+    "assigned_wallet": "0x94e85eaadb0ae5ad5afff44554646364a161745c"
+  },
+  {
+    "usn": "NNM23IS050",
+    "name": "DHANUSH MOGAVEERA",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 50,
+    "assigned_wallet": "0xb3bfb1f252b97bfe1f50f57fb82b725c957806f3"
+  },
+  {
+    "usn": "NNM23IS051",
+    "name": "DHANUSH R",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 51,
+    "assigned_wallet": "0x8b9616326d7c4e35db1ca23031af62962037f2d5"
+  },
+  {
+    "usn": "NNM23IS052",
+    "name": "DHANUSH R KOTIAN",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 52,
+    "assigned_wallet": "0xb5a429903cf88cb535f33e71271553919f3a319a"
+  },
+  {
+    "usn": "NNM23IS053",
+    "name": "DHANUSH SHETTY",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 53,
+    "assigned_wallet": "0x17f14b5cb812a91624e0e8e346e24af925ce61f9"
+  },
+  {
+    "usn": "NNM23IS054",
+    "name": "DHANUSH V SALIAN",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 54,
+    "assigned_wallet": "0x095c8aea407a8765f72c3119a26bafa588809ad0"
+  },
+  {
+    "usn": "NNM23IS055",
+    "name": "DHANVEE",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 55,
+    "assigned_wallet": "0x8bec67e208a05e282b8f6713211dda09f7efd741"
+  },
+  {
+    "usn": "NNM23IS056",
+    "name": "DHANYA SHETTY",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 56,
+    "assigned_wallet": "0xe7b74705ab09cc01eedbfd0e8f06c1f0135c7fe5"
+  },
+  {
+    "usn": "NNM23IS057",
+    "name": "DHRITHI B",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 57,
+    "assigned_wallet": "0x0e2d9e9961423a53f4a9b3ab8ad1c3186fc3e367"
+  },
+  {
+    "usn": "NNM23IS058",
+    "name": "DHRITI HEGDE",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 58,
+    "assigned_wallet": "0x55d1b5ae6f7371fe9e9ffebdf19daab4b4d9d057"
+  },
+  {
+    "usn": "NNM23IS059",
+    "name": "DHRITI SHETTY",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 59,
+    "assigned_wallet": "0xa688fe6d0f1c0d5463bfe339996b9b09d0e8ee88"
+  },
+  {
+    "usn": "NNM23IS060",
+    "name": "DHRUVA SHEDBALKAR",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 60,
+    "assigned_wallet": "0xacddedb304f6fbb75718d9177d1f06294370cf66"
+  },
+  {
+    "usn": "NNM23IS061",
+    "name": "DHYANCHAND",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 61,
+    "assigned_wallet": "0xab0debd2a952b6f2c40dac707a7721cbb5644023"
+  },
+  {
+    "usn": "NNM23IS062",
+    "name": "DISHA RANI",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 62,
+    "assigned_wallet": "0x6035aaa6f52b3aba6f729e86a9860182224c092b"
+  },
+  {
+    "usn": "NNM23IS063",
+    "name": "DIYADARSHINI M AMIN",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 63,
+    "assigned_wallet": "0xf4b6443bbaf431257f454b4cc50841ecaaedad7c"
+  },
+  {
+    "usn": "NNM23IS064",
+    "name": "DRUPAD",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 64,
+    "assigned_wallet": "0x66a8e50d51ce7f8ef7ad05bef610d3ab6cf4e22f"
+  },
+  {
+    "usn": "NNM23IS065",
+    "name": "ESHAAN V S",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 65,
+    "assigned_wallet": "0xeb288df06c37dca96b9bd1849734e9a364576470"
+  },
+  {
+    "usn": "NNM23IS066",
+    "name": "ESHWARI S",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 66,
+    "assigned_wallet": "0x37b95b501809a596b0f1667c789518bc0a0a6bd1"
+  },
+  {
+    "usn": "NNM23IS067",
+    "name": "GANYA",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 67,
+    "assigned_wallet": "0x5031afdd070bf96d3bf3a6cc91298aa4c508e3c6"
+  },
+  {
+    "usn": "NNM23IS068",
+    "name": "GAUTHAM MANOJ",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 68,
+    "assigned_wallet": "0x9384a2a7dc79257fc101b505f3e14f675f407a67"
+  },
+  {
+    "usn": "NNM23IS069",
+    "name": "GAUTHAMI",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 69,
+    "assigned_wallet": "0x3d898885d5a664e8e31cbd82cc49a513dbf2cb72"
+  },
+  {
+    "usn": "NNM23IS070",
+    "name": "GAUTHAMI",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 70,
+    "assigned_wallet": "0xa91c7bb54a6a45a0c425b1384f50335ed64410b8"
+  },
+  {
+    "usn": "NNM23IS071",
+    "name": "GOKUL ANIL KUMAR",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 71,
+    "assigned_wallet": "0x3a9e3a20a31fad11033888b33c455a207adb1fb7"
+  },
+  {
+    "usn": "NNM23IS072",
+    "name": "GOWRIKA V ALVA",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 72,
+    "assigned_wallet": "0x6dc837def581db84a8b17ff267f74b16669bc494"
+  },
+  {
+    "usn": "NNM24IS501",
+    "name": "CHARANRAJ M",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 73,
+    "assigned_wallet": "0x0efdac895676ea41ea9e07b6a20cb166c81bfcc6"
+  },
+  {
+    "usn": "NNM24IS502",
+    "name": "CHIRAG",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 74,
+    "assigned_wallet": "0x3b2660821211d2b0d3eddd934dbd840bffa9e1c2"
+  },
+  {
+    "usn": "NNM24IS503",
+    "name": "CHIRAG R POOJARY",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 75,
+    "assigned_wallet": "0xc3b5a661dafc14fb38abdb8aa66e8f550f018d13"
+  },
+  {
+    "usn": "NNM24IS504",
+    "name": "DEEPAK",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 76,
+    "assigned_wallet": "0xc85b1b13d9e37522efe87710e9d2f2bfb5543195"
+  },
+  {
+    "usn": "NNM24IS505",
+    "name": "DHANARAJ Y SHETTY",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 77,
+    "assigned_wallet": "0xe00b16cc7a84b28108c77194a25eb67019058eaa"
+  },
+  {
+    "usn": "NNM24IS506",
+    "name": "KAUSHIK D B",
+    "section": "VII A",
+    "room": "LH 310",
+    "roll_no": 78,
+    "assigned_wallet": "0x26123d70de74356b086004762369652db0904d86"
+  },
+  {
+    "usn": "NNM23IS073",
+    "name": "H BHOOMIKA SHENOY",
+    "section": "VII B",
+    "room": "LH 310",
+    "roll_no": 79,
+    "assigned_wallet": "0x60aa40923a3ab06b222b7dea651b55bd78e27dca"
+  },
+  {
+    "usn": "NNM23IS074",
+    "name": "H NIHAL SHETTY",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 80,
+    "assigned_wallet": "0xaded71ce2439af97b673bb9a0b090face1675f2d"
+  },
+  {
+    "usn": "NNM23IS075",
+    "name": "HARDHIK R SHETTY",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 81,
+    "assigned_wallet": "0xef1accc542aac3255f9e74673ff79b9ce8b61214"
+  },
+  {
+    "usn": "NNM23IS076",
+    "name": "HARSHITHA P SALIAN",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 82,
+    "assigned_wallet": "0x66e21b55fb66d9a214f9de69f428090bbb2731d0"
+  },
+  {
+    "usn": "NNM23IS077",
+    "name": "IBBANI H G",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 83,
+    "assigned_wallet": "0x9cb10457e18c4fd8c19902ed8477cdecd2485d7b"
+  },
+  {
+    "usn": "NNM23IS078",
+    "name": "ISHAN BHAT",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 84,
+    "assigned_wallet": "0x139d5592138d45e81e12fc82df81b26d02666055"
+  },
+  {
+    "usn": "NNM23IS079",
+    "name": "JEETHESH",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 85,
+    "assigned_wallet": "0x0635419b63f6a4b20a035803be7b5438507eeb69"
+  },
+  {
+    "usn": "NNM23IS080",
+    "name": "JEEVAN KRISHNA",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 86,
+    "assigned_wallet": "0xed06c06bec5f81a3b3ea6275556bfc0b7ed9ee29"
+  },
+  {
+    "usn": "NNM23IS081",
+    "name": "JUNAID AHMED",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 87,
+    "assigned_wallet": "0xeea71d78665b790e4faa4163e403f67b7a320984"
+  },
+  {
+    "usn": "NNM23IS082",
+    "name": "K ARAVIND KAMATH",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 88,
+    "assigned_wallet": "0xd5b3ce73866bd00d6efc3ac34ecc64b179ee4f93"
+  },
+  {
+    "usn": "NNM23IS083",
+    "name": "K H SUSHANTH",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 89,
+    "assigned_wallet": "0xfe757bf92d6d38da5452552b733ecb254b8f7ab2"
+  },
+  {
+    "usn": "NNM23IS084",
+    "name": "K SWASTHIK BHANDARY",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 90,
+    "assigned_wallet": "0x3c93acabc7905423c4d647556fdf4033ffbc55ad"
+  },
+  {
+    "usn": "NNM23IS085",
+    "name": "K THEJASWI GOVINDA",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 91,
+    "assigned_wallet": "0xd075c2d85aeff883da8882a04597a0c56adeab15"
+  },
+  {
+    "usn": "NNM23IS086",
+    "name": "KARTHIK",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 92,
+    "assigned_wallet": "0x96e4c99e29367295d597c39a403544bb8e0f1bfa"
+  },
+  {
+    "usn": "NNM23IS087",
+    "name": "KHUSHI",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 93,
+    "assigned_wallet": "0xbc2fafb34566e98795817d59582c512e9d6b50e0"
+  },
+  {
+    "usn": "NNM23IS088",
+    "name": "KRITHI U KOTIAN",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 94,
+    "assigned_wallet": "0x1664c6cae2db96393deb2cdc70f78be1c0b146f9"
+  },
+  {
+    "usn": "NNM23IS089",
+    "name": "KSHITI SHETTY",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 95,
+    "assigned_wallet": "0x9ed6fa63a667a92bd0e9d95b28a3b9502d40a424"
+  },
+  {
+    "usn": "NNM23IS090",
+    "name": "M VARUN",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 96,
+    "assigned_wallet": "0x2655b8d26e9486da1630fb8549abd369660e372b"
+  },
+  {
+    "usn": "NNM23IS091",
+    "name": "MAHESH R",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 97,
+    "assigned_wallet": "0x2ef07e706e8da676ba7504bf5eb414cc8c044e61"
+  },
+  {
+    "usn": "NNM23IS092",
+    "name": "MANISH M P",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 98,
+    "assigned_wallet": "0x3b822c674b1991ff4f1b94a789f0cff39de25be8"
+  },
+  {
+    "usn": "NNM23IS093",
+    "name": "MANISHA G P",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 99,
+    "assigned_wallet": "0x197790c18e4c50629c1ce5167de84f2d4b1504c3"
+  },
+  {
+    "usn": "NNM23IS094",
+    "name": "MANVITH",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 100,
+    "assigned_wallet": "0x24932a0dfc1dcf60c6e28cafcf604bfaf6cc00b9"
+  },
+  {
+    "usn": "NNM23IS095",
+    "name": "MANYA",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 101,
+    "assigned_wallet": "0x21ec93e99beecd4ce653e33fabb0b1cd7eb96a40"
+  },
+  {
+    "usn": "NNM23IS096",
+    "name": "MEGHA G",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 102,
+    "assigned_wallet": "0xd2d2b8e21df2c6c2c2b357255639a725a5c5e2a3"
+  },
+  {
+    "usn": "NNM23IS097",
+    "name": "MEGHA V BHAT",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 103,
+    "assigned_wallet": "0x27a3bd370d89a78552fb953c6337cb0203a8c460"
+  },
+  {
+    "usn": "NNM23IS098",
+    "name": "MISHA LAXMAN SHETTY",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 104,
+    "assigned_wallet": "0x32ab3eeb05a653773ee9df48e22db39e9ffa2d5a"
+  },
+  {
+    "usn": "NNM23IS099",
+    "name": "MOHAMMAD DANISH",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 105,
+    "assigned_wallet": "0x68c241921c6f464c573bace5e2498abe0f139006"
+  },
+  {
+    "usn": "NNM23IS100",
+    "name": "MOHAMMAD SHAZ",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 106,
+    "assigned_wallet": "0xbc1e5cfb2f766653d8b1c2cfdd0ae9a37d8fcd53"
+  },
+  {
+    "usn": "NNM23IS101",
+    "name": "MOHAMMED ADIL",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 107,
+    "assigned_wallet": "0x72ec87cdd4ae55b1afa6a1d4e878bf738c538933"
+  },
+  {
+    "usn": "NNM23IS102",
+    "name": "MOHAMMED SAFWAAN",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 108,
+    "assigned_wallet": "0x783ecbcdeb887a5ee4fcdf5f9a55f9eb31aced08"
+  },
+  {
+    "usn": "NNM23IS103",
+    "name": "NAGASHREE PAI",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 109,
+    "assigned_wallet": "0x6bc236a849a9dd1c0c1c38707d19b16ed6c89a08"
+  },
+  {
+    "usn": "NNM23IS104",
+    "name": "NAVEEN S PRABHU",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 110,
+    "assigned_wallet": "0xf72eed84ba49433a2858fa967b545d018a1cf2f3"
+  },
+  {
+    "usn": "NNM23IS105",
+    "name": "NEHAL VISHWANATH POOJARY",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 111,
+    "assigned_wallet": "0x6f06d15bf6ec6bedd87a7b76d70c6ce48473a01f"
+  },
+  {
+    "usn": "NNM23IS106",
+    "name": "NIDHI V SHETTY",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 112,
+    "assigned_wallet": "0x3e31a724e4c1b2c1a82c37efa817c39abc10c410"
+  },
+  {
+    "usn": "NNM23IS107",
+    "name": "NIDHISHRI",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 113,
+    "assigned_wallet": "0x70d690fd914cf2d59ce6d5f1e67c8c9b83b86828"
+  },
+  {
+    "usn": "NNM23IS108",
+    "name": "NIHAL N M",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 114,
+    "assigned_wallet": "0x7f31e77b192b89c68a23df04b372049287f4ede8"
+  },
+  {
+    "usn": "NNM23IS109",
+    "name": "NIHAR K T",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 115,
+    "assigned_wallet": "0xb2842fbc9813fe9f8e845fddacd4c180eb1ed47e"
+  },
+  {
+    "usn": "NNM23IS110",
+    "name": "NIKHITHA S KOTIAN",
+    "section": "VII B",
+    "room": "LH 311",
+    "roll_no": 116,
+    "assigned_wallet": "0x778862f51ded0949f3dc9ba28e5a009d55253fe7"
+  },
+  {
+    "usn": "NNM23IS111",
+    "name": "NIREEKSHA",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 117,
+    "assigned_wallet": "0xd19596d7246c4466d6b507eac65f89e853e395fe"
+  },
+  {
+    "usn": "NNM23IS112",
+    "name": "NISCHAL SHETTY",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 118,
+    "assigned_wallet": "0x7e05debdf8709e313d108f1836c26735a8f24d39"
+  },
+  {
+    "usn": "NNM23IS113",
+    "name": "NISHAN",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 119,
+    "assigned_wallet": "0xdc9822b3e5a52aec3f64753f88a8524aa23d2250"
+  },
+  {
+    "usn": "NNM23IS114",
+    "name": "NISHANT ARYA",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 120,
+    "assigned_wallet": "0x9d667e4acabeb786010e1c59a4c3f460b0df8bf5"
+  },
+  {
+    "usn": "NNM23IS115",
+    "name": "NISHMA H SALIAN",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 121,
+    "assigned_wallet": "0x2ae0802eca6899829d713d1c342e2b1e2da57506"
+  },
+  {
+    "usn": "NNM23IS116",
+    "name": "NITHIN M",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 122,
+    "assigned_wallet": "0x252f6672af3761ef0d2f281c7f98791e17d5200c"
+  },
+  {
+    "usn": "NNM23IS117",
+    "name": "NIVYASHREE M S",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 123,
+    "assigned_wallet": "0xce00fb60344deb12d149b28a132a94d913e21d93"
+  },
+  {
+    "usn": "NNM23IS118",
+    "name": "OMKAR P SHETTY",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 124,
+    "assigned_wallet": "0x70678f770c38bd77e979ffb6fab7b59850cf6c34"
+  },
+  {
+    "usn": "NNM23IS119",
+    "name": "PANCHAMI KASHYAP",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 125,
+    "assigned_wallet": "0xa598a4f0f5e3e3b3f544707e06bc81d611f13036"
+  },
+  {
+    "usn": "NNM23IS120",
+    "name": "PANCHAMI V SHETTY",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 126,
+    "assigned_wallet": "0x68dbab9b4f123683074d521893d662291582b0d7"
+  },
+  {
+    "usn": "NNM23IS122",
+    "name": "PARVATHI SANTHOSH",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 127,
+    "assigned_wallet": "0x3e8bc633bb1b6f7a4ab73d085178ab5a7846f6ca"
+  },
+  {
+    "usn": "NNM23IS123",
+    "name": "PAVAN PAI",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 128,
+    "assigned_wallet": "0xd80a587d8b51765f46f548391333b18f980d221c"
+  },
+  {
+    "usn": "NNM23IS124",
+    "name": "POOJA",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 129,
+    "assigned_wallet": "0x2003e2a646642e701a767334e7f32b1f908283ab"
+  },
+  {
+    "usn": "NNM23IS125",
+    "name": "POORVI SHETTY",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 130,
+    "assigned_wallet": "0x925e769a05355f7c4a2c8dae5e1612cf00469d4c"
+  },
+  {
+    "usn": "NNM23IS126",
+    "name": "PRACHI SHETTY",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 131,
+    "assigned_wallet": "0xd0124f2448b8831b5e3301e504ec62c75dc26ab9"
+  },
+  {
+    "usn": "NNM23IS127",
+    "name": "PRADVIN H AMIN",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 132,
+    "assigned_wallet": "0xf0fa0763a59d98194edce33b8f5b55fb752d45c2"
+  },
+  {
+    "usn": "NNM23IS128",
+    "name": "PRAJWAL B T",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 133,
+    "assigned_wallet": "0xf954ff55799a7deea479ea42351062f30cbff7a1"
+  },
+  {
+    "usn": "NNM23IS129",
+    "name": "PRAKYATH P NAYAK",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 134,
+    "assigned_wallet": "0x3d753b1636d8cb7acedebdeecf455b57a19b991a"
+  },
+  {
+    "usn": "NNM23IS130",
+    "name": "PRAMITH P PUTHRAN",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 135,
+    "assigned_wallet": "0x2d82542d38eb940486bb81d6e2b9921b306dee7e"
+  },
+  {
+    "usn": "NNM23IS131",
+    "name": "PRANAV PURUSHOTHAM NAYAK",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 136,
+    "assigned_wallet": "0x00eb2484d68534d7c7c4e9afa89ff5580e1ad032"
+  },
+  {
+    "usn": "NNM23IS132",
+    "name": "PRANAVA KUMARA K",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 137,
+    "assigned_wallet": "0x11d76c66f670b38d22eb8123bd027e21946a1dea"
+  },
+  {
+    "usn": "NNM23IS133",
+    "name": "PRANAVRAJ P ACHAR",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 138,
+    "assigned_wallet": "0xc34670844587eb40ee148a928fa44e3dd2b8df76"
+  },
+  {
+    "usn": "NNM23IS134",
+    "name": "PRANITHA C POOJARY",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 139,
+    "assigned_wallet": "0xa9929cb967f153086e0a1b1fb8ebb33b4283cbdf"
+  },
+  {
+    "usn": "NNM23IS135",
+    "name": "PRANJALI N",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 140,
+    "assigned_wallet": "0x6e77e66f8c4a260c212f1d2954df242020543180"
+  },
+  {
+    "usn": "NNM23IS136",
+    "name": "PRARTHANA M RAO",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 141,
+    "assigned_wallet": "0xcb0a6ca9c9bf98d4c0be4fe618e4e19ed9de56d1"
+  },
+  {
+    "usn": "NNM23IS137",
+    "name": "PRATHAM S SALIAN",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 142,
+    "assigned_wallet": "0xcff7adf64e4f6d6d70a23f5648a8a7abda3e56a8"
+  },
+  {
+    "usn": "NNM23IS138",
+    "name": "PRATHVI V SHETTY",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 143,
+    "assigned_wallet": "0x144e3055afd5679b1c7f931b0b587c4df3317094"
+  },
+  {
+    "usn": "NNM23IS139",
+    "name": "PRATHVIRAJ BHAT",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 144,
+    "assigned_wallet": "0xe13f18321e346299025f57681bcb4893a1f0171f"
+  },
+  {
+    "usn": "NNM23IS140",
+    "name": "RAGHAV RAINA",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 145,
+    "assigned_wallet": "0xdcdb38c71d45229a5f14c0d638a27a56c3ba07ed"
+  },
+  {
+    "usn": "NNM23IS141",
+    "name": "RAJATH D SHETTY",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 146,
+    "assigned_wallet": "0x337a3ba00f7e32b34b70f49f52f791a0e6084e39"
+  },
+  {
+    "usn": "NNM23IS142",
+    "name": "RAJATH PADMASHALI",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 147,
+    "assigned_wallet": "0x8af102bef81b0db9633d66bf7fdb5c687a641a6c"
+  },
+  {
+    "usn": "NNM23IS143",
+    "name": "RAKSHA S SUVARNA",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 148,
+    "assigned_wallet": "0x08a1dddf4cae404d931c8ee42ca692827efb3462"
+  },
+  {
+    "usn": "NNM23IS144",
+    "name": "RAKSHIT DILEEP NAYAK",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 149,
+    "assigned_wallet": "0x57ca5c0ef9690991a68ae32ff3dc3b2501d3ce78"
+  },
+  {
+    "usn": "NNM23IS145",
+    "name": "RAVITEJ D SHETTY",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 150,
+    "assigned_wallet": "0x1338fbd7ed2f1b7f224f3a50d0d4341cc9989271"
+  },
+  {
+    "usn": "NNM23IS146",
+    "name": "REESHAL SUVARNA",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 151,
+    "assigned_wallet": "0xbbb33099b6a22a6c45aaf8bcc938b060801e4584"
+  },
+  {
+    "usn": "NNM24IS507",
+    "name": "MUKESH P",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 152,
+    "assigned_wallet": "0xdf1aed586463f1e4099dc8f0555a66bc05f19bba"
+  },
+  {
+    "usn": "NNM24IS508",
+    "name": "MUZAIF AHAMED",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 153,
+    "assigned_wallet": "0x318f97ca203c8cf1e05d1e80be81e78e5b990c4f"
+  },
+  {
+    "usn": "NNM24IS509",
+    "name": "NEEKSHITH",
+    "section": "VII B",
+    "room": "LH 312",
+    "roll_no": 154,
+    "assigned_wallet": "0x6adcc0ea5fbd27f6bf6dad48da94cc1d1d37f28b"
+  },
+  {
+    "usn": "NNM24IS510",
+    "name": "NIKHIL",
+    "section": "VII B",
+    "room": "LH 210",
+    "roll_no": 155,
+    "assigned_wallet": "0x55772c219969a6322ae286e4ac907ed02a5db84c"
+  },
+  {
+    "usn": "NNM24IS511",
+    "name": "PRAVITH KUMAR",
+    "section": "VII B",
+    "room": "LH 210",
+    "roll_no": 156,
+    "assigned_wallet": "0x17a409a318b7275164972b3ecf6c086260ee37f9"
+  },
+  {
+    "usn": "NNM24IS512",
+    "name": "RAQIB SHAMIR AHMAD",
+    "section": "VII B",
+    "room": "LH 210",
+    "roll_no": 157,
+    "assigned_wallet": "0xf40093e9d5d3a9718cb3e4d81e1d989e2ac7d973"
+  },
+  {
+    "usn": "NNM23IS147",
+    "name": "RISHIKA RAJESH KUMAR",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 158,
+    "assigned_wallet": "0xfdd8573a143f2c83a2f9d18e0fa68804d7152031"
+  },
+  {
+    "usn": "NNM23IS148",
+    "name": "RIYA ANN",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 159,
+    "assigned_wallet": "0xb218c0aca3a441caf289df468407cac68bc487fc"
+  },
+  {
+    "usn": "NNM23IS149",
+    "name": "RIYA PAI",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 160,
+    "assigned_wallet": "0xe121ba1a0017ba2f179f1b547043e1f9943ec440"
+  },
+  {
+    "usn": "NNM23IS150",
+    "name": "ROHAN M SHET",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 161,
+    "assigned_wallet": "0xd2510acaf136d49fd32fb68c8016523ba640f76b"
+  },
+  {
+    "usn": "NNM23IS151",
+    "name": "RONITH J SALIAN",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 162,
+    "assigned_wallet": "0x75858e7cd593e2f29b732467225451882de52a37"
+  },
+  {
+    "usn": "NNM23IS152",
+    "name": "ROSHWIN DSOUZA",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 163,
+    "assigned_wallet": "0x7a7c0983163532b28e2eac6b655f3b26a712009a"
+  },
+  {
+    "usn": "NNM23IS153",
+    "name": "S N SINCHANA",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 164,
+    "assigned_wallet": "0xbed528759c4e83d74fa5e075cf24878ca8589df3"
+  },
+  {
+    "usn": "NNM23IS154",
+    "name": "S VIJETH PRABHU",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 165,
+    "assigned_wallet": "0x11ac0616137003e060e34652d2f8a29978805ee0"
+  },
+  {
+    "usn": "NNM23IS155",
+    "name": "S.G.SANJANA",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 166,
+    "assigned_wallet": "0xcaeb13e2c3bc6b78efbfa2072d654530aca1c338"
+  },
+  {
+    "usn": "NNM23IS156",
+    "name": "SAKSHA YATHEESHA RAI",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 167,
+    "assigned_wallet": "0x42ed2843ece27d457fb133cd09e5993851dc327f"
+  },
+  {
+    "usn": "NNM23IS157",
+    "name": "SAMHITA ADIGA",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 168,
+    "assigned_wallet": "0xf4713792ffac4c24beced97da3c5d132b9f87a09"
+  },
+  {
+    "usn": "NNM23IS158",
+    "name": "SANATH",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 169,
+    "assigned_wallet": "0x3e6a72016cca63314be54f7bdceb0224b61d2a4e"
+  },
+  {
+    "usn": "NNM23IS159",
+    "name": "SANATH SHETTY",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 170,
+    "assigned_wallet": "0x4d995e860a1b347cbfb199a61c44fa04b99bd73a"
+  },
+  {
+    "usn": "NNM23IS160",
+    "name": "SANDEEP",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 171,
+    "assigned_wallet": "0x2d857393ac8b05b44ec1bdd03918c17e74d05d69"
+  },
+  {
+    "usn": "NNM23IS161",
+    "name": "SANJANA KINI B",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 172,
+    "assigned_wallet": "0x4707b4f052c049d9790fcbc1c6dd7ea2c624f652"
+  },
+  {
+    "usn": "NNM23IS162",
+    "name": "SANJANA M SALIAN",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 173,
+    "assigned_wallet": "0x9ade61c529af0777c304e006bf70f7f2f32d79ae"
+  },
+  {
+    "usn": "NNM23IS163",
+    "name": "SANJANA SHRIKANT HEGDE",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 174,
+    "assigned_wallet": "0xd05a58fc68491254cb8b49eed50b0088282a1dd8"
+  },
+  {
+    "usn": "NNM23IS164",
+    "name": "SANJANA TEJ",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 175,
+    "assigned_wallet": "0x509dd8bf3a392aa1cd0822be7b77017d8890b3ff"
+  },
+  {
+    "usn": "NNM23IS165",
+    "name": "SATHWIK S RAO",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 176,
+    "assigned_wallet": "0x7413f8f2d3d61e22aa91c5e75118550a19b91259"
+  },
+  {
+    "usn": "NNM23IS166",
+    "name": "SAYED RUKSHAAN",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 177,
+    "assigned_wallet": "0x6f10429b7062fde42e176ba9778be8d8cf794104"
+  },
+  {
+    "usn": "NNM23IS167",
+    "name": "SHAKTHA K",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 178,
+    "assigned_wallet": "0x2031d1119621220c6d70811a97442091777287a6"
+  },
+  {
+    "usn": "NNM23IS168",
+    "name": "SHASHANK G SUVARNA",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 179,
+    "assigned_wallet": "0x66f04478a8f3dd4740e501c317a4f4f701b03449"
+  },
+  {
+    "usn": "NNM23IS169",
+    "name": "SHAUN LOUIS DCOSTA",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 180,
+    "assigned_wallet": "0x0c71a6fe3fb3856fbac101b0172043e15d2e9833"
+  },
+  {
+    "usn": "NNM23IS170",
+    "name": "SHETTY OMKAR PRAKASH",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 181,
+    "assigned_wallet": "0x2e71f5183d38e36a400f8b62bea1e4bacc1e470a"
+  },
+  {
+    "usn": "NNM23IS171",
+    "name": "SHETTY PRAJNA",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 182,
+    "assigned_wallet": "0xc44f9fdab2fe08d3494a6b123156ebf73082387b"
+  },
+  {
+    "usn": "NNM23IS172",
+    "name": "SHIPRA S SHETTY",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 183,
+    "assigned_wallet": "0x779a47955845b8ec24ed4794696583d3e779f68f"
+  },
+  {
+    "usn": "NNM23IS173",
+    "name": "SHREJAL B SHETTY",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 184,
+    "assigned_wallet": "0xfad316958d1246874e9a8767f073f0144a90ad6a"
+  },
+  {
+    "usn": "NNM23IS174",
+    "name": "SHREYA SHETTY",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 185,
+    "assigned_wallet": "0xd1a14448c1910b31f735a9d78b6ce3701b583252"
+  },
+  {
+    "usn": "NNM23IS175",
+    "name": "SHREYAS S",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 186,
+    "assigned_wallet": "0x34d9d30aefe46fdbb44d6fb5fb24bc4ed6659d69"
+  },
+  {
+    "usn": "NNM23IS176",
+    "name": "SHRIDHAR V KAMATH",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 187,
+    "assigned_wallet": "0x294c465d7611478a08e5b47bda85df179d885a64"
+  },
+  {
+    "usn": "NNM23IS177",
+    "name": "SHRUTHIK",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 188,
+    "assigned_wallet": "0x6720fbce78e27e6386199ba457e1439642a9186e"
+  },
+  {
+    "usn": "NNM23IS178",
+    "name": "SIDDHARTHA CHATHRA B.S",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 189,
+    "assigned_wallet": "0x3f19b14c5d1742054aceecb58623c1f74887acc0"
+  },
+  {
+    "usn": "NNM23IS179",
+    "name": "SIMRAN KASIM SAYED",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 190,
+    "assigned_wallet": "0x0225dd116206165735fa57310db25baa4573b8b3"
+  },
+  {
+    "usn": "NNM23IS180",
+    "name": "SINCHANA RAJ",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 191,
+    "assigned_wallet": "0xeb4f9936f834a6bd6f43be4d57e614547b244aa5"
+  },
+  {
+    "usn": "NNM23IS181",
+    "name": "SOWRABH BHAT",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 192,
+    "assigned_wallet": "0x6a4b46ad8469320e8c6838e277e8e4cebca9d361"
+  },
+  {
+    "usn": "NNM23IS182",
+    "name": "SPARSHA P SHETTY",
+    "section": "VII C",
+    "room": "LH 210",
+    "roll_no": 193,
+    "assigned_wallet": "0x624e603313c62f57ceac3835f4126e6461bc37d6"
+  },
+  {
+    "usn": "NNM23IS183",
+    "name": "SPOORTHI",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 194,
+    "assigned_wallet": "0x1c3c92c854858cd76463c6215ed18c107e1dcf07"
+  },
+  {
+    "usn": "NNM23IS184",
+    "name": "SRAJAN D PRABHU",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 195,
+    "assigned_wallet": "0xe5f67dbf3d518bc99993ba371fafaa4fdded9b3e"
+  },
+  {
+    "usn": "NNM23IS185",
+    "name": "SRINIDHI D S",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 196,
+    "assigned_wallet": "0x4938fe35780cb92661c5cdabd2f58d7893427f39"
+  },
+  {
+    "usn": "NNM23IS186",
+    "name": "SRUJAN M PADMASHALI",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 197,
+    "assigned_wallet": "0x49c4ddcb2a9547de996d983f51387513b02e1cf4"
+  },
+  {
+    "usn": "NNM23IS187",
+    "name": "STIRAM RAJ",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 198,
+    "assigned_wallet": "0x2b279d2db65e80813effc93a6b911e32489f16d3"
+  },
+  {
+    "usn": "NNM23IS188",
+    "name": "SUMANTH S",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 199,
+    "assigned_wallet": "0x134a8c1b7e6e2c859b19db62efda7d0ed137407a"
+  },
+  {
+    "usn": "NNM23IS189",
+    "name": "SUMUKHA RAO H",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 200,
+    "assigned_wallet": "0xfd385fe09801bca3d4e535d1763a6d10ac605ea9"
+  },
+  {
+    "usn": "NNM23IS190",
+    "name": "SUVIDHA S SHETTY",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 201,
+    "assigned_wallet": "0x67e8ea50415d2f116bdca1597a7486b72c9e2a61"
+  },
+  {
+    "usn": "NNM23IS191",
+    "name": "SWAROOP SATHISH Y",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 202,
+    "assigned_wallet": "0xe996790d2492373b83a31a751b1404394bb7c687"
+  },
+  {
+    "usn": "NNM23IS192",
+    "name": "SWATI PRABHU",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 203,
+    "assigned_wallet": "0xa3251d525b44b874f5fc185b590e6e3c62d1461e"
+  },
+  {
+    "usn": "NNM23IS193",
+    "name": "TEJAS NAYAK",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 204,
+    "assigned_wallet": "0x9c183230835d7c015d572876947b2e95e3273d69"
+  },
+  {
+    "usn": "NNM23IS194",
+    "name": "TEJASWI SHANKAR P",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 205,
+    "assigned_wallet": "0xe57162abf470988c421a5f7cfeb04bd11d769b52"
+  },
+  {
+    "usn": "NNM23IS195",
+    "name": "THEJAS RAO",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 206,
+    "assigned_wallet": "0x5f319261d02d463f97523ccf13fa834f20260062"
+  },
+  {
+    "usn": "NNM23IS196",
+    "name": "THREESHA G PUTHRAN",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 207,
+    "assigned_wallet": "0xc34c727882b9ec633091ec35fd3f414eea7a1184"
+  },
+  {
+    "usn": "NNM23IS197",
+    "name": "THRISHA R SHETTY",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 208,
+    "assigned_wallet": "0xc3fdfddd88312c7e45dc4eccfb90c637c6b224d3"
+  },
+  {
+    "usn": "NNM23IS198",
+    "name": "THUSHARA BALAKRISHNA",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 209,
+    "assigned_wallet": "0x9896a5a9b85ae8108c7bca0d0197be1b39d46c1c"
+  },
+  {
+    "usn": "NNM23IS199",
+    "name": "TRISHA SHETTY",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 210,
+    "assigned_wallet": "0x031df28d9525d8f8a8ac97ce11107ebfa157bbd2"
+  },
+  {
+    "usn": "NNM23IS200",
+    "name": "TRISHA U KUNDER",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 211,
+    "assigned_wallet": "0x798812ced73d2e5ea6f95926bfd8f66428c08508"
+  },
+  {
+    "usn": "NNM23IS201",
+    "name": "UJWAL HEGDE",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 212,
+    "assigned_wallet": "0xeab3bd9191a9dc52e4491a19b314cd42c983977e"
+  },
+  {
+    "usn": "NNM23IS202",
+    "name": "ULLAS U SHETTY",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 213,
+    "assigned_wallet": "0xf696cc76afc2508f37d9ef2a0637aabcd8cb62b3"
+  },
+  {
+    "usn": "NNM23IS203",
+    "name": "V K RONITH",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 214,
+    "assigned_wallet": "0x6b245965202a64a3669093dae39e8ad012293b5d"
+  },
+  {
+    "usn": "NNM23IS204",
+    "name": "V MITHUN MALLYA",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 215,
+    "assigned_wallet": "0x380e308d0acdf26be81534106ffffa02e58bfc35"
+  },
+  {
+    "usn": "NNM23IS205",
+    "name": "VACHAN J POOJARY",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 216,
+    "assigned_wallet": "0x20875188e4a0825796e99a785d35c69e27663465"
+  },
+  {
+    "usn": "NNM23IS206",
+    "name": "VAISHNAVI",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 217,
+    "assigned_wallet": "0x515ecdde72806a19673dfed8e51c7f227177e538"
+  },
+  {
+    "usn": "NNM23IS207",
+    "name": "VAMSHIKA",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 218,
+    "assigned_wallet": "0x0d37d806197d7ca39090950d3ab08ecb5e4cdd3f"
+  },
+  {
+    "usn": "NNM23IS208",
+    "name": "VARSHA FERNANDES",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 219,
+    "assigned_wallet": "0xf8b3b96029ec7f45f74db82acc94cee58393dcf5"
+  },
+  {
+    "usn": "NNM23IS209",
+    "name": "VARSHA VINOD SHETTY",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 220,
+    "assigned_wallet": "0xa27b2edc8f728cbee0521dfb158ff3b88967676d"
+  },
+  {
+    "usn": "NNM23IS210",
+    "name": "VEDANTH RAI B",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 221,
+    "assigned_wallet": "0xf50a8d7d729a61e181d8173d55b247a80197698e"
+  },
+  {
+    "usn": "NNM23IS212",
+    "name": "VIGNESH N SALIAN",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 222,
+    "assigned_wallet": "0x16797567248883a6bf387ff39135a600c432ddb8"
+  },
+  {
+    "usn": "NNM23IS213",
+    "name": "VIJETH S KUNDAPUR",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 223,
+    "assigned_wallet": "0xff1271385e2d08de56aae902645f674d728f0433"
+  },
+  {
+    "usn": "NNM23IS214",
+    "name": "VIKYATH",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 224,
+    "assigned_wallet": "0x663e53a1a0990573f4c6479e91e5a5181ab9ef79"
+  },
+  {
+    "usn": "NNM23IS215",
+    "name": "VISHNUMOORTHY RAGHAVENDRA BHAT",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 225,
+    "assigned_wallet": "0xb13559d72138e8e91b45f416c9d812a0edacc714"
+  },
+  {
+    "usn": "NNM23IS216",
+    "name": "VISHRUTH M NAYAK",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 226,
+    "assigned_wallet": "0x03abe1f078983ba6d05fcfb14c23aca4445d5aef"
+  },
+  {
+    "usn": "NNM23IS217",
+    "name": "YAKSHITH",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 227,
+    "assigned_wallet": "0x67485cd08799bab9347ef8689749241bff9926ef"
+  },
+  {
+    "usn": "NNM23IS218",
+    "name": "YASH",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 228,
+    "assigned_wallet": "0x57b83a372e1e6d927f6a6562553432f844616e70"
+  },
+  {
+    "usn": "NNM23IS219",
+    "name": "TRASHIKA S KARKERA",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 229,
+    "assigned_wallet": "0x7cf44ac3da3ffb0a5ed47e5918c4601bfd4c1c26"
+  },
+  {
+    "usn": "NNM24IS513",
+    "name": "SHARATH KUMAR",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 230,
+    "assigned_wallet": "0x4914e11e17dc354636befb3a8e51997468d05076"
+  },
+  {
+    "usn": "NNM24IS514",
+    "name": "SHREYAS",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 231,
+    "assigned_wallet": "0xa919e8511fd7d897ea0293d4e21032de7aefcd19"
+  },
+  {
+    "usn": "NNM24IS515",
+    "name": "SNEHA",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 232,
+    "assigned_wallet": "0xa10d2cb9cd6b749a0e1c9f70c3f9337b85671eb6"
+  },
+  {
+    "usn": "NNM24IS516",
+    "name": "SUSAN RIONA D SOUZA",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 233,
+    "assigned_wallet": "0x89c31ef7ccf370629bad88421f75a76bbf8f17c4"
+  },
+  {
+    "usn": "NNM24IS517",
+    "name": "VIKRAM V K",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 234,
+    "assigned_wallet": "0x411ac5e9eb808be7b084992c2fa86ff8db5262ad"
+  },
+  {
+    "usn": "NNM24IS518",
+    "name": "VINEETH",
+    "section": "VII C",
+    "room": "ISL07",
+    "roll_no": 235,
+    "assigned_wallet": "0x5059d1b320259e821b5a9078251c42cc1396c204"
+  }
+]
