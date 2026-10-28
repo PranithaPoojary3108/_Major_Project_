@@ -103,16 +103,28 @@ def hash_biometric_vector(embedding):
 
 def verify_fingerprints(stored_embedding, live_embedding):
     """
-    Calculates Euclidean distance and checks against the calibrated threshold (0.2385).
+    Calculates Euclidean distance and checks against calibrated threshold (0.2385).
+    Enforces exact 128-dimensional unit vector comparison.
     Returns (is_match, distance, similarity_pct).
     """
-    stored = np.array(stored_embedding, dtype=np.float32)
-    live = np.array(live_embedding, dtype=np.float32)
+    stored = np.array(stored_embedding, dtype=np.float32).flatten()
+    live = np.array(live_embedding, dtype=np.float32).flatten()
+
+    if len(stored) != 128 or len(live) != 128:
+        raise ValueError(f"Invalid biometric embedding dimension: stored has {len(stored)} features, live has {len(live)} features (expected 128).")
+
+    norm_s = np.linalg.norm(stored)
+    if norm_s > 0:
+        stored = stored / norm_s
+    norm_l = np.linalg.norm(live)
+    if norm_l > 0:
+        live = live / norm_l
+
     distance = float(np.linalg.norm(stored - live))
     is_match = distance <= VERIFICATION_THRESHOLD
 
     # Compute similarity percentage for UI feedback
-    # Distance is normalized between 0 and 2.0 on unit sphere
+    # Distance is mathematically bounded between 0.0 and 2.0 on unit hypersphere
     similarity_pct = max(0.0, min(100.0, (1.0 - (distance / 2.0)) * 100.0))
 
     return is_match, distance, round(similarity_pct, 2)

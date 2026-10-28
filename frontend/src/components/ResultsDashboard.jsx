@@ -1,4 +1,5 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import ElectionStatusBanner from './ElectionStatusBanner';
 
 export default function ResultsDashboard({ candidates, onRefresh, loading, contractAddress, totalVotes = 0 }) {
   const [autoRefresh, setAutoRefresh] = useState(true);
@@ -18,6 +19,9 @@ export default function ResultsDashboard({ candidates, onRefresh, loading, contr
 
   return (
     <div style={cardStyle}>
+      {/* Election Status Banner */}
+      <ElectionStatusBanner refreshTrigger={autoRefresh ? undefined : 0} />
+
       <div style={titleHeader}>
         <div>
           <h2 style={cardTitle}>📊 Live Election Tally & Results</h2>

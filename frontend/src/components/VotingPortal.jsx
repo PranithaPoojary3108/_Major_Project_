@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BiometricMatcher from './BiometricMatcher';
+import ElectionStatusBanner from './ElectionStatusBanner';
 
 const API_BASE = "http://127.0.0.1:5000";
 
@@ -13,6 +14,7 @@ export default function VotingPortal({ candidates, onVoteCast, accounts = [], pr
   const [voting, setVoting] = useState(false);
   const [voteReceipt, setVoteReceipt] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [electionInfo, setElectionInfo] = useState(null);
 
   useEffect(() => {
     if (preselectedStudent) {
@@ -131,6 +133,24 @@ export default function VotingPortal({ candidates, onVoteCast, accounts = [], pr
           <p style={subtitle}>Biometric Authentication Gate &bull; Smart Contract Ballot Submission</p>
         </div>
       </div>
+
+      {/* Election Status Banner */}
+      <ElectionStatusBanner onElectionInfoLoaded={setElectionInfo} />
+
+      {/* Voting window warning when voting is not currently permitted */}
+      {electionInfo && !electionInfo.voting_now && (
+        <div style={votingLockedOverlay}>
+          {electionInfo.status_label === "NotStarted" && (
+            <span>⏸️ <strong>Voting Inactive:</strong> The Election Commissioner has not opened the election yet.</span>
+          )}
+          {electionInfo.status_label === "Open" && (
+            <span>🕐 <strong>Voting Window Inactive:</strong> The election is scheduled but the voting window is currently outside the permitted time range.</span>
+          )}
+          {electionInfo.status_label === "Closed" && (
+            <span>🔒 <strong>Election Closed:</strong> This election has been concluded. No further ballots are accepted.</span>
+          )}
+        </div>
+      )}
 
       {/* Preselected Student Banner */}
       {preselectedStudent && (
@@ -436,4 +456,17 @@ const enrollPromptBtn = {
   fontSize: "0.8rem",
   fontWeight: "bold",
   cursor: "pointer"
+};
+
+const votingLockedOverlay = {
+  marginBottom: "1rem",
+  padding: "10px 14px",
+  background: "#451a03",
+  border: "1px solid #b45309",
+  borderRadius: "8px",
+  color: "#fde68a",
+  fontSize: "0.85rem",
+  display: "flex",
+  alignItems: "center",
+  gap: "8px"
 };

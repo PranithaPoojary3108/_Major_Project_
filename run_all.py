@@ -4,6 +4,7 @@ import time
 import subprocess
 import webbrowser
 import urllib.request
+import json
 import signal
 
 try:
@@ -48,10 +49,40 @@ def is_service_ready(url, timeout=1):
     except Exception:
         return False
 
+def is_blockchain_ready(url, timeout=1):
+    try:
+        request = urllib.request.Request(
+            url,
+            data=json.dumps({
+                "jsonrpc": "2.0",
+                "method": "eth_chainId",
+                "params": [],
+                "id": 1,
+            }).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+        return response.status == 200 and "result" in payload
+    except (OSError, ValueError, json.JSONDecodeError):
+        return False
+
 def wait_for_service(name, url, max_attempts=35, delay=1):
     print(f"Waiting for {name} to be ready at {url}...", end="", flush=True)
     for _ in range(max_attempts):
         if is_service_ready(url):
+            print(" [READY]")
+            return True
+        print(".", end="", flush=True)
+        time.sleep(delay)
+    print(" [TIMEOUT]")
+    return False
+
+def wait_for_blockchain(name, url, max_attempts=35, delay=1):
+    print(f"Waiting for {name} to be ready at {url}...", end="", flush=True)
+    for _ in range(max_attempts):
+        if is_blockchain_ready(url):
             print(" [READY]")
             return True
         print(".", end="", flush=True)
@@ -66,7 +97,8 @@ def main():
     print("==================================================================")
 
     # 1. Start Hardhat Node if not running
-    if not is_service_ready("http://127.0.0.1:8545"):
+    blockchain_url = "http://127.0.0.1:8545"
+    if not is_blockchain_ready(blockchain_url):
         print("\n[1/5] Starting Local Hardhat Blockchain Node (RPC: http://127.0.0.1:8545)...")
         node_log_path = os.path.join(BLOCKCHAIN_DIR, "hardhat_node.log")
         node_log = open(node_log_path, "w", encoding="utf-8")
@@ -78,7 +110,12 @@ def main():
             shell=True
         )
         processes.append(hardhat_proc)
-        wait_for_service("Hardhat Ethereum Node", "http://127.0.0.1:8545", max_attempts=25)
+        if not wait_for_blockchain("Hardhat Ethereum Node", blockchain_url, max_attempts=25):
+            print(
+                "\n[ERROR] Hardhat did not become ready. "
+                f"Check {node_log_path} and ensure port 8545 is available."
+            )
+            return 1
     else:
         print("\n[1/5] Local Hardhat Blockchain Node is already running.")
 
@@ -91,7 +128,9 @@ def main():
             check=True
         )
     except Exception as e:
-        print(f"Warning during contract deployment: {e}")
+        print(f"\n[ERROR] Contract deployment failed: {e}")
+        print("The backend and frontend will not be started until the contract is deployed.")
+        return 1
 
     # 3. Start Flask Backend if not running
     if not is_service_ready("http://127.0.0.1:5000/api/status"):
@@ -156,4 +195,4 @@ def main():
         cleanup()
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

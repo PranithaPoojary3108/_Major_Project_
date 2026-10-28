@@ -15,13 +15,16 @@ async function main() {
   ];
 
   console.log("Deploying Voting contract with candidates:", candidateNames);
+  console.log("Note: Election is deployed in NotStarted status.");
+  console.log("      Call openElection() via the Flask API or Hardhat console to begin voting.");
 
   const Voting = await ethers.getContractFactory("Voting");
   const voting = await Voting.deploy(candidateNames);
   await voting.waitForDeployment();
 
   const address = await voting.getAddress();
-  console.log(`Voting contract deployed successfully to: ${address}`);
+  console.log(`\nVoting contract deployed successfully to: ${address}`);
+  console.log("\nNext step: Start the Flask backend and call POST /api/open-election to set timing.");
 }
 
 main().catch((error) => {

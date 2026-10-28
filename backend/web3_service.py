@@ -54,6 +54,44 @@ def ensure_voter_account_available(voter_address):
 
     return checksum_address
 
+def deploy_fresh_contract():
+    """
+    Deploys a fresh Voting smart contract to the local blockchain
+    and updates contract_address.txt. Used by the Factory Reset feature.
+    """
+    ensure_connected()
+    if not os.path.exists(ARTIFACT_PATH):
+        raise FileNotFoundError(f"Artifact missing at {ARTIFACT_PATH}")
+    with open(ARTIFACT_PATH, "r") as f:
+        artifact = json.load(f)
+    abi = artifact["abi"]
+    bytecode = artifact["bytecode"]
+
+    deployer = w3.eth.accounts[0]
+    VotingContract = w3.eth.contract(abi=abi, bytecode=bytecode)
+
+    candidates = [
+        "Pranitha C Poojary (NNM23IS134)",
+        "Srajan J Poojary (NNM22IS173)",
+        "Aashna Mathias (NNM23IS001)",
+        "Abhimanyu Rai B S (NNM23IS002)",
+        "Pranjali N (NNM23IS135)",
+        "Raksha S Suvarna (NNM23IS143)",
+        "Nireeksha (NNM23IS111)",
+        "H Nihal Shetty (NNM23IS074)",
+        "Rishika Rajesh Kumar (NNM23IS147)",
+        "Spoorthi (NNM23IS183)"
+    ]
+
+    tx_hash = VotingContract.constructor(candidates).transact({"from": deployer})
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    new_address = tx_receipt.contractAddress
+
+    with open(ADDRESS_PATH, "w") as f:
+        f.write(new_address)
+
+    return new_address
+
 ARTIFACT_PATH = os.path.join(
     os.path.dirname(__file__), 
     "..", "blockchain", "artifacts", "contracts", "Voting.sol", "Voting.json"
@@ -151,9 +189,49 @@ def get_voter_onchain_status(voter_address):
     except Exception:
         return {"isRegistered": False, "hasVoted": False, "biometricHash": None}
 
+def get_election_info():
+    """
+    Queries the getElectionInfo() view on the smart contract and returns a Python dict.
+    Returns a safe default dict when blockchain is unavailable.
+    """
+    if not is_connected():
+        return {
+            "status": 0,
+            "status_label": "NotStarted",
+            "start_time": None,
+            "end_time": None,
+            "total_votes": 0,
+            "voting_now": False
+        }
+
+    try:
+        contract = get_contract()
+        status, start_time, end_time, total_votes, voting_now = contract.functions.getElectionInfo().call()
+        status_labels = {0: "NotStarted", 1: "Open", 2: "Closed"}
+        return {
+            "status": status,
+            "status_label": status_labels.get(status, "Unknown"),
+            "start_time": start_time if start_time > 0 else None,
+            "end_time": end_time if end_time > 0 else None,
+            "total_votes": total_votes,
+            "voting_now": voting_now
+        }
+    except Exception as e:
+        return {
+            "status": 0,
+            "status_label": "NotStarted",
+            "start_time": None,
+            "end_time": None,
+            "total_votes": 0,
+            "voting_now": False,
+            "error": str(e)
+        }
+
+
 def get_audit_trail():
     """
     Fetches immutable blockchain events and recent mined blocks for the public ledger view.
+    Includes ElectionCreated, ElectionOpened, ElectionClosed, VoterRegistered, VoteCasted.
     """
     if not is_connected():
         return {"events": [], "latest_block": 0, "contract_address": get_deployed_address()}
@@ -164,29 +242,80 @@ def get_audit_trail():
 
         events = []
 
-        # 1. Registration Events
-        reg_filter = contract.events.VoterRegistered.create_filter(from_block=0, to_block="latest")
-        for log in reg_filter.get_all_entries():
-            events.append({
-                "type": "VOTER_REGISTERED",
-                "block_number": log.blockNumber,
-                "transaction_hash": log.transactionHash.hex(),
-                "voter": log.args.voterAddress,
-                "biometric_hash": "0x" + log.args.biometricHash.hex(),
-                "timestamp": None
-            })
+        # 1. Election Created Events
+        try:
+            created_filter = contract.events.ElectionCreated.create_filter(from_block=0, to_block="latest")
+            for log in created_filter.get_all_entries():
+                events.append({
+                    "type": "ELECTION_CREATED",
+                    "block_number": log.blockNumber,
+                    "transaction_hash": log.transactionHash.hex(),
+                    "commissioner": log.args.commissioner,
+                    "candidate_count": log.args.candidateCount,
+                    "timestamp": None
+                })
+        except Exception:
+            pass
 
-        # 2. Vote Cast Events
-        vote_filter = contract.events.VoteCasted.create_filter(from_block=0, to_block="latest")
-        for log in vote_filter.get_all_entries():
-            events.append({
-                "type": "VOTE_CASTED",
-                "block_number": log.blockNumber,
-                "transaction_hash": log.transactionHash.hex(),
-                "voter": log.args.voterAddress,
-                "candidate_id": log.args.candidateId,
-                "timestamp": None
-            })
+        # 2. Election Opened Events
+        try:
+            opened_filter = contract.events.ElectionOpened.create_filter(from_block=0, to_block="latest")
+            for log in opened_filter.get_all_entries():
+                events.append({
+                    "type": "ELECTION_OPENED",
+                    "block_number": log.blockNumber,
+                    "transaction_hash": log.transactionHash.hex(),
+                    "start_time": log.args.startTime,
+                    "end_time": log.args.endTime,
+                    "timestamp": None
+                })
+        except Exception:
+            pass
+
+        # 3. Election Closed Events
+        try:
+            closed_filter = contract.events.ElectionClosed.create_filter(from_block=0, to_block="latest")
+            for log in closed_filter.get_all_entries():
+                events.append({
+                    "type": "ELECTION_CLOSED",
+                    "block_number": log.blockNumber,
+                    "transaction_hash": log.transactionHash.hex(),
+                    "closed_at": log.args.closedAt,
+                    "total_votes": log.args.totalVotes,
+                    "timestamp": None
+                })
+        except Exception:
+            pass
+
+        # 4. Registration Events
+        try:
+            reg_filter = contract.events.VoterRegistered.create_filter(from_block=0, to_block="latest")
+            for log in reg_filter.get_all_entries():
+                events.append({
+                    "type": "VOTER_REGISTERED",
+                    "block_number": log.blockNumber,
+                    "transaction_hash": log.transactionHash.hex(),
+                    "voter": log.args.voterAddress,
+                    "biometric_hash": "0x" + log.args.biometricHash.hex(),
+                    "timestamp": None
+                })
+        except Exception:
+            pass
+
+        # 5. Vote Cast Events
+        try:
+            vote_filter = contract.events.VoteCasted.create_filter(from_block=0, to_block="latest")
+            for log in vote_filter.get_all_entries():
+                events.append({
+                    "type": "VOTE_CASTED",
+                    "block_number": log.blockNumber,
+                    "transaction_hash": log.transactionHash.hex(),
+                    "voter": log.args.voterAddress,
+                    "candidate_id": log.args.candidateId,
+                    "timestamp": None
+                })
+        except Exception:
+            pass
 
         # Sort events by block number descending
         events.sort(key=lambda x: x["block_number"], reverse=True)
@@ -202,4 +331,4 @@ def get_audit_trail():
             "latest_block": 0,
             "contract_address": get_deployed_address(),
             "error": str(e)
-        }
+        }

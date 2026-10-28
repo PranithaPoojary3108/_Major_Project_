@@ -3,6 +3,8 @@ import VoterEnrollment from './components/VoterEnrollment';
 import StudentRoster from './components/StudentRoster';
 import ResultsDashboard from './components/ResultsDashboard';
 import AuditExplorer from './components/AuditExplorer';
+import ElectionControl from './components/ElectionControl';
+import BiometricEvaluationDashboard from './components/BiometricEvaluationDashboard';
 
 const API_BASE = "http://127.0.0.1:5000";
 
@@ -65,9 +67,11 @@ export default function AdminApp() {
 
   const tabs = [
     { id: "enrollment", label: "📝 Pre-Election Enrollment", desc: "Biometric Feature Extraction & On-Chain Registration" },
+    { id: "lifecycle", label: "⚡ Election Lifecycle", desc: "Commissioner Timing & Status Control" },
     { id: "roster", label: "📋 Student Electoral Roll", desc: "235 Students (VII A, VII B, VII C)" },
     { id: "results", label: "📊 Election Standings", desc: "Live Tally & Vote Distribution" },
-    { id: "explorer", label: "⛓️ Blockchain Explorer", desc: "Immutable Public Ledger & Transaction Log" }
+    { id: "explorer", label: "⛓️ Blockchain Explorer", desc: "Immutable Public Ledger & Transaction Log" },
+    { id: "biometrics", label: "🔬 Biometric Performance", desc: "FAR, FRR, EER & ROC Analysis" }
   ];
 
   return (
@@ -178,6 +182,12 @@ export default function AdminApp() {
             />
           )}
 
+          {activeTab === "lifecycle" && (
+            <ElectionControl
+              onElectionChanged={refreshAllData}
+            />
+          )}
+
           {activeTab === "roster" && (
             <StudentRoster
               refreshTrigger={refreshTrigger}
@@ -200,6 +210,10 @@ export default function AdminApp() {
 
           {activeTab === "explorer" && (
             <AuditExplorer />
+          )}
+
+          {activeTab === "biometrics" && (
+            <BiometricEvaluationDashboard />
           )}
         </div>
       </main>

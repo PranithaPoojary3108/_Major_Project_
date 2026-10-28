@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BiometricMatcher from './components/BiometricMatcher';
+import ElectionStatusBanner from './components/ElectionStatusBanner';
 
 const API_BASE = "http://127.0.0.1:5000";
 
@@ -285,6 +286,9 @@ export default function BoothApp() {
 
       {/* Main Polling Station Content */}
       <main style={mainContent}>
+        {/* Election Status & Voting Window Banner */}
+        <ElectionStatusBanner />
+
         {errorMessage && (
           <div style={errorAlert}>
             <span>⚠️ {errorMessage}</span>
