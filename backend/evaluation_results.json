@@ -1,272 +1,272 @@
 {
-  "timestamp": "2026-10-28T15:41:29.308011",
+  "timestamp": "2026-10-28T21:16:03.493166",
   "configured_threshold": 0.2385,
   "evaluation_protocol": {
     "dataset": "SOCOFing Real (6000 BMPs, 600 Identities)",
     "test_split_strategy": "80/20 Disjoint Identity Partition (Zero Identity Overlap)",
     "tested_identities_count": 120,
-    "tested_genuine_pairs": 100,
-    "tested_impostor_pairs": 100,
-    "total_evaluations": 200
+    "tested_genuine_pairs": 150,
+    "tested_impostor_pairs": 150,
+    "total_evaluations": 300
   },
   "metrics_at_threshold": {
     "threshold": 0.2385,
-    "far_pct": 0.0,
-    "frr_pct": 38.0,
-    "gar_pct": 62.0,
-    "accuracy_pct": 81.0,
-    "precision_pct": 100.0,
-    "recall_pct": 62.0,
-    "f1_score": 0.7654,
-    "tp": 62,
-    "tn": 100,
-    "fp": 0,
-    "fn": 38
+    "far_pct": 0.67,
+    "frr_pct": 31.33,
+    "gar_pct": 68.67,
+    "accuracy_pct": 84.0,
+    "precision_pct": 99.04,
+    "recall_pct": 68.67,
+    "f1_score": 0.811,
+    "tp": 103,
+    "tn": 149,
+    "fp": 1,
+    "fn": 47
   },
   "eer_analysis": {
-    "eer_pct": 0.0,
+    "eer_pct": 1.67,
     "optimal_threshold": 0.475,
     "is_interpolated": false,
     "configured_threshold": 0.2385
   },
   "latency_analysis": {
-    "average_ms": 167.34,
-    "median_ms": 162.67,
-    "min_ms": 136.56,
-    "max_ms": 335.92
+    "average_ms": 301.58,
+    "median_ms": 288.89,
+    "min_ms": 244.63,
+    "max_ms": 828.81
   },
   "threshold_curve": [
     {
       "threshold": 0.05,
       "far": 0.0,
-      "frr": 98.0,
-      "gar": 2.0
+      "frr": 98.67,
+      "gar": 1.33
     },
     {
       "threshold": 0.075,
       "far": 0.0,
-      "frr": 92.0,
-      "gar": 8.0
+      "frr": 89.33,
+      "gar": 10.67
     },
     {
       "threshold": 0.1,
       "far": 0.0,
-      "frr": 90.0,
-      "gar": 10.0
+      "frr": 81.33,
+      "gar": 18.67
     },
     {
       "threshold": 0.125,
       "far": 0.0,
-      "frr": 77.0,
-      "gar": 23.0
+      "frr": 71.33,
+      "gar": 28.67
     },
     {
       "threshold": 0.15,
-      "far": 0.0,
-      "frr": 66.0,
-      "gar": 34.0
+      "far": 0.67,
+      "frr": 64.0,
+      "gar": 36.0
     },
     {
       "threshold": 0.175,
-      "far": 0.0,
-      "frr": 59.0,
-      "gar": 41.0
+      "far": 0.67,
+      "frr": 55.33,
+      "gar": 44.67
     },
     {
       "threshold": 0.2,
-      "far": 0.0,
-      "frr": 50.0,
-      "gar": 50.0
+      "far": 0.67,
+      "frr": 43.33,
+      "gar": 56.67
     },
     {
       "threshold": 0.225,
-      "far": 0.0,
-      "frr": 42.0,
-      "gar": 58.0
+      "far": 0.67,
+      "frr": 36.0,
+      "gar": 64.0
     },
     {
       "threshold": 0.25,
-      "far": 0.0,
-      "frr": 35.0,
-      "gar": 65.0
+      "far": 0.67,
+      "frr": 28.0,
+      "gar": 72.0
     },
     {
       "threshold": 0.275,
-      "far": 0.0,
-      "frr": 25.0,
-      "gar": 75.0
+      "far": 0.67,
+      "frr": 22.67,
+      "gar": 77.33
     },
     {
       "threshold": 0.3,
-      "far": 0.0,
-      "frr": 20.0,
-      "gar": 80.0
+      "far": 0.67,
+      "frr": 16.0,
+      "gar": 84.0
     },
     {
       "threshold": 0.325,
-      "far": 0.0,
-      "frr": 14.0,
-      "gar": 86.0
+      "far": 0.67,
+      "frr": 12.0,
+      "gar": 88.0
     },
     {
       "threshold": 0.35,
-      "far": 0.0,
-      "frr": 9.0,
-      "gar": 91.0
+      "far": 0.67,
+      "frr": 11.33,
+      "gar": 88.67
     },
     {
       "threshold": 0.375,
-      "far": 0.0,
-      "frr": 5.0,
-      "gar": 95.0
+      "far": 0.67,
+      "frr": 6.67,
+      "gar": 93.33
     },
     {
       "threshold": 0.4,
-      "far": 0.0,
-      "frr": 5.0,
-      "gar": 95.0
+      "far": 0.67,
+      "frr": 4.67,
+      "gar": 95.33
     },
     {
       "threshold": 0.425,
-      "far": 0.0,
-      "frr": 4.0,
-      "gar": 96.0
+      "far": 0.67,
+      "frr": 3.33,
+      "gar": 96.67
     },
     {
       "threshold": 0.45,
-      "far": 0.0,
-      "frr": 1.0,
-      "gar": 99.0
+      "far": 0.67,
+      "frr": 2.67,
+      "gar": 97.33
     },
     {
       "threshold": 0.475,
-      "far": 0.0,
-      "frr": 0.0,
-      "gar": 100.0
+      "far": 1.33,
+      "frr": 2.0,
+      "gar": 98.0
     },
     {
       "threshold": 0.5,
-      "far": 0.0,
-      "frr": 0.0,
-      "gar": 100.0
+      "far": 1.33,
+      "frr": 0.67,
+      "gar": 99.33
     },
     {
       "threshold": 0.525,
-      "far": 1.0,
-      "frr": 0.0,
-      "gar": 100.0
+      "far": 2.0,
+      "frr": 0.67,
+      "gar": 99.33
     },
     {
       "threshold": 0.55,
-      "far": 1.0,
+      "far": 2.0,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.575,
-      "far": 1.0,
+      "far": 2.67,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.6,
-      "far": 1.0,
+      "far": 2.67,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.625,
-      "far": 1.0,
+      "far": 3.33,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.65,
-      "far": 1.0,
+      "far": 3.33,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.675,
-      "far": 3.0,
+      "far": 4.67,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.7,
-      "far": 3.0,
+      "far": 4.67,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.725,
-      "far": 4.0,
+      "far": 5.33,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.75,
-      "far": 6.0,
+      "far": 6.67,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.775,
-      "far": 8.0,
+      "far": 8.67,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.8,
-      "far": 8.0,
+      "far": 8.67,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.825,
-      "far": 9.0,
+      "far": 10.0,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.85,
-      "far": 10.0,
+      "far": 10.67,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.875,
-      "far": 10.0,
+      "far": 11.33,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.9,
-      "far": 10.0,
+      "far": 11.33,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.925,
-      "far": 13.0,
+      "far": 13.33,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.95,
-      "far": 15.0,
+      "far": 14.0,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 0.975,
-      "far": 17.0,
+      "far": 16.67,
       "frr": 0.0,
       "gar": 100.0
     },
     {
       "threshold": 1.0,
-      "far": 18.0,
+      "far": 17.33,
       "frr": 0.0,
       "gar": 100.0
     }
@@ -281,74 +281,74 @@
     {
       "range": "0.05-0.10",
       "midpoint": 0.075,
-      "genuine_count": 8,
+      "genuine_count": 26,
       "impostor_count": 0
     },
     {
       "range": "0.10-0.15",
       "midpoint": 0.125,
-      "genuine_count": 24,
-      "impostor_count": 0
+      "genuine_count": 26,
+      "impostor_count": 1
     },
     {
       "range": "0.15-0.20",
       "midpoint": 0.175,
-      "genuine_count": 16,
+      "genuine_count": 31,
       "impostor_count": 0
     },
     {
       "range": "0.20-0.25",
       "midpoint": 0.225,
-      "genuine_count": 15,
+      "genuine_count": 23,
       "impostor_count": 0
     },
     {
       "range": "0.25-0.30",
       "midpoint": 0.275,
-      "genuine_count": 15,
+      "genuine_count": 18,
       "impostor_count": 0
     },
     {
       "range": "0.30-0.35",
       "midpoint": 0.325,
-      "genuine_count": 11,
+      "genuine_count": 7,
       "impostor_count": 0
     },
     {
       "range": "0.35-0.40",
       "midpoint": 0.375,
-      "genuine_count": 4,
+      "genuine_count": 10,
       "impostor_count": 0
     },
     {
       "range": "0.40-0.45",
       "midpoint": 0.425,
-      "genuine_count": 4,
+      "genuine_count": 3,
       "impostor_count": 0
     },
     {
       "range": "0.45-0.50",
       "midpoint": 0.475,
-      "genuine_count": 1,
-      "impostor_count": 0
+      "genuine_count": 3,
+      "impostor_count": 1
     },
     {
       "range": "0.50-0.55",
       "midpoint": 0.525,
-      "genuine_count": 0,
+      "genuine_count": 1,
       "impostor_count": 1
     },
     {
       "range": "0.55-0.60",
       "midpoint": 0.575,
       "genuine_count": 0,
-      "impostor_count": 0
+      "impostor_count": 1
     },
     {
       "range": "0.60-0.65",
       "midpoint": 0.625,
       "genuine_count": 0,
-      "impostor_count": 0
+      "impostor_count": 1
     },
     {
       "range": "0.65-0.70",
@@ -366,43 +366,43 @@
       "range": "0.75-0.80",
       "midpoint": 0.775,
       "genuine_count": 0,
-      "impostor_count": 2
+      "impostor_count": 3
     },
     {
       "range": "0.80-0.85",
       "midpoint": 0.825,
       "genuine_count": 0,
-      "impostor_count": 2
+      "impostor_count": 3
     },
     {
       "range": "0.85-0.90",
       "midpoint": 0.875,
       "genuine_count": 0,
-      "impostor_count": 0
+      "impostor_count": 1
     },
     {
       "range": "0.90-0.95",
       "midpoint": 0.925,
       "genuine_count": 0,
-      "impostor_count": 5
+      "impostor_count": 4
     },
     {
       "range": "0.95-1.00",
       "midpoint": 0.975,
       "genuine_count": 0,
-      "impostor_count": 3
+      "impostor_count": 5
     },
     {
       "range": "1.00-1.05",
       "midpoint": 1.025,
       "genuine_count": 0,
-      "impostor_count": 1
+      "impostor_count": 5
     },
     {
       "range": "1.05-1.10",
       "midpoint": 1.075,
       "genuine_count": 0,
-      "impostor_count": 6
+      "impostor_count": 7
     },
     {
       "range": "1.10-1.15",
@@ -414,43 +414,43 @@
       "range": "1.15-1.20",
       "midpoint": 1.175,
       "genuine_count": 0,
-      "impostor_count": 3
+      "impostor_count": 5
     },
     {
       "range": "1.20-1.25",
       "midpoint": 1.225,
       "genuine_count": 0,
-      "impostor_count": 5
+      "impostor_count": 7
     },
     {
       "range": "1.25-1.30",
       "midpoint": 1.275,
       "genuine_count": 0,
-      "impostor_count": 2
+      "impostor_count": 4
     },
     {
       "range": "1.30-1.35",
       "midpoint": 1.325,
       "genuine_count": 0,
-      "impostor_count": 2
+      "impostor_count": 5
     },
     {
       "range": "1.35-1.40",
       "midpoint": 1.375,
       "genuine_count": 0,
-      "impostor_count": 3
+      "impostor_count": 8
     },
     {
       "range": "1.40-1.45",
       "midpoint": 1.425,
       "genuine_count": 0,
-      "impostor_count": 4
+      "impostor_count": 6
     },
     {
       "range": "1.45-1.50",
       "midpoint": 1.475,
       "genuine_count": 0,
-      "impostor_count": 5
+      "impostor_count": 8
     }
   ],
   "records": [
@@ -460,11 +460,11 @@
       "file_a": "104__M_Left_little_finger.BMP",
       "file_b": "104__M_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3414,
+      "distance": 0.3524,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 333.05
+      "latency_ms": 307.01
     },
     {
       "pair_id": 2,
@@ -472,11 +472,11 @@
       "file_a": "126__F_Right_middle_finger.BMP",
       "file_b": "126__F_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2585,
+      "distance": 0.1986,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 160.98
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 310.43
     },
     {
       "pair_id": 3,
@@ -484,11 +484,11 @@
       "file_a": "227__M_Left_thumb_finger.BMP",
       "file_b": "227__M_Left_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.0828,
+      "distance": 0.0712,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 142.74
+      "latency_ms": 376.45
     },
     {
       "pair_id": 4,
@@ -496,11 +496,11 @@
       "file_a": "68__M_Right_thumb_finger.BMP",
       "file_b": "68__M_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2064,
+      "distance": 0.1585,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 162.51
+      "latency_ms": 318.41
     },
     {
       "pair_id": 5,
@@ -508,11 +508,11 @@
       "file_a": "242__M_Right_little_finger.BMP",
       "file_b": "242__M_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2667,
+      "distance": 0.1854,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 179.7
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 306.97
     },
     {
       "pair_id": 6,
@@ -520,11 +520,11 @@
       "file_a": "123__M_Left_ring_finger.BMP",
       "file_b": "123__M_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1229,
+      "distance": 0.2171,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 151.44
+      "latency_ms": 308.7
     },
     {
       "pair_id": 7,
@@ -532,11 +532,11 @@
       "file_a": "93__M_Left_ring_finger.BMP",
       "file_b": "93__M_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2608,
+      "distance": 0.1573,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 166.68
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 313.12
     },
     {
       "pair_id": 8,
@@ -544,11 +544,11 @@
       "file_a": "61__M_Left_middle_finger.BMP",
       "file_b": "61__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.0618,
+      "distance": 0.0455,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 191.2
+      "latency_ms": 307.63
     },
     {
       "pair_id": 9,
@@ -556,11 +556,11 @@
       "file_a": "78__F_Left_ring_finger.BMP",
       "file_b": "78__F_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.071,
+      "distance": 0.1716,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 159.65
+      "latency_ms": 296.96
     },
     {
       "pair_id": 10,
@@ -568,11 +568,11 @@
       "file_a": "343__M_Right_index_finger.BMP",
       "file_b": "343__M_Right_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1968,
+      "distance": 0.1847,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 156.46
+      "latency_ms": 281.48
     },
     {
       "pair_id": 11,
@@ -580,11 +580,11 @@
       "file_a": "512__M_Left_middle_finger.BMP",
       "file_b": "512__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1935,
+      "distance": 0.2629,
       "threshold": 0.2385,
-      "decision": "ACCEPT",
-      "is_correct": true,
-      "latency_ms": 158.65
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 293.37
     },
     {
       "pair_id": 12,
@@ -592,11 +592,11 @@
       "file_a": "412__M_Left_little_finger.BMP",
       "file_b": "412__M_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1935,
+      "distance": 0.2124,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 147.6
+      "latency_ms": 313.41
     },
     {
       "pair_id": 13,
@@ -604,11 +604,11 @@
       "file_a": "96__M_Left_index_finger.BMP",
       "file_b": "96__M_Left_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1016,
+      "distance": 0.0934,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 172.36
+      "latency_ms": 310.27
     },
     {
       "pair_id": 14,
@@ -616,11 +616,11 @@
       "file_a": "449__F_Right_little_finger.BMP",
       "file_b": "449__F_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2285,
+      "distance": 0.2344,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 159.92
+      "latency_ms": 298.65
     },
     {
       "pair_id": 15,
@@ -628,11 +628,11 @@
       "file_a": "345__M_Right_middle_finger.BMP",
       "file_b": "345__M_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3278,
+      "distance": 0.2055,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 174.4
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 299.5
     },
     {
       "pair_id": 16,
@@ -640,11 +640,11 @@
       "file_a": "30__F_Right_middle_finger.BMP",
       "file_b": "30__F_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3376,
+      "distance": 0.3688,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 162.48
+      "latency_ms": 307.21
     },
     {
       "pair_id": 17,
@@ -652,11 +652,11 @@
       "file_a": "486__M_Left_middle_finger.BMP",
       "file_b": "486__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2843,
+      "distance": 0.2906,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 137.36
+      "latency_ms": 320.73
     },
     {
       "pair_id": 18,
@@ -664,11 +664,11 @@
       "file_a": "300__F_Right_thumb_finger.BMP",
       "file_b": "300__F_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.4342,
+      "distance": 0.5459,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 144.99
+      "latency_ms": 282.34
     },
     {
       "pair_id": 19,
@@ -676,11 +676,11 @@
       "file_a": "345__M_Left_middle_finger.BMP",
       "file_b": "345__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1539,
+      "distance": 0.1138,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 148.25
+      "latency_ms": 285.55
     },
     {
       "pair_id": 20,
@@ -688,11 +688,11 @@
       "file_a": "242__M_Left_index_finger.BMP",
       "file_b": "242__M_Left_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2163,
+      "distance": 0.2728,
       "threshold": 0.2385,
-      "decision": "ACCEPT",
-      "is_correct": true,
-      "latency_ms": 159.02
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 281.58
     },
     {
       "pair_id": 21,
@@ -700,11 +700,11 @@
       "file_a": "326__M_Right_ring_finger.BMP",
       "file_b": "326__M_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2743,
+      "distance": 0.0613,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 153.18
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 309.29
     },
     {
       "pair_id": 22,
@@ -712,11 +712,11 @@
       "file_a": "426__M_Right_index_finger.BMP",
       "file_b": "426__M_Right_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1335,
+      "distance": 0.1133,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 182.29
+      "latency_ms": 299.06
     },
     {
       "pair_id": 23,
@@ -724,11 +724,11 @@
       "file_a": "300__F_Left_index_finger.BMP",
       "file_b": "300__F_Left_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1751,
+      "distance": 0.1714,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 143.63
+      "latency_ms": 311.44
     },
     {
       "pair_id": 24,
@@ -736,11 +736,11 @@
       "file_a": "165__M_Right_little_finger.BMP",
       "file_b": "165__M_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.0681,
+      "distance": 0.0654,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 157.42
+      "latency_ms": 279.14
     },
     {
       "pair_id": 25,
@@ -748,11 +748,11 @@
       "file_a": "366__M_Right_middle_finger.BMP",
       "file_b": "366__M_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.0694,
+      "distance": 0.0845,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 151.69
+      "latency_ms": 303.35
     },
     {
       "pair_id": 26,
@@ -760,11 +760,11 @@
       "file_a": "192__M_Left_thumb_finger.BMP",
       "file_b": "192__M_Left_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2648,
+      "distance": 0.1849,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 150.11
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 302.79
     },
     {
       "pair_id": 27,
@@ -772,11 +772,11 @@
       "file_a": "489__M_Right_little_finger.BMP",
       "file_b": "489__M_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2203,
+      "distance": 0.1864,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 164.36
+      "latency_ms": 291.26
     },
     {
       "pair_id": 28,
@@ -784,11 +784,11 @@
       "file_a": "333__M_Right_index_finger.BMP",
       "file_b": "333__M_Right_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1114,
+      "distance": 0.1254,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 161.29
+      "latency_ms": 274.91
     },
     {
       "pair_id": 29,
@@ -796,11 +796,11 @@
       "file_a": "358__M_Left_ring_finger.BMP",
       "file_b": "358__M_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2648,
+      "distance": 0.2744,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 173.59
+      "latency_ms": 282.31
     },
     {
       "pair_id": 30,
@@ -808,11 +808,11 @@
       "file_a": "212__M_Right_ring_finger.BMP",
       "file_b": "212__M_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3113,
+      "distance": 0.267,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 153.96
+      "latency_ms": 292.32
     },
     {
       "pair_id": 31,
@@ -820,11 +820,11 @@
       "file_a": "399__M_Left_ring_finger.BMP",
       "file_b": "399__M_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1338,
+      "distance": 0.1932,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 163.8
+      "latency_ms": 279.93
     },
     {
       "pair_id": 32,
@@ -832,11 +832,11 @@
       "file_a": "594__M_Left_thumb_finger.BMP",
       "file_b": "594__M_Left_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1679,
+      "distance": 0.1444,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 176.05
+      "latency_ms": 320.3
     },
     {
       "pair_id": 33,
@@ -844,11 +844,11 @@
       "file_a": "94__M_Left_middle_finger.BMP",
       "file_b": "94__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1834,
+      "distance": 0.176,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 162.68
+      "latency_ms": 311.43
     },
     {
       "pair_id": 34,
@@ -856,11 +856,11 @@
       "file_a": "390__F_Right_ring_finger.BMP",
       "file_b": "390__F_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2812,
+      "distance": 0.3119,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 165.74
+      "latency_ms": 297.89
     },
     {
       "pair_id": 35,
@@ -868,11 +868,11 @@
       "file_a": "447__M_Left_little_finger.BMP",
       "file_b": "447__M_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1001,
+      "distance": 0.1976,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 158.08
+      "latency_ms": 282.42
     },
     {
       "pair_id": 36,
@@ -880,11 +880,11 @@
       "file_a": "189__F_Right_thumb_finger.BMP",
       "file_b": "189__F_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1932,
+      "distance": 0.0857,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 193.08
+      "latency_ms": 314.99
     },
     {
       "pair_id": 37,
@@ -892,11 +892,11 @@
       "file_a": "43__F_Left_thumb_finger.BMP",
       "file_b": "43__F_Left_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1653,
+      "distance": 0.1343,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 151.97
+      "latency_ms": 302.52
     },
     {
       "pair_id": 38,
@@ -904,11 +904,11 @@
       "file_a": "172__M_Right_middle_finger.BMP",
       "file_b": "172__M_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2324,
+      "distance": 0.2814,
       "threshold": 0.2385,
-      "decision": "ACCEPT",
-      "is_correct": true,
-      "latency_ms": 180.02
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 286.21
     },
     {
       "pair_id": 39,
@@ -916,11 +916,11 @@
       "file_a": "18__M_Left_little_finger.BMP",
       "file_b": "18__M_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3072,
+      "distance": 0.2429,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 163.88
+      "latency_ms": 281.19
     },
     {
       "pair_id": 40,
@@ -928,11 +928,11 @@
       "file_a": "104__M_Left_thumb_finger.BMP",
       "file_b": "104__M_Left_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2373,
+      "distance": 0.1629,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 174.82
+      "latency_ms": 298.94
     },
     {
       "pair_id": 41,
@@ -940,11 +940,11 @@
       "file_a": "45__M_Left_little_finger.BMP",
       "file_b": "45__M_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2549,
+      "distance": 0.2431,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 136.56
+      "latency_ms": 316.99
     },
     {
       "pair_id": 42,
@@ -952,11 +952,11 @@
       "file_a": "120__M_Right_middle_finger.BMP",
       "file_b": "120__M_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3621,
+      "distance": 0.4131,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 147.25
+      "latency_ms": 288.02
     },
     {
       "pair_id": 43,
@@ -964,11 +964,11 @@
       "file_a": "469__M_Left_ring_finger.BMP",
       "file_b": "469__M_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2897,
+      "distance": 0.2537,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 161.85
+      "latency_ms": 302.91
     },
     {
       "pair_id": 44,
@@ -976,11 +976,11 @@
       "file_a": "184__M_Left_index_finger.BMP",
       "file_b": "184__M_Left_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2028,
+      "distance": 0.1089,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 177.59
+      "latency_ms": 303.13
     },
     {
       "pair_id": 45,
@@ -988,11 +988,11 @@
       "file_a": "522__M_Right_middle_finger.BMP",
       "file_b": "522__M_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.407,
+      "distance": 0.4669,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 192.33
+      "latency_ms": 276.44
     },
     {
       "pair_id": 46,
@@ -1000,11 +1000,11 @@
       "file_a": "201__F_Right_little_finger.BMP",
       "file_b": "201__F_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2031,
+      "distance": 0.2239,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 165.42
+      "latency_ms": 311.15
     },
     {
       "pair_id": 47,
@@ -1012,11 +1012,11 @@
       "file_a": "567__M_Left_index_finger.BMP",
       "file_b": "567__M_Left_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3566,
+      "distance": 0.3848,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 165.06
+      "latency_ms": 297.37
     },
     {
       "pair_id": 48,
@@ -1024,11 +1024,11 @@
       "file_a": "352__M_Right_thumb_finger.BMP",
       "file_b": "352__M_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1772,
+      "distance": 0.2409,
       "threshold": 0.2385,
-      "decision": "ACCEPT",
-      "is_correct": true,
-      "latency_ms": 156.71
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 279.34
     },
     {
       "pair_id": 49,
@@ -1036,11 +1036,11 @@
       "file_a": "213__M_Right_thumb_finger.BMP",
       "file_b": "213__M_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.0603,
+      "distance": 0.0572,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 183.66
+      "latency_ms": 263.55
     },
     {
       "pair_id": 50,
@@ -1048,11 +1048,11 @@
       "file_a": "512__M_Right_little_finger.BMP",
       "file_b": "512__M_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2423,
+      "distance": 0.1661,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 186.45
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 278.87
     },
     {
       "pair_id": 51,
@@ -1060,11 +1060,11 @@
       "file_a": "277__M_Left_middle_finger.BMP",
       "file_b": "277__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.4445,
+      "distance": 0.4876,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 175.48
+      "latency_ms": 277.2
     },
     {
       "pair_id": 52,
@@ -1072,11 +1072,11 @@
       "file_a": "276__M_Left_index_finger.BMP",
       "file_b": "276__M_Left_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2487,
+      "distance": 0.1675,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 168.2
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 276.24
     },
     {
       "pair_id": 53,
@@ -1084,11 +1084,11 @@
       "file_a": "435__F_Left_little_finger.BMP",
       "file_b": "435__F_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1133,
+      "distance": 0.1015,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 151.66
+      "latency_ms": 278.1
     },
     {
       "pair_id": 54,
@@ -1096,11 +1096,11 @@
       "file_a": "522__M_Right_ring_finger.BMP",
       "file_b": "522__M_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2692,
+      "distance": 0.3075,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 158.38
+      "latency_ms": 279.75
     },
     {
       "pair_id": 55,
@@ -1108,11 +1108,11 @@
       "file_a": "45__M_Right_ring_finger.BMP",
       "file_b": "45__M_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.286,
+      "distance": 0.2885,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 154.32
+      "latency_ms": 285.98
     },
     {
       "pair_id": 56,
@@ -1120,11 +1120,11 @@
       "file_a": "489__M_Left_middle_finger.BMP",
       "file_b": "489__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1513,
+      "distance": 0.0737,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 151.18
+      "latency_ms": 273.98
     },
     {
       "pair_id": 57,
@@ -1132,11 +1132,11 @@
       "file_a": "18__M_Right_ring_finger.BMP",
       "file_b": "18__M_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2036,
+      "distance": 0.1688,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 151.56
+      "latency_ms": 284.95
     },
     {
       "pair_id": 58,
@@ -1144,11 +1144,11 @@
       "file_a": "31__F_Left_little_finger.BMP",
       "file_b": "31__F_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1179,
+      "distance": 0.1216,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 151.78
+      "latency_ms": 277.2
     },
     {
       "pair_id": 59,
@@ -1156,11 +1156,11 @@
       "file_a": "486__M_Right_thumb_finger.BMP",
       "file_b": "486__M_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.4306,
+      "distance": 0.3578,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 154.83
+      "latency_ms": 290.57
     },
     {
       "pair_id": 60,
@@ -1168,11 +1168,11 @@
       "file_a": "9__M_Right_thumb_finger.BMP",
       "file_b": "9__M_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.123,
+      "distance": 0.0638,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 148.18
+      "latency_ms": 298.25
     },
     {
       "pair_id": 61,
@@ -1180,11 +1180,11 @@
       "file_a": "165__M_Right_ring_finger.BMP",
       "file_b": "165__M_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.0244,
+      "distance": 0.0604,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 154.03
+      "latency_ms": 296.21
     },
     {
       "pair_id": 62,
@@ -1192,11 +1192,11 @@
       "file_a": "298__M_Left_middle_finger.BMP",
       "file_b": "298__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.0913,
+      "distance": 0.0559,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 143.9
+      "latency_ms": 303.08
     },
     {
       "pair_id": 63,
@@ -1204,11 +1204,11 @@
       "file_a": "486__M_Left_thumb_finger.BMP",
       "file_b": "486__M_Left_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.4723,
+      "distance": 0.383,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 149.82
+      "latency_ms": 314.69
     },
     {
       "pair_id": 64,
@@ -1216,11 +1216,11 @@
       "file_a": "74__F_Right_thumb_finger.BMP",
       "file_b": "74__F_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1241,
+      "distance": 0.157,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 148.95
+      "latency_ms": 286.7
     },
     {
       "pair_id": 65,
@@ -1228,11 +1228,11 @@
       "file_a": "522__M_Right_little_finger.BMP",
       "file_b": "522__M_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3736,
+      "distance": 0.3565,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 154.24
+      "latency_ms": 289.63
     },
     {
       "pair_id": 66,
@@ -1240,11 +1240,11 @@
       "file_a": "366__M_Right_ring_finger.BMP",
       "file_b": "366__M_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1398,
+      "distance": 0.1407,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 149.31
+      "latency_ms": 289.52
     },
     {
       "pair_id": 67,
@@ -1252,11 +1252,11 @@
       "file_a": "416__M_Right_ring_finger.BMP",
       "file_b": "416__M_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1163,
+      "distance": 0.0947,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 189.99
+      "latency_ms": 283.26
     },
     {
       "pair_id": 68,
@@ -1264,11 +1264,11 @@
       "file_a": "230__M_Right_ring_finger.BMP",
       "file_b": "230__M_Right_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1372,
+      "distance": 0.0757,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 335.92
+      "latency_ms": 288.84
     },
     {
       "pair_id": 69,
@@ -1276,11 +1276,11 @@
       "file_a": "104__M_Right_middle_finger.BMP",
       "file_b": "104__M_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3008,
+      "distance": 0.2412,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 262.89
+      "latency_ms": 280.51
     },
     {
       "pair_id": 70,
@@ -1288,11 +1288,11 @@
       "file_a": "22__M_Left_little_finger.BMP",
       "file_b": "22__M_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1042,
+      "distance": 0.0613,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 268.67
+      "latency_ms": 277.3
     },
     {
       "pair_id": 71,
@@ -1300,11 +1300,11 @@
       "file_a": "128__M_Left_ring_finger.BMP",
       "file_b": "128__M_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1256,
+      "distance": 0.1194,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 163.6
+      "latency_ms": 278.53
     },
     {
       "pair_id": 72,
@@ -1312,11 +1312,11 @@
       "file_a": "74__F_Right_index_finger.BMP",
       "file_b": "74__F_Right_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1489,
+      "distance": 0.2201,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 176.63
+      "latency_ms": 277.07
     },
     {
       "pair_id": 73,
@@ -1324,11 +1324,11 @@
       "file_a": "139__M_Right_little_finger.BMP",
       "file_b": "139__M_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3255,
+      "distance": 0.3166,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 154.74
+      "latency_ms": 284.8
     },
     {
       "pair_id": 74,
@@ -1336,11 +1336,11 @@
       "file_a": "304__M_Right_index_finger.BMP",
       "file_b": "304__M_Right_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3272,
+      "distance": 0.3747,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 165.69
+      "latency_ms": 289.05
     },
     {
       "pair_id": 75,
@@ -1348,11 +1348,11 @@
       "file_a": "162__M_Left_little_finger.BMP",
       "file_b": "162__M_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1381,
+      "distance": 0.1958,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 149.21
+      "latency_ms": 247.11
     },
     {
       "pair_id": 76,
@@ -1360,11 +1360,11 @@
       "file_a": "93__M_Right_middle_finger.BMP",
       "file_b": "93__M_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3107,
+      "distance": 0.181,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 154.01
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 244.63
     },
     {
       "pair_id": 77,
@@ -1372,11 +1372,11 @@
       "file_a": "347__M_Right_middle_finger.BMP",
       "file_b": "347__M_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.0551,
+      "distance": 0.0554,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 145.23
+      "latency_ms": 256.06
     },
     {
       "pair_id": 78,
@@ -1384,11 +1384,11 @@
       "file_a": "246__M_Right_index_finger.BMP",
       "file_b": "246__M_Right_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1597,
+      "distance": 0.1211,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 139.65
+      "latency_ms": 277.37
     },
     {
       "pair_id": 79,
@@ -1396,11 +1396,11 @@
       "file_a": "295__M_Left_middle_finger.BMP",
       "file_b": "295__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3671,
+      "distance": 0.4019,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 162.67
+      "latency_ms": 304.36
     },
     {
       "pair_id": 80,
@@ -1408,11 +1408,11 @@
       "file_a": "15__F_Left_middle_finger.BMP",
       "file_b": "15__F_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1396,
+      "distance": 0.1773,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 151.7
+      "latency_ms": 287.2
     },
     {
       "pair_id": 81,
@@ -1420,11 +1420,11 @@
       "file_a": "96__M_Left_middle_finger.BMP",
       "file_b": "96__M_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2729,
+      "distance": 0.2137,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 159.96
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 282.72
     },
     {
       "pair_id": 82,
@@ -1432,11 +1432,11 @@
       "file_a": "213__M_Right_little_finger.BMP",
       "file_b": "213__M_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2392,
+      "distance": 0.2353,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 182.18
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 284.26
     },
     {
       "pair_id": 83,
@@ -1444,11 +1444,11 @@
       "file_a": "172__M_Left_index_finger.BMP",
       "file_b": "172__M_Left_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.0336,
+      "distance": 0.0827,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 158.75
+      "latency_ms": 285.74
     },
     {
       "pair_id": 84,
@@ -1456,11 +1456,11 @@
       "file_a": "390__F_Left_ring_finger.BMP",
       "file_b": "390__F_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2343,
+      "distance": 0.2187,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 178.05
+      "latency_ms": 286.12
     },
     {
       "pair_id": 85,
@@ -1468,11 +1468,11 @@
       "file_a": "90__M_Left_little_finger.BMP",
       "file_b": "90__M_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.135,
+      "distance": 0.1479,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 151.05
+      "latency_ms": 281.16
     },
     {
       "pair_id": 86,
@@ -1480,11 +1480,11 @@
       "file_a": "86__M_Right_thumb_finger.BMP",
       "file_b": "86__M_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2155,
+      "distance": 0.2922,
       "threshold": 0.2385,
-      "decision": "ACCEPT",
-      "is_correct": true,
-      "latency_ms": 161.08
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 296.25
     },
     {
       "pair_id": 87,
@@ -1492,11 +1492,11 @@
       "file_a": "309__M_Left_little_finger.BMP",
       "file_b": "309__M_Left_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1177,
+      "distance": 0.0839,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 199.87
+      "latency_ms": 277.66
     },
     {
       "pair_id": 88,
@@ -1504,11 +1504,11 @@
       "file_a": "345__M_Right_thumb_finger.BMP",
       "file_b": "345__M_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2989,
+      "distance": 0.3689,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 171.12
+      "latency_ms": 288.1
     },
     {
       "pair_id": 89,
@@ -1516,11 +1516,11 @@
       "file_a": "184__M_Left_ring_finger.BMP",
       "file_b": "184__M_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2229,
+      "distance": 0.2329,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 158.81
+      "latency_ms": 279.26
     },
     {
       "pair_id": 90,
@@ -1528,11 +1528,11 @@
       "file_a": "525__M_Right_little_finger.BMP",
       "file_b": "525__M_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1271,
+      "distance": 0.0875,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 161.53
+      "latency_ms": 280.27
     },
     {
       "pair_id": 91,
@@ -1540,11 +1540,11 @@
       "file_a": "333__M_Right_middle_finger.BMP",
       "file_b": "333__M_Right_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.109,
+      "distance": 0.1166,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 197.85
+      "latency_ms": 290.6
     },
     {
       "pair_id": 92,
@@ -1552,11 +1552,11 @@
       "file_a": "355__M_Left_ring_finger.BMP",
       "file_b": "355__M_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3024,
+      "distance": 0.2187,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 167.26
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 267.75
     },
     {
       "pair_id": 93,
@@ -1564,11 +1564,11 @@
       "file_a": "374__M_Right_thumb_finger.BMP",
       "file_b": "374__M_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1819,
+      "distance": 0.1968,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 167.13
+      "latency_ms": 293.89
     },
     {
       "pair_id": 94,
@@ -1576,11 +1576,11 @@
       "file_a": "489__M_Left_thumb_finger.BMP",
       "file_b": "489__M_Left_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1505,
+      "distance": 0.1276,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 180.16
+      "latency_ms": 274.71
     },
     {
       "pair_id": 95,
@@ -1588,11 +1588,11 @@
       "file_a": "15__F_Right_little_finger.BMP",
       "file_b": "15__F_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.116,
+      "distance": 0.102,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 153.81
+      "latency_ms": 288.77
     },
     {
       "pair_id": 96,
@@ -1600,11 +1600,11 @@
       "file_a": "163__M_Right_little_finger.BMP",
       "file_b": "163__M_Right_little_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.2598,
+      "distance": 0.2289,
       "threshold": 0.2385,
-      "decision": "REJECT",
-      "is_correct": false,
-      "latency_ms": 180.84
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 293.29
     },
     {
       "pair_id": 97,
@@ -1612,11 +1612,11 @@
       "file_a": "31__F_Right_thumb_finger.BMP",
       "file_b": "31__F_Right_thumb_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.3215,
+      "distance": 0.3314,
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": false,
-      "latency_ms": 168.36
+      "latency_ms": 278.28
     },
     {
       "pair_id": 98,
@@ -1624,11 +1624,11 @@
       "file_a": "595__M_Left_index_finger.BMP",
       "file_b": "595__M_Left_index_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.192,
+      "distance": 0.1885,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 160.7
+      "latency_ms": 278.98
     },
     {
       "pair_id": 99,
@@ -1636,11 +1636,11 @@
       "file_a": "389__F_Left_middle_finger.BMP",
       "file_b": "389__F_Left_middle_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1417,
+      "distance": 0.1859,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 163.04
+      "latency_ms": 300.87
     },
     {
       "pair_id": 100,
@@ -1648,302 +1648,650 @@
       "file_a": "563__M_Left_ring_finger.BMP",
       "file_b": "563__M_Left_ring_finger.BMP (Live Rescan)",
       "ground_truth": 1,
-      "distance": 0.1518,
+      "distance": 0.1513,
       "threshold": 0.2385,
       "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 176.13
+      "latency_ms": 278.4
     },
     {
       "pair_id": 101,
-      "type": "impostor",
-      "file_a": "94__M_Left_index_finger.BMP",
-      "file_b": "443__M_Right_thumb_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.8587,
+      "type": "genuine",
+      "file_a": "16__M_Right_ring_finger.BMP",
+      "file_b": "16__M_Right_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.051,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 164.07
+      "latency_ms": 274.08
     },
     {
       "pair_id": 102,
-      "type": "impostor",
-      "file_a": "266__M_Left_middle_finger.BMP",
-      "file_b": "212__M_Right_middle_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.7782,
+      "type": "genuine",
+      "file_a": "567__M_Left_little_finger.BMP",
+      "file_b": "567__M_Left_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1137,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 162.95
+      "latency_ms": 455.01
     },
     {
       "pair_id": 103,
-      "type": "impostor",
-      "file_a": "45__M_Right_thumb_finger.BMP",
-      "file_b": "595__M_Left_ring_finger.BMP",
-      "ground_truth": 0,
-      "distance": 0.9443,
+      "type": "genuine",
+      "file_a": "300__F_Right_ring_finger.BMP",
+      "file_b": "300__F_Right_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.3129,
       "threshold": 0.2385,
       "decision": "REJECT",
-      "is_correct": true,
-      "latency_ms": 176.14
+      "is_correct": false,
+      "latency_ms": 415.91
     },
     {
       "pair_id": 104,
-      "type": "impostor",
-      "file_a": "440__M_Left_thumb_finger.BMP",
-      "file_b": "298__M_Right_index_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.1195,
+      "type": "genuine",
+      "file_a": "443__M_Right_ring_finger.BMP",
+      "file_b": "443__M_Right_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.298,
       "threshold": 0.2385,
       "decision": "REJECT",
-      "is_correct": true,
-      "latency_ms": 163.16
+      "is_correct": false,
+      "latency_ms": 318.86
     },
     {
       "pair_id": 105,
-      "type": "impostor",
-      "file_a": "368__M_Right_thumb_finger.BMP",
-      "file_b": "213__M_Left_little_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.586,
+      "type": "genuine",
+      "file_a": "355__M_Right_thumb_finger.BMP",
+      "file_b": "355__M_Right_thumb_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1751,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 180.36
+      "latency_ms": 300.66
     },
     {
       "pair_id": 106,
-      "type": "impostor",
-      "file_a": "486__M_Left_middle_finger.BMP",
-      "file_b": "565__M_Left_thumb_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.4855,
+      "type": "genuine",
+      "file_a": "297__M_Left_thumb_finger.BMP",
+      "file_b": "297__M_Left_thumb_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.3658,
       "threshold": 0.2385,
       "decision": "REJECT",
-      "is_correct": true,
-      "latency_ms": 174.57
+      "is_correct": false,
+      "latency_ms": 309.02
     },
     {
       "pair_id": 107,
-      "type": "impostor",
-      "file_a": "447__M_Left_index_finger.BMP",
-      "file_b": "37__M_Left_thumb_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.8057,
+      "type": "genuine",
+      "file_a": "9__M_Right_little_finger.BMP",
+      "file_b": "9__M_Right_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.0534,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 167.64
+      "latency_ms": 314.48
     },
     {
       "pair_id": 108,
-      "type": "impostor",
-      "file_a": "432__M_Right_little_finger.BMP",
-      "file_b": "184__M_Right_little_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.4033,
+      "type": "genuine",
+      "file_a": "104__M_Left_middle_finger.BMP",
+      "file_b": "104__M_Left_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2936,
       "threshold": 0.2385,
       "decision": "REJECT",
-      "is_correct": true,
-      "latency_ms": 165.14
+      "is_correct": false,
+      "latency_ms": 306.84
     },
     {
       "pair_id": 109,
-      "type": "impostor",
-      "file_a": "78__F_Left_little_finger.BMP",
-      "file_b": "443__M_Right_thumb_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.4049,
+      "type": "genuine",
+      "file_a": "25__F_Left_thumb_finger.BMP",
+      "file_b": "25__F_Left_thumb_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.13,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 182.42
+      "latency_ms": 275.96
     },
     {
       "pair_id": 110,
-      "type": "impostor",
-      "file_a": "409__M_Left_ring_finger.BMP",
-      "file_b": "30__F_Left_little_finger.BMP",
-      "ground_truth": 0,
-      "distance": 0.9953,
+      "type": "genuine",
+      "file_a": "171__M_Right_index_finger.BMP",
+      "file_b": "171__M_Right_index_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.123,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 174.31
+      "latency_ms": 281.51
     },
     {
       "pair_id": 111,
-      "type": "impostor",
-      "file_a": "298__M_Left_thumb_finger.BMP",
-      "file_b": "301__F_Right_thumb_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.5123,
+      "type": "genuine",
+      "file_a": "521__M_Left_ring_finger.BMP",
+      "file_b": "521__M_Left_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2008,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 166.22
+      "latency_ms": 286.16
     },
     {
       "pair_id": 112,
-      "type": "impostor",
-      "file_a": "123__M_Right_thumb_finger.BMP",
-      "file_b": "326__M_Left_index_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.2544,
+      "type": "genuine",
+      "file_a": "230__M_Right_index_finger.BMP",
+      "file_b": "230__M_Right_index_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.157,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 159.23
+      "latency_ms": 280.96
     },
     {
       "pair_id": 113,
-      "type": "impostor",
-      "file_a": "9__M_Right_little_finger.BMP",
-      "file_b": "366__M_Right_index_finger.BMP",
-      "ground_truth": 0,
-      "distance": 0.9058,
+      "type": "genuine",
+      "file_a": "73__M_Right_middle_finger.BMP",
+      "file_b": "73__M_Right_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1917,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 155.56
+      "latency_ms": 281.26
     },
     {
       "pair_id": 114,
-      "type": "impostor",
-      "file_a": "389__F_Right_index_finger.BMP",
-      "file_b": "68__M_Left_index_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.8042,
+      "type": "genuine",
+      "file_a": "79__M_Left_little_finger.BMP",
+      "file_b": "79__M_Left_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1395,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 144.35
+      "latency_ms": 282.07
     },
     {
       "pair_id": 115,
-      "type": "impostor",
-      "file_a": "126__F_Right_middle_finger.BMP",
-      "file_b": "96__M_Left_little_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.6081,
+      "type": "genuine",
+      "file_a": "121__F_Right_index_finger.BMP",
+      "file_b": "121__F_Right_index_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.0849,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 180.25
+      "latency_ms": 305.88
     },
     {
       "pair_id": 116,
-      "type": "impostor",
-      "file_a": "165__M_Right_middle_finger.BMP",
-      "file_b": "150__M_Left_middle_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.6282,
+      "type": "genuine",
+      "file_a": "74__F_Left_middle_finger.BMP",
+      "file_b": "74__F_Left_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1331,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 182.39
+      "latency_ms": 331.38
     },
     {
       "pair_id": 117,
-      "type": "impostor",
-      "file_a": "165__M_Right_ring_finger.BMP",
-      "file_b": "79__M_Left_thumb_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.1362,
+      "type": "genuine",
+      "file_a": "73__M_Right_ring_finger.BMP",
+      "file_b": "73__M_Right_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.261,
       "threshold": 0.2385,
       "decision": "REJECT",
-      "is_correct": true,
-      "latency_ms": 154.33
+      "is_correct": false,
+      "latency_ms": 330.99
     },
     {
       "pair_id": 118,
-      "type": "impostor",
-      "file_a": "594__M_Right_ring_finger.BMP",
-      "file_b": "123__M_Right_middle_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.081,
+      "type": "genuine",
+      "file_a": "448__M_Right_ring_finger.BMP",
+      "file_b": "448__M_Right_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.0423,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 145.05
+      "latency_ms": 295.09
     },
     {
       "pair_id": 119,
-      "type": "impostor",
-      "file_a": "440__M_Right_thumb_finger.BMP",
-      "file_b": "165__M_Left_thumb_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.0939,
+      "type": "genuine",
+      "file_a": "342__M_Left_middle_finger.BMP",
+      "file_b": "342__M_Left_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.231,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 180.2
+      "latency_ms": 276.4
     },
     {
       "pair_id": 120,
-      "type": "impostor",
-      "file_a": "346__M_Left_ring_finger.BMP",
-      "file_b": "128__M_Left_little_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.5391,
+      "type": "genuine",
+      "file_a": "16__M_Right_little_finger.BMP",
+      "file_b": "16__M_Right_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.184,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 167.24
+      "latency_ms": 283.19
     },
     {
       "pair_id": 121,
-      "type": "impostor",
-      "file_a": "464__M_Right_middle_finger.BMP",
-      "file_b": "61__M_Left_ring_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.2042,
+      "type": "genuine",
+      "file_a": "326__M_Right_index_finger.BMP",
+      "file_b": "326__M_Right_index_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1715,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 149.75
+      "latency_ms": 297.45
     },
     {
       "pair_id": 122,
-      "type": "impostor",
-      "file_a": "355__M_Right_thumb_finger.BMP",
-      "file_b": "440__M_Right_thumb_finger.BMP",
-      "ground_truth": 0,
-      "distance": 0.6554,
+      "type": "genuine",
+      "file_a": "348__F_Right_middle_finger.BMP",
+      "file_b": "348__F_Right_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2874,
       "threshold": 0.2385,
       "decision": "REJECT",
-      "is_correct": true,
-      "latency_ms": 160.35
+      "is_correct": false,
+      "latency_ms": 285.43
     },
     {
       "pair_id": 123,
-      "type": "impostor",
-      "file_a": "45__M_Right_index_finger.BMP",
-      "file_b": "300__F_Left_index_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.1789,
+      "type": "genuine",
+      "file_a": "283__M_Right_ring_finger.BMP",
+      "file_b": "283__M_Right_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.0826,
       "threshold": 0.2385,
-      "decision": "REJECT",
+      "decision": "ACCEPT",
       "is_correct": true,
-      "latency_ms": 148.66
+      "latency_ms": 277.8
     },
     {
       "pair_id": 124,
-      "type": "impostor",
-      "file_a": "73__M_Right_index_finger.BMP",
-      "file_b": "126__F_Left_middle_finger.BMP",
-      "ground_truth": 0,
-      "distance": 1.8636,
+      "type": "genuine",
+      "file_a": "435__F_Right_middle_finger.BMP",
+      "file_b": "435__F_Right_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.4403,
       "threshold": 0.2385,
       "decision": "REJECT",
-      "is_correct": true,
-      "latency_ms": 150.33
+      "is_correct": false,
+      "latency_ms": 285.45
     },
     {
       "pair_id": 125,
+      "type": "genuine",
+      "file_a": "369__F_Right_middle_finger.BMP",
+      "file_b": "369__F_Right_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2948,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 279.68
+    },
+    {
+      "pair_id": 126,
+      "type": "genuine",
+      "file_a": "304__M_Right_thumb_finger.BMP",
+      "file_b": "304__M_Right_thumb_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.386,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 283.55
+    },
+    {
+      "pair_id": 127,
+      "type": "genuine",
+      "file_a": "389__F_Left_thumb_finger.BMP",
+      "file_b": "389__F_Left_thumb_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1205,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 288.95
+    },
+    {
+      "pair_id": 128,
+      "type": "genuine",
+      "file_a": "163__M_Left_little_finger.BMP",
+      "file_b": "163__M_Left_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2196,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 280.76
+    },
+    {
+      "pair_id": 129,
+      "type": "genuine",
+      "file_a": "128__M_Left_little_finger.BMP",
+      "file_b": "128__M_Left_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.309,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 289.21
+    },
+    {
+      "pair_id": 130,
+      "type": "genuine",
+      "file_a": "171__M_Right_ring_finger.BMP",
+      "file_b": "171__M_Right_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.0746,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 276.09
+    },
+    {
+      "pair_id": 131,
+      "type": "genuine",
+      "file_a": "595__M_Left_little_finger.BMP",
+      "file_b": "595__M_Left_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.3218,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 276.88
+    },
+    {
+      "pair_id": 132,
+      "type": "genuine",
+      "file_a": "123__M_Right_little_finger.BMP",
+      "file_b": "123__M_Right_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1568,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 289.86
+    },
+    {
+      "pair_id": 133,
+      "type": "genuine",
+      "file_a": "309__M_Right_ring_finger.BMP",
+      "file_b": "309__M_Right_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2708,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 277.67
+    },
+    {
+      "pair_id": 134,
+      "type": "genuine",
+      "file_a": "571__F_Right_index_finger.BMP",
+      "file_b": "571__F_Right_index_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1865,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 281.54
+    },
+    {
+      "pair_id": 135,
+      "type": "genuine",
+      "file_a": "92__F_Left_ring_finger.BMP",
+      "file_b": "92__F_Left_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2911,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 281.37
+    },
+    {
+      "pair_id": 136,
+      "type": "genuine",
+      "file_a": "368__M_Right_little_finger.BMP",
+      "file_b": "368__M_Right_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.4798,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 286.09
+    },
+    {
+      "pair_id": 137,
+      "type": "genuine",
+      "file_a": "409__M_Right_middle_finger.BMP",
+      "file_b": "409__M_Right_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1268,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 332.98
+    },
+    {
+      "pair_id": 138,
+      "type": "genuine",
+      "file_a": "37__M_Left_little_finger.BMP",
+      "file_b": "37__M_Left_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2253,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 311.8
+    },
+    {
+      "pair_id": 139,
+      "type": "genuine",
+      "file_a": "246__M_Left_little_finger.BMP",
+      "file_b": "246__M_Left_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1486,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 282.32
+    },
+    {
+      "pair_id": 140,
+      "type": "genuine",
+      "file_a": "94__M_Left_ring_finger.BMP",
+      "file_b": "94__M_Left_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.248,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 279.88
+    },
+    {
+      "pair_id": 141,
+      "type": "genuine",
+      "file_a": "298__M_Left_little_finger.BMP",
+      "file_b": "298__M_Left_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1206,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 271.47
+    },
+    {
+      "pair_id": 142,
+      "type": "genuine",
+      "file_a": "56__F_Left_index_finger.BMP",
+      "file_b": "56__F_Left_index_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.09,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 276.57
+    },
+    {
+      "pair_id": 143,
+      "type": "genuine",
+      "file_a": "30__F_Right_ring_finger.BMP",
+      "file_b": "30__F_Right_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2844,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 296.82
+    },
+    {
+      "pair_id": 144,
+      "type": "genuine",
+      "file_a": "165__M_Left_ring_finger.BMP",
+      "file_b": "165__M_Left_ring_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.118,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 276.47
+    },
+    {
+      "pair_id": 145,
+      "type": "genuine",
+      "file_a": "486__M_Left_index_finger.BMP",
+      "file_b": "486__M_Left_index_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2202,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 287.66
+    },
+    {
+      "pair_id": 146,
+      "type": "genuine",
+      "file_a": "257__M_Right_thumb_finger.BMP",
+      "file_b": "257__M_Right_thumb_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.1099,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 282.82
+    },
+    {
+      "pair_id": 147,
+      "type": "genuine",
+      "file_a": "86__M_Left_index_finger.BMP",
+      "file_b": "86__M_Left_index_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.0531,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 294.41
+    },
+    {
+      "pair_id": 148,
+      "type": "genuine",
+      "file_a": "449__F_Left_middle_finger.BMP",
+      "file_b": "449__F_Left_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.2254,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 283.42
+    },
+    {
+      "pair_id": 149,
+      "type": "genuine",
+      "file_a": "162__M_Right_middle_finger.BMP",
+      "file_b": "162__M_Right_middle_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.0851,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": true,
+      "latency_ms": 377.41
+    },
+    {
+      "pair_id": 150,
+      "type": "genuine",
+      "file_a": "292__M_Left_little_finger.BMP",
+      "file_b": "292__M_Left_little_finger.BMP (Live Rescan)",
+      "ground_truth": 1,
+      "distance": 0.268,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": false,
+      "latency_ms": 284.89
+    },
+    {
+      "pair_id": 151,
+      "type": "impostor",
+      "file_a": "61__M_Left_ring_finger.BMP",
+      "file_b": "292__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.606,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 277.78
+    },
+    {
+      "pair_id": 152,
+      "type": "impostor",
+      "file_a": "276__M_Right_little_finger.BMP",
+      "file_b": "594__M_Right_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.9573,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 286.68
+    },
+    {
+      "pair_id": 153,
+      "type": "impostor",
+      "file_a": "374__M_Right_index_finger.BMP",
+      "file_b": "73__M_Left_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.7846,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 313.87
+    },
+    {
+      "pair_id": 154,
       "type": "impostor",
       "file_a": "517__M_Right_index_finger.BMP",
       "file_b": "347__M_Left_thumb_finger.BMP",
@@ -1952,10 +2300,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 147.42
+      "latency_ms": 343.87
     },
     {
-      "pair_id": 126,
+      "pair_id": 155,
       "type": "impostor",
       "file_a": "390__F_Right_thumb_finger.BMP",
       "file_b": "464__M_Left_thumb_finger.BMP",
@@ -1964,10 +2312,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 152.29
+      "latency_ms": 356.52
     },
     {
-      "pair_id": 127,
+      "pair_id": 156,
       "type": "impostor",
       "file_a": "163__M_Right_ring_finger.BMP",
       "file_b": "277__M_Left_ring_finger.BMP",
@@ -1976,10 +2324,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 169.06
+      "latency_ms": 421.9
     },
     {
-      "pair_id": 128,
+      "pair_id": 157,
       "type": "impostor",
       "file_a": "15__F_Right_little_finger.BMP",
       "file_b": "212__M_Right_middle_finger.BMP",
@@ -1988,10 +2336,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 187.01
+      "latency_ms": 365.21
     },
     {
-      "pair_id": 129,
+      "pair_id": 158,
       "type": "impostor",
       "file_a": "163__M_Left_ring_finger.BMP",
       "file_b": "512__M_Right_middle_finger.BMP",
@@ -2000,10 +2348,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 151.61
+      "latency_ms": 315.79
     },
     {
-      "pair_id": 130,
+      "pair_id": 159,
       "type": "impostor",
       "file_a": "416__M_Right_middle_finger.BMP",
       "file_b": "78__F_Right_middle_finger.BMP",
@@ -2012,10 +2360,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 177.3
+      "latency_ms": 386.04
     },
     {
-      "pair_id": 131,
+      "pair_id": 160,
       "type": "impostor",
       "file_a": "282__M_Left_little_finger.BMP",
       "file_b": "571__F_Left_thumb_finger.BMP",
@@ -2024,10 +2372,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 163.73
+      "latency_ms": 540.16
     },
     {
-      "pair_id": 132,
+      "pair_id": 161,
       "type": "impostor",
       "file_a": "358__M_Left_ring_finger.BMP",
       "file_b": "525__M_Left_thumb_finger.BMP",
@@ -2036,10 +2384,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 205.03
+      "latency_ms": 391.2
     },
     {
-      "pair_id": 133,
+      "pair_id": 162,
       "type": "impostor",
       "file_a": "189__F_Right_index_finger.BMP",
       "file_b": "37__M_Right_middle_finger.BMP",
@@ -2048,10 +2396,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 148.05
+      "latency_ms": 373.62
     },
     {
-      "pair_id": 134,
+      "pair_id": 163,
       "type": "impostor",
       "file_a": "140__F_Right_index_finger.BMP",
       "file_b": "172__M_Right_little_finger.BMP",
@@ -2060,10 +2408,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 172.2
+      "latency_ms": 323.46
     },
     {
-      "pair_id": 135,
+      "pair_id": 164,
       "type": "impostor",
       "file_a": "104__M_Right_index_finger.BMP",
       "file_b": "140__F_Right_index_finger.BMP",
@@ -2072,10 +2420,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 162.07
+      "latency_ms": 293.81
     },
     {
-      "pair_id": 136,
+      "pair_id": 165,
       "type": "impostor",
       "file_a": "298__M_Left_thumb_finger.BMP",
       "file_b": "426__M_Left_thumb_finger.BMP",
@@ -2084,10 +2432,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 143.86
+      "latency_ms": 289.84
     },
     {
-      "pair_id": 137,
+      "pair_id": 166,
       "type": "impostor",
       "file_a": "343__M_Left_little_finger.BMP",
       "file_b": "442__F_Left_ring_finger.BMP",
@@ -2096,10 +2444,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 167.18
+      "latency_ms": 288.25
     },
     {
-      "pair_id": 138,
+      "pair_id": 167,
       "type": "impostor",
       "file_a": "16__M_Right_ring_finger.BMP",
       "file_b": "326__M_Left_middle_finger.BMP",
@@ -2108,10 +2456,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 169.11
+      "latency_ms": 283.46
     },
     {
-      "pair_id": 139,
+      "pair_id": 168,
       "type": "impostor",
       "file_a": "369__F_Right_middle_finger.BMP",
       "file_b": "347__M_Left_thumb_finger.BMP",
@@ -2120,10 +2468,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 174.77
+      "latency_ms": 292.55
     },
     {
-      "pair_id": 140,
+      "pair_id": 169,
       "type": "impostor",
       "file_a": "412__M_Right_ring_finger.BMP",
       "file_b": "171__M_Right_thumb_finger.BMP",
@@ -2132,10 +2480,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 161.15
+      "latency_ms": 296.9
     },
     {
-      "pair_id": 141,
+      "pair_id": 170,
       "type": "impostor",
       "file_a": "56__F_Left_ring_finger.BMP",
       "file_b": "120__M_Left_thumb_finger.BMP",
@@ -2144,10 +2492,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 180.11
+      "latency_ms": 327.86
     },
     {
-      "pair_id": 142,
+      "pair_id": 171,
       "type": "impostor",
       "file_a": "442__F_Left_middle_finger.BMP",
       "file_b": "150__M_Left_thumb_finger.BMP",
@@ -2156,10 +2504,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 175.08
+      "latency_ms": 342.37
     },
     {
-      "pair_id": 143,
+      "pair_id": 172,
       "type": "impostor",
       "file_a": "277__M_Right_ring_finger.BMP",
       "file_b": "242__M_Left_middle_finger.BMP",
@@ -2168,10 +2516,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 173.29
+      "latency_ms": 291.93
     },
     {
-      "pair_id": 144,
+      "pair_id": 173,
       "type": "impostor",
       "file_a": "464__M_Left_index_finger.BMP",
       "file_b": "74__F_Right_ring_finger.BMP",
@@ -2180,10 +2528,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 175.77
+      "latency_ms": 400.49
     },
     {
-      "pair_id": 145,
+      "pair_id": 174,
       "type": "impostor",
       "file_a": "295__M_Left_middle_finger.BMP",
       "file_b": "298__M_Right_middle_finger.BMP",
@@ -2192,10 +2540,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 165.23
+      "latency_ms": 354.78
     },
     {
-      "pair_id": 146,
+      "pair_id": 175,
       "type": "impostor",
       "file_a": "447__M_Left_index_finger.BMP",
       "file_b": "18__M_Right_thumb_finger.BMP",
@@ -2204,10 +2552,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 198.2
+      "latency_ms": 402.96
     },
     {
-      "pair_id": 147,
+      "pair_id": 176,
       "type": "impostor",
       "file_a": "56__F_Right_middle_finger.BMP",
       "file_b": "249__M_Right_middle_finger.BMP",
@@ -2216,10 +2564,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 157.68
+      "latency_ms": 290.53
     },
     {
-      "pair_id": 148,
+      "pair_id": 177,
       "type": "impostor",
       "file_a": "390__F_Left_index_finger.BMP",
       "file_b": "297__M_Left_thumb_finger.BMP",
@@ -2228,10 +2576,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 155.14
+      "latency_ms": 292.85
     },
     {
-      "pair_id": 149,
+      "pair_id": 178,
       "type": "impostor",
       "file_a": "489__M_Left_little_finger.BMP",
       "file_b": "435__F_Left_little_finger.BMP",
@@ -2240,10 +2588,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 186.22
+      "latency_ms": 342.12
     },
     {
-      "pair_id": 150,
+      "pair_id": 179,
       "type": "impostor",
       "file_a": "525__M_Left_little_finger.BMP",
       "file_b": "517__M_Right_thumb_finger.BMP",
@@ -2252,10 +2600,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 159.8
+      "latency_ms": 309.49
     },
     {
-      "pair_id": 151,
+      "pair_id": 180,
       "type": "impostor",
       "file_a": "139__M_Left_index_finger.BMP",
       "file_b": "93__M_Left_middle_finger.BMP",
@@ -2264,10 +2612,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 188.4
+      "latency_ms": 305.48
     },
     {
-      "pair_id": 152,
+      "pair_id": 181,
       "type": "impostor",
       "file_a": "266__M_Right_thumb_finger.BMP",
       "file_b": "123__M_Left_thumb_finger.BMP",
@@ -2276,10 +2624,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 164.71
+      "latency_ms": 282.36
     },
     {
-      "pair_id": 153,
+      "pair_id": 182,
       "type": "impostor",
       "file_a": "15__F_Left_little_finger.BMP",
       "file_b": "94__M_Right_ring_finger.BMP",
@@ -2288,10 +2636,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 153.85
+      "latency_ms": 400.04
     },
     {
-      "pair_id": 154,
+      "pair_id": 183,
       "type": "impostor",
       "file_a": "512__M_Right_thumb_finger.BMP",
       "file_b": "96__M_Right_thumb_finger.BMP",
@@ -2300,10 +2648,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 140.91
+      "latency_ms": 828.81
     },
     {
-      "pair_id": 155,
+      "pair_id": 184,
       "type": "impostor",
       "file_a": "282__M_Left_ring_finger.BMP",
       "file_b": "522__M_Right_ring_finger.BMP",
@@ -2312,10 +2660,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 162.43
+      "latency_ms": 286.86
     },
     {
-      "pair_id": 156,
+      "pair_id": 185,
       "type": "impostor",
       "file_a": "300__F_Right_middle_finger.BMP",
       "file_b": "292__M_Left_thumb_finger.BMP",
@@ -2324,10 +2672,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 193.73
+      "latency_ms": 267.71
     },
     {
-      "pair_id": 157,
+      "pair_id": 186,
       "type": "impostor",
       "file_a": "489__M_Right_little_finger.BMP",
       "file_b": "171__M_Left_thumb_finger.BMP",
@@ -2336,10 +2684,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 189.17
+      "latency_ms": 312.97
     },
     {
-      "pair_id": 158,
+      "pair_id": 187,
       "type": "impostor",
       "file_a": "276__M_Left_index_finger.BMP",
       "file_b": "522__M_Right_thumb_finger.BMP",
@@ -2348,10 +2696,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 219.01
+      "latency_ms": 317.69
     },
     {
-      "pair_id": 159,
+      "pair_id": 188,
       "type": "impostor",
       "file_a": "246__M_Left_ring_finger.BMP",
       "file_b": "120__M_Left_ring_finger.BMP",
@@ -2360,10 +2708,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 163.47
+      "latency_ms": 287.67
     },
     {
-      "pair_id": 160,
+      "pair_id": 189,
       "type": "impostor",
       "file_a": "230__M_Left_little_finger.BMP",
       "file_b": "189__F_Left_middle_finger.BMP",
@@ -2372,10 +2720,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 159.48
+      "latency_ms": 371.65
     },
     {
-      "pair_id": 161,
+      "pair_id": 190,
       "type": "impostor",
       "file_a": "212__M_Right_ring_finger.BMP",
       "file_b": "79__M_Left_little_finger.BMP",
@@ -2384,10 +2732,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 160.03
+      "latency_ms": 273.21
     },
     {
-      "pair_id": 162,
+      "pair_id": 191,
       "type": "impostor",
       "file_a": "283__M_Right_little_finger.BMP",
       "file_b": "275__F_Right_middle_finger.BMP",
@@ -2396,10 +2744,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 156.12
+      "latency_ms": 298.0
     },
     {
-      "pair_id": 163,
+      "pair_id": 192,
       "type": "impostor",
       "file_a": "409__M_Right_middle_finger.BMP",
       "file_b": "448__M_Left_thumb_finger.BMP",
@@ -2408,10 +2756,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 167.69
+      "latency_ms": 292.12
     },
     {
-      "pair_id": 164,
+      "pair_id": 193,
       "type": "impostor",
       "file_a": "567__M_Left_thumb_finger.BMP",
       "file_b": "442__F_Left_thumb_finger.BMP",
@@ -2420,10 +2768,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 158.19
+      "latency_ms": 272.26
     },
     {
-      "pair_id": 165,
+      "pair_id": 194,
       "type": "impostor",
       "file_a": "298__M_Right_middle_finger.BMP",
       "file_b": "489__M_Left_little_finger.BMP",
@@ -2432,10 +2780,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 155.55
+      "latency_ms": 277.29
     },
     {
-      "pair_id": 166,
+      "pair_id": 195,
       "type": "impostor",
       "file_a": "93__M_Left_thumb_finger.BMP",
       "file_b": "442__F_Right_thumb_finger.BMP",
@@ -2444,10 +2792,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 183.89
+      "latency_ms": 283.2
     },
     {
-      "pair_id": 167,
+      "pair_id": 196,
       "type": "impostor",
       "file_a": "189__F_Left_ring_finger.BMP",
       "file_b": "76__F_Right_little_finger.BMP",
@@ -2456,10 +2804,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 205.93
+      "latency_ms": 302.65
     },
     {
-      "pair_id": 168,
+      "pair_id": 197,
       "type": "impostor",
       "file_a": "595__M_Left_ring_finger.BMP",
       "file_b": "309__M_Left_middle_finger.BMP",
@@ -2468,10 +2816,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 175.92
+      "latency_ms": 296.1
     },
     {
-      "pair_id": 169,
+      "pair_id": 198,
       "type": "impostor",
       "file_a": "324__M_Left_middle_finger.BMP",
       "file_b": "521__M_Left_little_finger.BMP",
@@ -2480,10 +2828,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 171.23
+      "latency_ms": 271.25
     },
     {
-      "pair_id": 170,
+      "pair_id": 199,
       "type": "impostor",
       "file_a": "592__M_Left_thumb_finger.BMP",
       "file_b": "368__M_Right_thumb_finger.BMP",
@@ -2492,10 +2840,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 186.02
+      "latency_ms": 304.97
     },
     {
-      "pair_id": 171,
+      "pair_id": 200,
       "type": "impostor",
       "file_a": "104__M_Right_thumb_finger.BMP",
       "file_b": "313__M_Left_thumb_finger.BMP",
@@ -2504,10 +2852,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 184.3
+      "latency_ms": 271.57
     },
     {
-      "pair_id": 172,
+      "pair_id": 201,
       "type": "impostor",
       "file_a": "345__M_Right_middle_finger.BMP",
       "file_b": "326__M_Left_thumb_finger.BMP",
@@ -2516,10 +2864,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 153.36
+      "latency_ms": 276.62
     },
     {
-      "pair_id": 173,
+      "pair_id": 202,
       "type": "impostor",
       "file_a": "298__M_Left_thumb_finger.BMP",
       "file_b": "525__M_Right_ring_finger.BMP",
@@ -2528,10 +2876,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 184.69
+      "latency_ms": 287.91
     },
     {
-      "pair_id": 174,
+      "pair_id": 203,
       "type": "impostor",
       "file_a": "309__M_Right_middle_finger.BMP",
       "file_b": "73__M_Left_little_finger.BMP",
@@ -2540,10 +2888,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 158.5
+      "latency_ms": 275.07
     },
     {
-      "pair_id": 175,
+      "pair_id": 204,
       "type": "impostor",
       "file_a": "448__M_Right_little_finger.BMP",
       "file_b": "74__F_Right_index_finger.BMP",
@@ -2552,10 +2900,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 159.16
+      "latency_ms": 278.77
     },
     {
-      "pair_id": 176,
+      "pair_id": 205,
       "type": "impostor",
       "file_a": "213__M_Left_index_finger.BMP",
       "file_b": "343__M_Left_little_finger.BMP",
@@ -2564,10 +2912,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 166.99
+      "latency_ms": 277.67
     },
     {
-      "pair_id": 177,
+      "pair_id": 206,
       "type": "impostor",
       "file_a": "442__F_Right_thumb_finger.BMP",
       "file_b": "184__M_Right_thumb_finger.BMP",
@@ -2576,10 +2924,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 195.22
+      "latency_ms": 277.34
     },
     {
-      "pair_id": 178,
+      "pair_id": 207,
       "type": "impostor",
       "file_a": "571__F_Left_thumb_finger.BMP",
       "file_b": "512__M_Right_thumb_finger.BMP",
@@ -2588,10 +2936,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 166.95
+      "latency_ms": 283.09
     },
     {
-      "pair_id": 179,
+      "pair_id": 208,
       "type": "impostor",
       "file_a": "74__F_Left_middle_finger.BMP",
       "file_b": "512__M_Right_middle_finger.BMP",
@@ -2600,10 +2948,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 160.52
+      "latency_ms": 268.81
     },
     {
-      "pair_id": 180,
+      "pair_id": 209,
       "type": "impostor",
       "file_a": "86__M_Right_middle_finger.BMP",
       "file_b": "43__F_Left_thumb_finger.BMP",
@@ -2612,10 +2960,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 162.04
+      "latency_ms": 268.45
     },
     {
-      "pair_id": 181,
+      "pair_id": 210,
       "type": "impostor",
       "file_a": "297__M_Right_little_finger.BMP",
       "file_b": "37__M_Right_middle_finger.BMP",
@@ -2624,10 +2972,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 190.38
+      "latency_ms": 275.99
     },
     {
-      "pair_id": 182,
+      "pair_id": 211,
       "type": "impostor",
       "file_a": "496__M_Right_index_finger.BMP",
       "file_b": "249__M_Right_little_finger.BMP",
@@ -2636,10 +2984,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 170.29
+      "latency_ms": 288.88
     },
     {
-      "pair_id": 183,
+      "pair_id": 212,
       "type": "impostor",
       "file_a": "469__M_Left_little_finger.BMP",
       "file_b": "346__M_Left_middle_finger.BMP",
@@ -2648,10 +2996,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 159.19
+      "latency_ms": 269.73
     },
     {
-      "pair_id": 184,
+      "pair_id": 213,
       "type": "impostor",
       "file_a": "469__M_Right_middle_finger.BMP",
       "file_b": "25__F_Left_thumb_finger.BMP",
@@ -2660,10 +3008,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 169.78
+      "latency_ms": 276.34
     },
     {
-      "pair_id": 185,
+      "pair_id": 214,
       "type": "impostor",
       "file_a": "189__F_Right_ring_finger.BMP",
       "file_b": "525__M_Left_index_finger.BMP",
@@ -2672,10 +3020,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 148.81
+      "latency_ms": 277.64
     },
     {
-      "pair_id": 186,
+      "pair_id": 215,
       "type": "impostor",
       "file_a": "426__M_Right_index_finger.BMP",
       "file_b": "496__M_Left_thumb_finger.BMP",
@@ -2684,10 +3032,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 149.18
+      "latency_ms": 274.9
     },
     {
-      "pair_id": 187,
+      "pair_id": 216,
       "type": "impostor",
       "file_a": "346__M_Right_little_finger.BMP",
       "file_b": "595__M_Right_ring_finger.BMP",
@@ -2696,10 +3044,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 146.62
+      "latency_ms": 280.61
     },
     {
-      "pair_id": 188,
+      "pair_id": 217,
       "type": "impostor",
       "file_a": "313__M_Right_ring_finger.BMP",
       "file_b": "275__F_Right_middle_finger.BMP",
@@ -2708,10 +3056,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 158.73
+      "latency_ms": 277.13
     },
     {
-      "pair_id": 189,
+      "pair_id": 218,
       "type": "impostor",
       "file_a": "25__F_Left_ring_finger.BMP",
       "file_b": "563__M_Right_ring_finger.BMP",
@@ -2720,10 +3068,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 140.61
+      "latency_ms": 296.18
     },
     {
-      "pair_id": 190,
+      "pair_id": 219,
       "type": "impostor",
       "file_a": "150__M_Right_middle_finger.BMP",
       "file_b": "522__M_Right_middle_finger.BMP",
@@ -2732,10 +3080,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 143.54
+      "latency_ms": 291.66
     },
     {
-      "pair_id": 191,
+      "pair_id": 220,
       "type": "impostor",
       "file_a": "512__M_Left_ring_finger.BMP",
       "file_b": "563__M_Left_thumb_finger.BMP",
@@ -2744,10 +3092,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 164.43
+      "latency_ms": 288.55
     },
     {
-      "pair_id": 192,
+      "pair_id": 221,
       "type": "impostor",
       "file_a": "140__F_Left_thumb_finger.BMP",
       "file_b": "333__M_Right_middle_finger.BMP",
@@ -2756,10 +3104,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 155.42
+      "latency_ms": 275.1
     },
     {
-      "pair_id": 193,
+      "pair_id": 222,
       "type": "impostor",
       "file_a": "61__M_Right_middle_finger.BMP",
       "file_b": "298__M_Left_little_finger.BMP",
@@ -2768,10 +3116,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 162.67
+      "latency_ms": 279.79
     },
     {
-      "pair_id": 194,
+      "pair_id": 223,
       "type": "impostor",
       "file_a": "374__M_Right_thumb_finger.BMP",
       "file_b": "139__M_Left_ring_finger.BMP",
@@ -2780,10 +3128,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 166.09
+      "latency_ms": 274.23
     },
     {
-      "pair_id": 195,
+      "pair_id": 224,
       "type": "impostor",
       "file_a": "242__M_Left_thumb_finger.BMP",
       "file_b": "283__M_Right_ring_finger.BMP",
@@ -2792,10 +3140,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 145.26
+      "latency_ms": 286.36
     },
     {
-      "pair_id": 196,
+      "pair_id": 225,
       "type": "impostor",
       "file_a": "277__M_Right_little_finger.BMP",
       "file_b": "140__F_Left_little_finger.BMP",
@@ -2804,10 +3152,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 177.51
+      "latency_ms": 317.49
     },
     {
-      "pair_id": 197,
+      "pair_id": 226,
       "type": "impostor",
       "file_a": "358__M_Left_little_finger.BMP",
       "file_b": "185__M_Right_middle_finger.BMP",
@@ -2816,10 +3164,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 144.87
+      "latency_ms": 300.16
     },
     {
-      "pair_id": 198,
+      "pair_id": 227,
       "type": "impostor",
       "file_a": "326__M_Left_middle_finger.BMP",
       "file_b": "416__M_Right_middle_finger.BMP",
@@ -2828,10 +3176,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 181.31
+      "latency_ms": 288.89
     },
     {
-      "pair_id": 199,
+      "pair_id": 228,
       "type": "impostor",
       "file_a": "201__F_Left_thumb_finger.BMP",
       "file_b": "78__F_Right_ring_finger.BMP",
@@ -2840,10 +3188,10 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 162.49
+      "latency_ms": 275.67
     },
     {
-      "pair_id": 200,
+      "pair_id": 229,
       "type": "impostor",
       "file_a": "242__M_Right_little_finger.BMP",
       "file_b": "521__M_Right_middle_finger.BMP",
@@ -2852,7 +3200,859 @@
       "threshold": 0.2385,
       "decision": "REJECT",
       "is_correct": true,
-      "latency_ms": 141.57
+      "latency_ms": 297.92
+    },
+    {
+      "pair_id": 230,
+      "type": "impostor",
+      "file_a": "249__M_Right_middle_finger.BMP",
+      "file_b": "94__M_Right_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.8592,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 282.21
+    },
+    {
+      "pair_id": 231,
+      "type": "impostor",
+      "file_a": "20__M_Left_ring_finger.BMP",
+      "file_b": "348__F_Right_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.2375,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 285.0
+    },
+    {
+      "pair_id": 232,
+      "type": "impostor",
+      "file_a": "192__M_Left_middle_finger.BMP",
+      "file_b": "104__M_Left_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.5992,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 268.62
+    },
+    {
+      "pair_id": 233,
+      "type": "impostor",
+      "file_a": "464__M_Right_little_finger.BMP",
+      "file_b": "301__F_Right_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.5367,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 274.67
+    },
+    {
+      "pair_id": 234,
+      "type": "impostor",
+      "file_a": "201__F_Right_ring_finger.BMP",
+      "file_b": "92__F_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.0489,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 277.47
+    },
+    {
+      "pair_id": 235,
+      "type": "impostor",
+      "file_a": "313__M_Left_thumb_finger.BMP",
+      "file_b": "275__F_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.4713,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 272.8
+    },
+    {
+      "pair_id": 236,
+      "type": "impostor",
+      "file_a": "185__M_Right_thumb_finger.BMP",
+      "file_b": "171__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.6079,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 286.68
+    },
+    {
+      "pair_id": 237,
+      "type": "impostor",
+      "file_a": "489__M_Right_middle_finger.BMP",
+      "file_b": "266__M_Right_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.1486,
+      "threshold": 0.2385,
+      "decision": "ACCEPT",
+      "is_correct": false,
+      "latency_ms": 284.52
+    },
+    {
+      "pair_id": 238,
+      "type": "impostor",
+      "file_a": "435__F_Right_index_finger.BMP",
+      "file_b": "9__M_Right_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.3073,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 276.24
+    },
+    {
+      "pair_id": 239,
+      "type": "impostor",
+      "file_a": "512__M_Right_little_finger.BMP",
+      "file_b": "309__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.0077,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 275.35
+    },
+    {
+      "pair_id": 240,
+      "type": "impostor",
+      "file_a": "201__F_Left_ring_finger.BMP",
+      "file_b": "346__M_Left_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.6291,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 290.09
+    },
+    {
+      "pair_id": 241,
+      "type": "impostor",
+      "file_a": "432__M_Left_ring_finger.BMP",
+      "file_b": "348__F_Right_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.2765,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 274.27
+    },
+    {
+      "pair_id": 242,
+      "type": "impostor",
+      "file_a": "74__F_Right_middle_finger.BMP",
+      "file_b": "16__M_Right_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.4214,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 283.57
+    },
+    {
+      "pair_id": 243,
+      "type": "impostor",
+      "file_a": "348__F_Left_middle_finger.BMP",
+      "file_b": "189__F_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.2556,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 279.22
+    },
+    {
+      "pair_id": 244,
+      "type": "impostor",
+      "file_a": "567__M_Right_ring_finger.BMP",
+      "file_b": "333__M_Right_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.7533,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 280.83
+    },
+    {
+      "pair_id": 245,
+      "type": "impostor",
+      "file_a": "469__M_Left_little_finger.BMP",
+      "file_b": "18__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.7451,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 285.84
+    },
+    {
+      "pair_id": 246,
+      "type": "impostor",
+      "file_a": "120__M_Right_middle_finger.BMP",
+      "file_b": "172__M_Left_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.5226,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 291.89
+    },
+    {
+      "pair_id": 247,
+      "type": "impostor",
+      "file_a": "412__M_Right_little_finger.BMP",
+      "file_b": "20__M_Left_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.3661,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 278.26
+    },
+    {
+      "pair_id": 248,
+      "type": "impostor",
+      "file_a": "17__M_Left_thumb_finger.BMP",
+      "file_b": "249__M_Right_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.108,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 282.93
+    },
+    {
+      "pair_id": 249,
+      "type": "impostor",
+      "file_a": "522__M_Right_little_finger.BMP",
+      "file_b": "409__M_Left_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.8672,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 279.61
+    },
+    {
+      "pair_id": 250,
+      "type": "impostor",
+      "file_a": "128__M_Right_ring_finger.BMP",
+      "file_b": "469__M_Right_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.953,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 287.16
+    },
+    {
+      "pair_id": 251,
+      "type": "impostor",
+      "file_a": "16__M_Right_middle_finger.BMP",
+      "file_b": "139__M_Right_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.7835,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 288.56
+    },
+    {
+      "pair_id": 252,
+      "type": "impostor",
+      "file_a": "567__M_Left_little_finger.BMP",
+      "file_b": "522__M_Left_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.1809,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 281.37
+    },
+    {
+      "pair_id": 253,
+      "type": "impostor",
+      "file_a": "139__M_Left_thumb_finger.BMP",
+      "file_b": "93__M_Left_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.8325,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 281.68
+    },
+    {
+      "pair_id": 254,
+      "type": "impostor",
+      "file_a": "104__M_Right_little_finger.BMP",
+      "file_b": "496__M_Left_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.0352,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 277.49
+    },
+    {
+      "pair_id": 255,
+      "type": "impostor",
+      "file_a": "512__M_Left_little_finger.BMP",
+      "file_b": "342__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.94,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 270.86
+    },
+    {
+      "pair_id": 256,
+      "type": "impostor",
+      "file_a": "368__M_Left_thumb_finger.BMP",
+      "file_b": "409__M_Left_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.0003,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 279.47
+    },
+    {
+      "pair_id": 257,
+      "type": "impostor",
+      "file_a": "74__F_Left_index_finger.BMP",
+      "file_b": "346__M_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.8043,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 274.4
+    },
+    {
+      "pair_id": 258,
+      "type": "impostor",
+      "file_a": "31__F_Right_little_finger.BMP",
+      "file_b": "399__M_Left_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.3508,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 272.27
+    },
+    {
+      "pair_id": 259,
+      "type": "impostor",
+      "file_a": "94__M_Right_little_finger.BMP",
+      "file_b": "172__M_Right_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.8148,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 316.28
+    },
+    {
+      "pair_id": 260,
+      "type": "impostor",
+      "file_a": "93__M_Left_middle_finger.BMP",
+      "file_b": "282__M_Left_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.4331,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 345.4
+    },
+    {
+      "pair_id": 261,
+      "type": "impostor",
+      "file_a": "79__M_Right_thumb_finger.BMP",
+      "file_b": "15__F_Right_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.4555,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 328.35
+    },
+    {
+      "pair_id": 262,
+      "type": "impostor",
+      "file_a": "522__M_Left_ring_finger.BMP",
+      "file_b": "93__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.3657,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 307.14
+    },
+    {
+      "pair_id": 263,
+      "type": "impostor",
+      "file_a": "324__M_Left_middle_finger.BMP",
+      "file_b": "37__M_Left_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.4637,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 294.01
+    },
+    {
+      "pair_id": 264,
+      "type": "impostor",
+      "file_a": "440__M_Left_thumb_finger.BMP",
+      "file_b": "342__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.5291,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 277.2
+    },
+    {
+      "pair_id": 265,
+      "type": "impostor",
+      "file_a": "343__M_Left_index_finger.BMP",
+      "file_b": "45__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.6135,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 280.11
+    },
+    {
+      "pair_id": 266,
+      "type": "impostor",
+      "file_a": "304__M_Right_ring_finger.BMP",
+      "file_b": "56__F_Left_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.4125,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 272.32
+    },
+    {
+      "pair_id": 267,
+      "type": "impostor",
+      "file_a": "17__M_Right_index_finger.BMP",
+      "file_b": "345__M_Right_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.7636,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 299.77
+    },
+    {
+      "pair_id": 268,
+      "type": "impostor",
+      "file_a": "39__M_Right_little_finger.BMP",
+      "file_b": "342__M_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.2481,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 329.2
+    },
+    {
+      "pair_id": 269,
+      "type": "impostor",
+      "file_a": "426__M_Left_thumb_finger.BMP",
+      "file_b": "126__F_Left_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.8443,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 303.98
+    },
+    {
+      "pair_id": 270,
+      "type": "impostor",
+      "file_a": "348__F_Right_middle_finger.BMP",
+      "file_b": "128__M_Left_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.1455,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 318.78
+    },
+    {
+      "pair_id": 271,
+      "type": "impostor",
+      "file_a": "212__M_Right_thumb_finger.BMP",
+      "file_b": "300__F_Right_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.7625,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 352.03
+    },
+    {
+      "pair_id": 272,
+      "type": "impostor",
+      "file_a": "432__M_Left_thumb_finger.BMP",
+      "file_b": "295__M_Left_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.3364,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 296.35
+    },
+    {
+      "pair_id": 273,
+      "type": "impostor",
+      "file_a": "30__F_Right_little_finger.BMP",
+      "file_b": "189__F_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.0706,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 330.87
+    },
+    {
+      "pair_id": 274,
+      "type": "impostor",
+      "file_a": "277__M_Left_index_finger.BMP",
+      "file_b": "276__M_Right_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.1615,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 353.75
+    },
+    {
+      "pair_id": 275,
+      "type": "impostor",
+      "file_a": "104__M_Left_thumb_finger.BMP",
+      "file_b": "73__M_Left_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.8058,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 364.9
+    },
+    {
+      "pair_id": 276,
+      "type": "impostor",
+      "file_a": "213__M_Right_index_finger.BMP",
+      "file_b": "76__F_Left_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.6679,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 304.34
+    },
+    {
+      "pair_id": 277,
+      "type": "impostor",
+      "file_a": "342__M_Right_thumb_finger.BMP",
+      "file_b": "369__F_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.4784,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 321.2
+    },
+    {
+      "pair_id": 278,
+      "type": "impostor",
+      "file_a": "184__M_Left_middle_finger.BMP",
+      "file_b": "355__M_Left_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.3451,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 320.39
+    },
+    {
+      "pair_id": 279,
+      "type": "impostor",
+      "file_a": "304__M_Left_index_finger.BMP",
+      "file_b": "139__M_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.8077,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 352.07
+    },
+    {
+      "pair_id": 280,
+      "type": "impostor",
+      "file_a": "92__F_Left_index_finger.BMP",
+      "file_b": "345__M_Right_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.532,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 318.31
+    },
+    {
+      "pair_id": 281,
+      "type": "impostor",
+      "file_a": "150__M_Left_middle_finger.BMP",
+      "file_b": "90__M_Left_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.836,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 323.41
+    },
+    {
+      "pair_id": 282,
+      "type": "impostor",
+      "file_a": "324__M_Right_index_finger.BMP",
+      "file_b": "295__M_Right_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.292,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 323.69
+    },
+    {
+      "pair_id": 283,
+      "type": "impostor",
+      "file_a": "79__M_Left_middle_finger.BMP",
+      "file_b": "443__M_Right_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.4251,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 329.09
+    },
+    {
+      "pair_id": 284,
+      "type": "impostor",
+      "file_a": "61__M_Right_ring_finger.BMP",
+      "file_b": "150__M_Right_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.9666,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 309.32
+    },
+    {
+      "pair_id": 285,
+      "type": "impostor",
+      "file_a": "324__M_Left_middle_finger.BMP",
+      "file_b": "521__M_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.9175,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 306.48
+    },
+    {
+      "pair_id": 286,
+      "type": "impostor",
+      "file_a": "324__M_Right_middle_finger.BMP",
+      "file_b": "313__M_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.8745,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 321.56
+    },
+    {
+      "pair_id": 287,
+      "type": "impostor",
+      "file_a": "104__M_Right_index_finger.BMP",
+      "file_b": "18__M_Left_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.4502,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 298.64
+    },
+    {
+      "pair_id": 288,
+      "type": "impostor",
+      "file_a": "440__M_Left_middle_finger.BMP",
+      "file_b": "17__M_Left_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.1813,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 318.83
+    },
+    {
+      "pair_id": 289,
+      "type": "impostor",
+      "file_a": "489__M_Right_little_finger.BMP",
+      "file_b": "184__M_Right_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.6137,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 297.7
+    },
+    {
+      "pair_id": 290,
+      "type": "impostor",
+      "file_a": "150__M_Right_little_finger.BMP",
+      "file_b": "496__M_Left_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.9965,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 339.16
+    },
+    {
+      "pair_id": 291,
+      "type": "impostor",
+      "file_a": "230__M_Left_little_finger.BMP",
+      "file_b": "366__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.2102,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 292.02
+    },
+    {
+      "pair_id": 292,
+      "type": "impostor",
+      "file_a": "399__M_Left_thumb_finger.BMP",
+      "file_b": "184__M_Right_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.7074,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 287.82
+    },
+    {
+      "pair_id": 293,
+      "type": "impostor",
+      "file_a": "300__F_Right_index_finger.BMP",
+      "file_b": "313__M_Left_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.0764,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 310.45
+    },
+    {
+      "pair_id": 294,
+      "type": "impostor",
+      "file_a": "184__M_Right_middle_finger.BMP",
+      "file_b": "442__F_Left_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.356,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 479.15
+    },
+    {
+      "pair_id": 295,
+      "type": "impostor",
+      "file_a": "522__M_Right_ring_finger.BMP",
+      "file_b": "193__M_Right_index_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.9086,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 352.12
+    },
+    {
+      "pair_id": 296,
+      "type": "impostor",
+      "file_a": "352__M_Left_ring_finger.BMP",
+      "file_b": "594__M_Left_little_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.392,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 301.26
+    },
+    {
+      "pair_id": 297,
+      "type": "impostor",
+      "file_a": "342__M_Right_middle_finger.BMP",
+      "file_b": "313__M_Left_thumb_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.8226,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 301.21
+    },
+    {
+      "pair_id": 298,
+      "type": "impostor",
+      "file_a": "43__F_Left_little_finger.BMP",
+      "file_b": "25__F_Left_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.0543,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 339.98
+    },
+    {
+      "pair_id": 299,
+      "type": "impostor",
+      "file_a": "74__F_Left_thumb_finger.BMP",
+      "file_b": "567__M_Right_middle_finger.BMP",
+      "ground_truth": 0,
+      "distance": 0.5513,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 303.29
+    },
+    {
+      "pair_id": 300,
+      "type": "impostor",
+      "file_a": "595__M_Left_ring_finger.BMP",
+      "file_b": "120__M_Right_ring_finger.BMP",
+      "ground_truth": 0,
+      "distance": 1.84,
+      "threshold": 0.2385,
+      "decision": "REJECT",
+      "is_correct": true,
+      "latency_ms": 433.96
     }
   ]
 }

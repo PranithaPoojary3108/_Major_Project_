@@ -2,6 +2,7 @@ import os
 import sqlite3
 import json
 from datetime import datetime
+from contextlib import contextmanager
 
 DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "evoting.db")
 TEMPLATES_JSON_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates_db.json")
@@ -19,11 +20,15 @@ DEFAULT_CANDIDATES = [
     (10, "Spoorthi (NNM23IS183)")
 ]
 
+@contextmanager
 def get_db_connection():
-    """Returns a SQLite connection with Row factory enabled."""
-    conn = sqlite3.connect(DB_PATH)
+    """Context manager yielding SQLite connection and guaranteeing connection closure."""
+    conn = sqlite3.connect(DB_PATH, timeout=10.0)
     conn.row_factory = sqlite3.Row
-    return conn
+    try:
+        yield conn
+    finally:
+        conn.close()
 
 def init_db():
     """
@@ -98,6 +103,57 @@ def init_db():
                 FOREIGN KEY (candidate_id) REFERENCES candidates(id)
             )
         """)
+
+        # 5. Security events & suspicious activity log table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS security_events (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                event_type TEXT NOT NULL,
+                severity TEXT NOT NULL,
+                voter_address TEXT,
+                source_ip TEXT,
+                endpoint TEXT,
+                status TEXT NOT NULL,
+                details TEXT,
+                tx_hash TEXT,
+                block_number INTEGER,
+                is_reviewed INTEGER DEFAULT 0,
+                reviewed_at TIMESTAMP,
+                reviewed_by TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sec_type ON security_events(event_type)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sec_sev ON security_events(severity)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sec_voter ON security_events(voter_address)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sec_created ON security_events(created_at)")
+
+        # 6. Role-Based Access Control: Users & Credentials table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT UNIQUE NOT NULL,
+                display_name TEXT NOT NULL,
+                role TEXT NOT NULL,
+                password_hash TEXT NOT NULL,
+                salt TEXT NOT NULL,
+                wallet_address TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_users_role ON users(role)")
+
+        # 7. Active User Sessions table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS user_sessions (
+                token_hash TEXT PRIMARY KEY,
+                username TEXT NOT NULL,
+                role TEXT NOT NULL,
+                expires_at INTEGER NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sess_user ON user_sessions(username)")
 
         conn.commit()
 
@@ -318,6 +374,13 @@ def has_voter_voted(voter_address):
         cursor.execute("SELECT 1 FROM ballots_cast WHERE voter_address = ?", (addr_clean,))
         return cursor.fetchone() is not None
 
+def get_all_voted_addresses():
+    """Returns set of lowercased voter addresses that have already cast ballots (batch query)."""
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT voter_address FROM ballots_cast")
+        return {r["voter_address"].lower() for r in cursor.fetchall()}
+
 def get_candidates_results():
     """Returns list of candidates with vote counts and percentage tallies."""
     with get_db_connection() as conn:
@@ -373,7 +436,9 @@ def factory_reset_db(new_contract_address=None):
         cursor.execute("UPDATE candidates SET vote_count = 0")
         # 3. Clear enrollments
         cursor.execute("DELETE FROM voter_enrollments")
-        # 4. Reset lifecycle
+        # 4. Clear security logs
+        cursor.execute("DELETE FROM security_events")
+        # 5. Reset lifecycle
         cursor.execute("""
             UPDATE election_lifecycle
             SET status = 0, status_label = 'NotStarted', start_time = NULL, end_time = NULL,

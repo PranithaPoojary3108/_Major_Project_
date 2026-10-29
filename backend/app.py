@@ -4,10 +4,43 @@ import csv
 import json
 from flask import Flask, request, jsonify, send_from_directory, Response
 from flask_cors import CORS
+from datetime import datetime, timezone
 from web3 import Web3
 from evaluation_service import (
     run_biometric_evaluation,
     get_latest_evaluation_summary
+)
+from audit_service import (
+    run_blockchain_audit,
+    get_latest_audit,
+    generate_audit_csv
+)
+from security_service import (
+    check_rate_limit,
+    record_biometric_attempt,
+    log_security_event,
+    get_security_summary,
+    get_security_events,
+    get_security_event_by_id,
+    mark_event_reviewed,
+    generate_security_csv,
+    generate_security_json,
+    SECURITY_CONFIG
+)
+from analytics_service import (
+    get_election_analytics,
+    generate_analytics_csv,
+    generate_analytics_json
+)
+from auth_service import (
+    authenticate_user,
+    authenticate_voter_wallet,
+    revoke_session_token,
+    get_current_user,
+    get_token_from_request,
+    require_auth,
+    require_role,
+    ROLE_PERMISSIONS
 )
 from biometric_service import (
     extract_embedding, 
@@ -37,6 +70,8 @@ from database import (
     get_voter_status as db_get_voter_status,
     record_ballot_cast,
     has_voter_voted,
+    get_all_voted_addresses,
+    get_all_enrolled_voters,
     get_candidates_results,
     get_all_cast_ballots,
     get_election_lifecycle,
@@ -115,7 +150,18 @@ def index():
             "biometric_evaluate": "POST /api/biometrics/evaluate",
             "biometric_evaluation_summary": "GET /api/biometrics/evaluation-summary",
             "biometric_export_csv": "GET /api/biometrics/export/csv",
-            "biometric_export_json": "GET /api/biometrics/export/json"
+            "biometric_export_json": "GET /api/biometrics/export/json",
+            # ── Security Monitoring & Tamper Detection ───────────
+            "security_summary": "GET /api/security/summary",
+            "security_events": "GET /api/security/events",
+            "security_event_detail": "GET /api/security/events/<id>",
+            "security_event_review": "POST /api/security/events/<id>/review",
+            "security_export_csv": "GET /api/security/export/csv",
+            "security_export_json": "GET /api/security/export/json",
+            # ── Election Analytics & Results Dashboard ───────────
+            "analytics_overview": "GET /api/analytics/overview",
+            "analytics_export_csv": "GET /api/analytics/export/csv",
+            "analytics_export_json": "GET /api/analytics/export/json"
         }
     }), 200
 
@@ -180,6 +226,7 @@ def list_accounts():
     """Lists available unlocked Hardhat test accounts with roles and balances."""
     accounts = get_accounts()
     db = load_db()
+    voted_set = get_all_voted_addresses()
 
     # Enrich with enrollment & voting status
     enriched = []
@@ -190,7 +237,7 @@ def list_accounts():
             **acc,
             "is_enrolled_offchain": addr_lower in db,
             "is_registered_onchain": onchain.get("isRegistered", False),
-            "has_voted": has_voter_voted(addr_lower) or onchain.get("hasVoted", False)
+            "has_voted": (addr_lower in voted_set) or onchain.get("hasVoted", False)
         })
 
     return jsonify({"accounts": enriched}), 200
@@ -268,6 +315,7 @@ def register_voter():
         return jsonify({"error": str(e)}), 500
 
 @app.route("/api/register-onchain", methods=["POST"])
+@require_role(["COMMISSIONER"])
 def register_onchain():
     """
     Step 2: Registers voter on Ethereum smart contract.
@@ -321,6 +369,7 @@ def register_onchain():
         return jsonify({"error": err_msg}), 500
 
 @app.route("/api/enroll-voter", methods=["POST"])
+@require_role(["COMMISSIONER"])
 def enroll_voter():
     """
     Unified 1-Step Biometric Enrollment:
@@ -404,15 +453,51 @@ def verify_and_vote():
     """
     Step 3: Biometric authentication gate.
     Compares live fingerprint scan against enrolled embedding using Euclidean distance.
+    Applies sliding-window rate limiting and automated suspicious activity logging.
     """
+    client_ip = request.remote_addr or "127.0.0.1"
+    
+    # 1. Rate limiting check
+    allowed, retry_after = check_rate_limit(client_ip, limit_type="verification")
+    if not allowed:
+        log_security_event(
+            event_type="RATE_LIMIT_EXCEEDED",
+            severity="LOW",
+            description=f"Rate limit exceeded on biometric verification endpoint (Retry-After: {retry_after}s)",
+            voter_address=request.form.get("voter_address", "").strip() or None,
+            source_ip=client_ip,
+            status="BLOCKED"
+        )
+        return jsonify({
+            "error": "Rate limit exceeded. Too many verification requests. Please slow down.",
+            "retry_after": retry_after
+        }), 429
+
+    # 2. Malformed request detection
     if "voter_address" not in request.form or "fingerprint" not in request.files:
+        log_security_event(
+            event_type="MALFORMED_REQUEST",
+            severity="LOW",
+            description="Malformed biometric verification request: missing voter_address or fingerprint file",
+            source_ip=client_ip,
+            status="REJECTED"
+        )
         return jsonify({"error": "Fields 'voter_address' and 'fingerprint' are required."}), 400
 
     voter_addr = request.form["voter_address"].strip().lower()
     img_bytes = request.files["fingerprint"].read()
 
     db = load_db()
+    # 3. Unregistered voter detection
     if voter_addr not in db:
+        log_security_event(
+            event_type="UNREGISTERED_VOTER_ATTEMPT",
+            severity="MEDIUM",
+            description=f"Unregistered voter address {voter_addr} attempted biometric verification",
+            voter_address=voter_addr,
+            source_ip=client_ip,
+            status="FAILED"
+        )
         return jsonify({
             "success": False,
             "verified": False,
@@ -423,6 +508,9 @@ def verify_and_vote():
         stored_embedding = db[voter_addr]["embedding"]
         live_embedding = extract_embedding(img_bytes)
         is_match, distance, similarity_pct = verify_fingerprints(stored_embedding, live_embedding)
+
+        # 4. Biometric attempt evaluation (escalates to HIGH alert upon >= 3 failures in window)
+        record_biometric_attempt(voter_addr, is_match=is_match, distance=distance, source_ip=client_ip)
 
         if not is_match:
             return jsonify({
@@ -453,18 +541,53 @@ def cast_vote():
     """
     Step 4: Submits ballot to the smart contract and persists in SQLite database.
     Broadcasts the castVote transaction using the voter's address and biometric hash.
+    Monitors double voting and blockchain transaction failures.
     """
-    data = request.get_json()
+    client_ip = request.remote_addr or "127.0.0.1"
+
+    # 1. Rate limiting check
+    allowed, retry_after = check_rate_limit(client_ip, limit_type="voting")
+    if not allowed:
+        log_security_event(
+            event_type="RATE_LIMIT_EXCEEDED",
+            severity="LOW",
+            description=f"Rate limit exceeded on ballot casting endpoint (Retry-After: {retry_after}s)",
+            source_ip=client_ip,
+            status="BLOCKED"
+        )
+        return jsonify({
+            "error": "Rate limit exceeded. Too many vote submissions. Please slow down.",
+            "retry_after": retry_after
+        }), 429
+
+    data = request.get_json(silent=True)
     if not data or "voter_address" not in data or "candidate_id" not in data or "biometric_hash" not in data:
+        log_security_event(
+            event_type="MALFORMED_REQUEST",
+            severity="LOW",
+            description="Malformed ballot cast payload: missing required fields",
+            source_ip=client_ip,
+            status="REJECTED"
+        )
         return jsonify({"error": "voter_address, candidate_id, and biometric_hash are required."}), 400
 
-    # Prevent double voting from persistent database
-    if has_voter_voted(data["voter_address"]):
+    voter_addr_input = data["voter_address"]
+
+    # 2. Prevent double voting from persistent database
+    if has_voter_voted(voter_addr_input):
+        log_security_event(
+            event_type="DUPLICATE_VOTING_ATTEMPT",
+            severity="HIGH",
+            description=f"Duplicate voting attempt blocked: voter {voter_addr_input} already voted in off-chain database",
+            voter_address=voter_addr_input,
+            source_ip=client_ip,
+            status="REJECTED"
+        )
         return jsonify({"error": "Double Voting Prevented: You have already cast your ballot."}), 400
 
     try:
         contract = get_contract()
-        voter_addr = ensure_voter_account_available(data["voter_address"])
+        voter_addr = ensure_voter_account_available(voter_addr_input)
         candidate_id = int(data["candidate_id"])
         bio_hash = bytes.fromhex(data["biometric_hash"].replace("0x", ""))
 
@@ -474,7 +597,7 @@ def cast_vote():
         # Record ballot into persistent SQLite database
         try:
             record_ballot_cast(
-                data["voter_address"],
+                voter_addr_input,
                 voter_addr,
                 candidate_id,
                 data["biometric_hash"],
@@ -483,6 +606,18 @@ def cast_vote():
             )
         except Exception as db_err:
             print(f"[DB Record Ballot Warning] {db_err}")
+
+        # 3. Log successful ballot cast event
+        log_security_event(
+            event_type="BALLOT_CAST_SUCCESS",
+            severity="INFO",
+            description=f"Ballot successfully confirmed on blockchain ledger for candidate {candidate_id}",
+            voter_address=voter_addr_input,
+            tx_hash=receipt.transactionHash.hex(),
+            block_number=receipt.blockNumber,
+            source_ip=client_ip,
+            status="CONFIRMED"
+        )
 
         return jsonify({
             "success": True,
@@ -493,12 +628,50 @@ def cast_vote():
             "message": "Vote successfully cast and permanently recorded on blockchain ledger and database."
         }), 200
     except BlockchainUnavailableError as e:
+        log_security_event(
+            event_type="BLOCKCHAIN_TRANSACTION_FAILURE",
+            severity="HIGH",
+            description=f"Blockchain connection unavailable during vote cast: {str(e)}",
+            voter_address=voter_addr_input,
+            source_ip=client_ip,
+            status="ERROR"
+        )
         return jsonify({"error": str(e), "code": "BLOCKCHAIN_UNAVAILABLE"}), 503
     except VoterAccountUnavailableError as e:
+        log_security_event(
+            event_type="UNREGISTERED_VOTER_ATTEMPT",
+            severity="MEDIUM",
+            description=f"Voter wallet not available on connected node: {str(e)}",
+            voter_address=voter_addr_input,
+            source_ip=client_ip,
+            status="REJECTED"
+        )
         return jsonify({"error": str(e), "code": "VOTER_ACCOUNT_UNAVAILABLE"}), 400
     except Exception as e:
         err_msg = str(e)
-        if "revert" in err_msg.lower():
+        is_revert = "revert" in err_msg.lower()
+        is_double_vote = "already cast your ballot" in err_msg.lower()
+
+        if is_double_vote:
+            log_security_event(
+                event_type="DUPLICATE_VOTING_ATTEMPT",
+                severity="HIGH",
+                description=f"Smart contract reverted castVote: voter {voter_addr_input} already voted on-chain",
+                voter_address=voter_addr_input,
+                source_ip=client_ip,
+                status="REJECTED"
+            )
+        elif is_revert or "error" in err_msg.lower():
+            log_security_event(
+                event_type="BLOCKCHAIN_TRANSACTION_FAILURE",
+                severity="HIGH",
+                description=f"Smart contract castVote execution failure: {err_msg[:200]}",
+                voter_address=voter_addr_input,
+                source_ip=client_ip,
+                status="ERROR"
+            )
+
+        if is_revert:
             # Election lifecycle errors
             if "not currently open" in err_msg:
                 err_msg = "Election Error: The election is not currently open for voting."
@@ -760,6 +933,7 @@ def election_info():
 
 
 @app.route("/api/open-election", methods=["POST"])
+@require_role(["COMMISSIONER"])
 def open_election():
     """
     Commissioner-only: Opens the election for a specified time window.
@@ -770,8 +944,16 @@ def open_election():
         "end_time":   <unix_timestamp_int>
       }
     """
-    data = request.get_json()
+    client_ip = request.remote_addr or "127.0.0.1"
+    data = request.get_json(silent=True)
     if not data or "start_time" not in data or "end_time" not in data:
+        log_security_event(
+            event_type="MALFORMED_REQUEST",
+            severity="LOW",
+            description="Malformed open-election request: missing start_time or end_time",
+            source_ip=client_ip,
+            status="REJECTED"
+        )
         return jsonify({
             "error": "JSON body must contain 'start_time' and 'end_time' (Unix timestamps)."
         }), 400
@@ -788,6 +970,19 @@ def open_election():
     try:
         contract     = get_contract()
         commissioner = w3.eth.accounts[0]
+
+        # Authorization check: verify caller is commissioner if explicitly passed
+        caller = request.headers.get("X-Commissioner-Address") or data.get("caller_address")
+        if caller and caller.strip().lower() != commissioner.lower():
+            log_security_event(
+                event_type="UNAUTHORIZED_ADMIN_ACCESS",
+                severity="HIGH",
+                description=f"Unauthorized non-commissioner wallet {caller} attempted to open election",
+                voter_address=caller,
+                source_ip=client_ip,
+                status="FORBIDDEN"
+            )
+            return jsonify({"error": "Authorization Denied: Only the Election Commissioner may open the election."}), 403
 
         import time
         now_host = int(time.time())
@@ -814,6 +1009,17 @@ def open_election():
         except Exception as db_err:
             print(f"[DB Update Lifecycle Warning] {db_err}")
 
+        log_security_event(
+            event_type="ADMIN_OPERATION_SUCCESS",
+            severity="INFO",
+            description=f"Election successfully opened from timestamp {start_time} to {end_time}",
+            voter_address=commissioner,
+            tx_hash=receipt.transactionHash.hex(),
+            block_number=receipt.blockNumber,
+            source_ip=client_ip,
+            status="CONFIRMED"
+        )
+
         return jsonify({
             "success": True,
             "tx_hash": receipt.transactionHash.hex(),
@@ -838,20 +1044,42 @@ def open_election():
             elif "start time cannot be in the past" in err_msg.lower():
                 err_msg = "Invalid timing: start_time cannot be in the past."
             elif "not the election commissioner" in err_msg.lower():
+                log_security_event(
+                    event_type="UNAUTHORIZED_ADMIN_ACCESS",
+                    severity="HIGH",
+                    description="Smart contract revert: not the election commissioner",
+                    source_ip=client_ip,
+                    status="FORBIDDEN"
+                )
                 err_msg = "Authorization denied: Only the Election Commissioner may open the election."
         return jsonify({"error": err_msg}), 400
 
 
 @app.route("/api/close-election", methods=["POST"])
+@require_role(["COMMISSIONER"])
 def close_election():
     """
     Commissioner-only: Closes the election immediately.
     After closing, no further votes can be cast.
     The smart contract emits ElectionClosed(closedAt, totalVotes).
     """
+    client_ip = request.remote_addr or "127.0.0.1"
     try:
         contract     = get_contract()
         commissioner = w3.eth.accounts[0]
+
+        # Authorization check: verify caller is commissioner if explicitly passed
+        caller = request.headers.get("X-Commissioner-Address") or (request.get_json(silent=True) or {}).get("caller_address")
+        if caller and caller.strip().lower() != commissioner.lower():
+            log_security_event(
+                event_type="UNAUTHORIZED_ADMIN_ACCESS",
+                severity="HIGH",
+                description=f"Unauthorized non-commissioner wallet {caller} attempted to close election",
+                voter_address=caller,
+                source_ip=client_ip,
+                status="FORBIDDEN"
+            )
+            return jsonify({"error": "Authorization Denied: Only the Election Commissioner may close the election."}), 403
 
         tx_hash = contract.functions.closeElection().transact({"from": commissioner})
         receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
@@ -867,6 +1095,17 @@ def close_election():
             )
         except Exception as db_err:
             print(f"[DB Close Lifecycle Warning] {db_err}")
+
+        log_security_event(
+            event_type="ADMIN_OPERATION_SUCCESS",
+            severity="INFO",
+            description=f"Election permanently closed by commissioner. Total votes cast: {info.get('total_votes', 0)}",
+            voter_address=commissioner,
+            tx_hash=receipt.transactionHash.hex(),
+            block_number=receipt.blockNumber,
+            source_ip=client_ip,
+            status="CONFIRMED"
+        )
 
         return jsonify({
             "success": True,
@@ -884,11 +1123,19 @@ def close_election():
             if "not currently open" in err_msg.lower():
                 err_msg = "Cannot close election: it is not in the Open state."
             elif "not the election commissioner" in err_msg.lower():
+                log_security_event(
+                    event_type="UNAUTHORIZED_ADMIN_ACCESS",
+                    severity="HIGH",
+                    description="Smart contract revert: not the election commissioner",
+                    source_ip=client_ip,
+                    status="FORBIDDEN"
+                )
                 err_msg = "Authorization denied: Only the Election Commissioner may close the election."
         return jsonify({"error": err_msg}), 400
 
 
 @app.route("/api/reset-all", methods=["POST"])
+@require_role(["COMMISSIONER"])
 def factory_reset():
     """
     Factory Reset:
@@ -1051,6 +1298,384 @@ def export_biometrics(format_type):
 
     else:
         return jsonify({"error": "Unsupported export format. Supported formats: 'csv', 'json'."}), 400
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Blockchain Audit and Automatic Tamper Detection Endpoints
+# ─────────────────────────────────────────────────────────────────────────────
+
+@app.route("/api/audit/run", methods=["POST"])
+def api_run_audit():
+    """
+    Executes real-time cryptographic audit across smart contract state,
+    immutable event logs, and off-chain storage to detect discrepancies.
+    """
+    try:
+        report = run_blockchain_audit()
+        return jsonify(report), 200
+    except BlockchainUnavailableError as e:
+        return jsonify({"error": str(e), "code": "BLOCKCHAIN_UNAVAILABLE"}), 503
+    except Exception as e:
+        return jsonify({"error": f"Audit execution failed: {str(e)}"}), 500
+
+@app.route("/api/audit/latest", methods=["GET"])
+def api_latest_audit():
+    """Returns the most recent cached audit report."""
+    try:
+        report = get_latest_audit()
+        return jsonify(report), 200
+    except Exception as e:
+        return jsonify({"error": f"Failed to retrieve latest audit: {str(e)}"}), 500
+
+@app.route("/api/audit/transactions", methods=["GET"])
+def api_audit_transactions():
+    """Returns verified transaction receipt records from the blockchain ledger."""
+    try:
+        report = get_latest_audit()
+        return jsonify({
+            "transactions": report.get("transactions_audit", []),
+            "total_transactions": report.get("total_transactions_audited", 0),
+            "confirmed_transactions": report.get("confirmed_transactions", 0),
+            "failed_transactions": report.get("failed_transactions", 0),
+            "missing_transactions": report.get("missing_transactions", 0)
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/audit/candidates-comparison", methods=["GET"])
+def api_audit_candidates_comparison():
+    """Returns authoritative on-chain vs displayed vs event-reconstructed candidate vote counts."""
+    try:
+        report = get_latest_audit()
+        return jsonify({
+            "candidates": report.get("candidates_audit", []),
+            "discrepancies": report.get("discrepancies", []),
+            "contract_address": report.get("contract_address"),
+            "overall_status": report.get("overall_status")
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/audit/export/csv", methods=["GET"])
+def api_export_audit_csv():
+    """Downloads RFC-4180 compliant CSV audit report."""
+    try:
+        csv_text = generate_audit_csv()
+        timestamp_str = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        filename = f"blockchain_tamper_audit_{timestamp_str}.csv"
+        return Response(
+            csv_text,
+            mimetype="text/csv",
+            headers={"Content-Disposition": f"attachment;filename={filename}"}
+        )
+    except Exception as e:
+        return jsonify({"error": f"CSV export failed: {str(e)}"}), 500
+
+
+
+@app.route("/api/audit/simulate-tamper", methods=["POST"])
+def api_simulate_tamper():
+    """
+    Exhibition Demonstration Endpoint:
+    Simulates a hypothetical off-chain database modification (e.g. +5 votes for a candidate)
+    and demonstrates how the blockchain audit engine instantly catches the discrepancy
+    WITHOUT mutating real election database or smart contract data.
+    """
+    data = request.get_json() or {}
+    candidate_id = int(data.get("candidate_id", 1))
+    tampered_offset = int(data.get("tampered_offset", 5))
+
+    report = run_blockchain_audit(simulated_discrepancy={
+        "candidate_id": candidate_id,
+        "tampered_offset": tampered_offset
+    })
+
+    return jsonify({
+        "simulation": True,
+        "demonstration_note": "Controlled tamper detection demonstration. Real election data was NOT mutated.",
+        "simulated_candidate_id": candidate_id,
+        "simulated_offset": tampered_offset,
+        "audit_report": report
+    }), 200
+
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Security Monitoring & Suspicious Activity Detection Endpoints
+# ─────────────────────────────────────────────────────────────────────────────
+
+@app.route("/api/security/summary", methods=["GET"])
+def api_security_summary():
+    """Returns high-level statistics and counts of flagged suspicious activities."""
+    try:
+        summary = get_security_summary()
+        return jsonify(summary), 200
+    except Exception as e:
+        return jsonify({"error": f"Failed to retrieve security summary: {str(e)}"}), 500
+
+@app.route("/api/security/events", methods=["GET"])
+def api_security_events():
+    """
+    Returns filtered, paginated security audit events.
+    Supports query params: limit, offset, event_type, severity, reviewed, search
+    """
+    try:
+        limit = int(request.args.get("limit", 100))
+        offset = int(request.args.get("offset", 0))
+        event_type = request.args.get("event_type")
+        severity = request.args.get("severity")
+        reviewed_param = request.args.get("reviewed")
+        reviewed = None
+        if reviewed_param is not None and reviewed_param != "":
+            reviewed = reviewed_param.lower() in ("1", "true", "yes")
+        search = request.args.get("search")
+
+        result = get_security_events(
+            limit=limit,
+            offset=offset,
+            event_type=event_type,
+            severity=severity,
+            reviewed=reviewed,
+            search=search
+        )
+        return jsonify(result), 200
+    except Exception as e:
+        return jsonify({"error": f"Failed to retrieve security events: {str(e)}"}), 500
+
+@app.route("/api/security/events/<int:event_id>", methods=["GET"])
+def api_security_event_detail(event_id):
+    """Returns granular details for a specific security event."""
+    try:
+        event = get_security_event_by_id(event_id)
+        if not event:
+            return jsonify({"error": f"Security event #{event_id} not found."}), 404
+        return jsonify(event), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/security/events/<int:event_id>/review", methods=["POST"])
+@require_role(["COMMISSIONER", "AUDITOR"])
+def api_security_event_review(event_id):
+    """
+    Marks a security event as reviewed by an auditor or commissioner.
+    JSON body (optional): { "reviewed_by": "Auditor Name or Address" }
+    """
+    try:
+        data = request.get_json(silent=True) or {}
+        reviewed_by = data.get("reviewed_by", "Election Commissioner")
+        updated = mark_event_reviewed(event_id, reviewed_by=reviewed_by)
+        if not updated:
+            return jsonify({"error": f"Security event #{event_id} not found."}), 404
+        return jsonify({
+            "success": True,
+            "event_id": event_id,
+            "reviewed_by": reviewed_by,
+            "message": f"Security event #{event_id} marked as reviewed."
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/security/export/csv", methods=["GET"])
+def api_security_export_csv():
+    """Downloads RFC-4180 compliant CSV export of the persistent security log."""
+    try:
+        csv_text = generate_security_csv()
+        timestamp_str = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        filename = f"security_incident_log_{timestamp_str}.csv"
+        return Response(
+            csv_text,
+            mimetype="text/csv",
+            headers={"Content-Disposition": f"attachment;filename={filename}"}
+        )
+    except Exception as e:
+        return jsonify({"error": f"Security CSV export failed: {str(e)}"}), 500
+
+@app.route("/api/security/export/json", methods=["GET"])
+def api_security_export_json():
+    """Downloads full JSON export of the persistent security log."""
+    try:
+        json_data = generate_security_json()
+        timestamp_str = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        filename = f"security_incident_log_{timestamp_str}.json"
+        return Response(
+            json.dumps(json_data, indent=2),
+            mimetype="application/json",
+            headers={"Content-Disposition": f"attachment;filename={filename}"}
+        )
+    except Exception as e:
+        return jsonify({"error": f"Security JSON export failed: {str(e)}"}), 500
+
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Election Analytics & Results Dashboard Endpoints
+# ─────────────────────────────────────────────────────────────────────────────
+
+@app.route("/api/analytics/overview", methods=["GET"])
+def api_analytics_overview():
+    """
+    Returns comprehensive election overview, voter turnout %, candidate standings with ties,
+    hourly voting activity, and biometric/security correlation.
+    Supports query parameters: start_date, end_date, candidate_id
+    """
+    try:
+        start_date = request.args.get("start_date")
+        end_date = request.args.get("end_date")
+        candidate_id = request.args.get("candidate_id")
+
+        data = get_election_analytics(
+            start_date=start_date,
+            end_date=end_date,
+            candidate_id=candidate_id
+        )
+        return jsonify(data), 200
+    except Exception as e:
+        return jsonify({"error": f"Failed to generate election analytics: {str(e)}"}), 500
+
+@app.route("/api/analytics/export/csv", methods=["GET"])
+def api_analytics_export_csv():
+    """Downloads RFC-4180 compliant CSV export of complete election analytics report."""
+    try:
+        start_date = request.args.get("start_date")
+        end_date = request.args.get("end_date")
+        candidate_id = request.args.get("candidate_id")
+
+        csv_text = generate_analytics_csv(
+            start_date=start_date,
+            end_date=end_date,
+            candidate_id=candidate_id
+        )
+        timestamp_str = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        filename = f"election_analytics_report_{timestamp_str}.csv"
+        return Response(
+            csv_text,
+            mimetype="text/csv",
+            headers={"Content-Disposition": f"attachment;filename={filename}"}
+        )
+    except Exception as e:
+        return jsonify({"error": f"Analytics CSV export failed: {str(e)}"}), 500
+
+@app.route("/api/analytics/export/json", methods=["GET"])
+def api_analytics_export_json():
+    """Downloads structured JSON export of complete election analytics report."""
+    try:
+        start_date = request.args.get("start_date")
+        end_date = request.args.get("end_date")
+        candidate_id = request.args.get("candidate_id")
+
+        json_data = generate_analytics_json(
+            start_date=start_date,
+            end_date=end_date,
+            candidate_id=candidate_id
+        )
+        timestamp_str = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        filename = f"election_analytics_report_{timestamp_str}.json"
+        return Response(
+            json.dumps(json_data, indent=2),
+            mimetype="application/json",
+            headers={"Content-Disposition": f"attachment;filename={filename}"}
+        )
+    except Exception as e:
+        return jsonify({"error": f"Analytics JSON export failed: {str(e)}"}), 500
+
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Role-Based Access Control (RBAC) & Authentication Endpoints
+# ─────────────────────────────────────────────────────────────────────────────
+
+@app.route("/api/auth/login", methods=["POST"])
+def api_auth_login():
+    """
+    Authenticates a user by username/password or wallet address.
+    Returns signed cryptographic session token with embedded role and expiry.
+    """
+    data = request.get_json(silent=True) or {}
+    username = data.get("username")
+    password = data.get("password")
+    wallet_address = data.get("wallet_address")
+
+    # 1. Username / Password authentication (e.g. Commissioner or Auditor)
+    if username and password:
+        auth_result = authenticate_user(username, password)
+        if not auth_result:
+            return jsonify({
+                "error": "Invalid username or password.",
+                "code": "INVALID_CREDENTIALS"
+            }), 401
+        return jsonify({
+            "success": True,
+            **auth_result,
+            "message": f"Successfully authenticated as {auth_result['user']['role']}."
+        }), 200
+
+    # 2. Voter wallet authentication
+    if wallet_address:
+        auth_result = authenticate_voter_wallet(wallet_address)
+        if not auth_result:
+            return jsonify({
+                "error": "Invalid Ethereum wallet address format.",
+                "code": "INVALID_WALLET"
+            }), 400
+        return jsonify({
+            "success": True,
+            **auth_result,
+            "message": "Successfully authenticated as Registered Voter."
+        }), 200
+
+    return jsonify({
+        "error": "Request must include either 'username' and 'password' OR 'wallet_address'.",
+        "code": "MISSING_CREDENTIALS"
+    }), 400
+
+@app.route("/api/auth/logout", methods=["POST"])
+def api_auth_logout():
+    """Revokes active bearer token session in server database."""
+    token = get_token_from_request()
+    if token:
+        revoke_session_token(token)
+    return jsonify({
+        "success": True,
+        "message": "Session terminated successfully."
+    }), 200
+
+@app.route("/api/auth/me", methods=["GET"])
+def api_auth_me():
+    """Returns currently authenticated user profile and permissions."""
+    user = get_current_user()
+    if not user:
+        return jsonify({
+            "authenticated": False,
+            "user": None,
+            "role": "ANONYMOUS"
+        }), 200
+
+    role = user.get("role", "ANONYMOUS")
+    perms = ROLE_PERMISSIONS.get(role, {}).get("permissions", [])
+
+    return jsonify({
+        "authenticated": True,
+        "user": {
+            "username": user.get("sub"),
+            "display_name": user.get("name"),
+            "role": role,
+            "wallet_address": user.get("wallet"),
+            "expires_at": user.get("exp")
+        },
+        "permissions": perms
+    }), 200
+
+@app.route("/api/auth/roles", methods=["GET"])
+def api_auth_roles():
+    """Returns explicit role permission matrix."""
+    return jsonify({
+        "roles": ROLE_PERMISSIONS,
+        "default_accounts": {
+            "commissioner": { "username": "commissioner", "role": "COMMISSIONER", "default_pin": "admin123" },
+            "auditor": { "username": "auditor", "role": "AUDITOR", "default_pin": "audit123" },
+            "voter": { "username": "voter", "role": "VOTER", "default_pin": "voter123" }
+        }
+    }), 200
 
 
 if __name__ == "__main__":

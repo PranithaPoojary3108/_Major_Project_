@@ -5,6 +5,7 @@ from web3 import Web3
 RPC_URL = os.getenv("RPC_URL", "http://127.0.0.1:8545")
 w3 = Web3(Web3.HTTPProvider(RPC_URL))
 
+
 BLOCKCHAIN_UNAVAILABLE_MESSAGE = (
     f"Blockchain node is unavailable at {RPC_URL}. "
     "Start it with 'npx hardhat node' in the blockchain folder, "
@@ -114,6 +115,16 @@ def get_contract():
         artifact = json.load(f)
     abi = artifact["abi"]
     contract_addr = Web3.to_checksum_address(get_deployed_address())
+    try:
+        code = w3.eth.get_code(contract_addr)
+        if len(code) <= 2:
+            raise BlockchainUnavailableError(
+                f"No contract bytecode found at {contract_addr}. Deploy contract or click Factory Reset."
+            )
+    except BlockchainUnavailableError:
+        raise
+    except Exception:
+        pass
     return w3.eth.contract(address=contract_addr, abi=abi)
 
 def is_connected():

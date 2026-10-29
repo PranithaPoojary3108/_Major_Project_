@@ -1,0 +1,188 @@
+{
+  "overall_status": "VERIFIED",
+  "is_tamper_free": true,
+  "audit_timestamp": "2026-10-28T17:43:12.513958+00:00",
+  "contract_address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "current_block": 5,
+  "block_range_checked": "0 to 5",
+  "network": "Hardhat Local (ChainID: 31337)",
+  "total_votes_onchain": 1,
+  "total_votes_events": 1,
+  "total_votes_displayed": 1,
+  "total_transactions_audited": 1,
+  "confirmed_transactions": 1,
+  "failed_transactions": 0,
+  "missing_transactions": 0,
+  "checks": [
+    {
+      "id": "candidate_counts_crosscheck",
+      "name": "Authoritative On-Chain Vote Count vs. Off-Chain Displayed Tally",
+      "status": "PASS",
+      "expected": "All displayed candidate vote counts match smart contract storage exactly",
+      "actual": "All candidate vote tallies match 100%",
+      "explanation": "Smart contract storage is the sole cryptographic source of truth. Any deviation indicates database desynchronization, unconfirmed local edits, or off-chain data tampering."
+    },
+    {
+      "id": "event_log_reconstruction",
+      "name": "Event Log Tally Reconstruction vs. Contract Storage",
+      "status": "PASS",
+      "expected": "Sum of VoteCasted events matches candidate stored voteCount",
+      "actual": "1 vote events successfully reconciled with contract storage.",
+      "explanation": "Every valid vote transaction emits an indexed VoteCasted event on the Ethereum ledger. Reconstructing the ledger independent of state variables verifies internal contract consistency."
+    },
+    {
+      "id": "total_votes_sanity",
+      "name": "Aggregate Vote Count Mathematical Sanity",
+      "status": "PASS",
+      "expected": "Total votes equals sum of candidate votes (1)",
+      "actual": "Contract aggregate total: 1, Sum of candidates: 1",
+      "explanation": "Validates that the smart contract internal tally accumulator matches the sum of individual candidate buckets."
+    },
+    {
+      "id": "transaction_receipts_validation",
+      "name": "Cryptographic Transaction Receipts & Block Inclusion",
+      "status": "PASS",
+      "expected": "All recorded vote transactions exist on Ethereum with status=1 (Mined & Successful)",
+      "actual": "Confirmed: 1, Failed: 0, Missing/Unverifiable: 0",
+      "explanation": "Having a transaction hash does not guarantee the ballot was counted; the Ethereum EVM receipt status must be strictly 1 (Success)."
+    },
+    {
+      "id": "voter_singularity_integrity",
+      "name": "One-Person-One-Vote Cryptographic Constraint",
+      "status": "PASS",
+      "expected": "Each registered voter address appears at most once in verified vote events",
+      "actual": "1 unique voting accounts across 1 vote events (0 duplicates).",
+      "explanation": "Guarantees that no address was able to submit more than one ballot on the blockchain ledger."
+    },
+    {
+      "id": "lifecycle_synchronization",
+      "name": "Election Lifecycle State Synchronization",
+      "status": "PASS",
+      "expected": "Smart contract status (1) matches persistent database status",
+      "actual": "Contract status: 1, Database status: 1",
+      "explanation": "Verifies that administrative open/close transitions are uniformly recognized by both the blockchain state and the backend coordinator."
+    }
+  ],
+  "candidates_audit": [
+    {
+      "candidate_id": 1,
+      "name": "Pranitha C Poojary (NNM23IS134)",
+      "onchain_votes": 1,
+      "displayed_votes": 1,
+      "db_votes": 1,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 1
+    },
+    {
+      "candidate_id": 2,
+      "name": "Srajan J Poojary (NNM22IS173)",
+      "onchain_votes": 0,
+      "displayed_votes": 0,
+      "db_votes": 0,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 0
+    },
+    {
+      "candidate_id": 3,
+      "name": "Aashna Mathias (NNM23IS001)",
+      "onchain_votes": 0,
+      "displayed_votes": 0,
+      "db_votes": 0,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 0
+    },
+    {
+      "candidate_id": 4,
+      "name": "Abhimanyu Rai B S (NNM23IS002)",
+      "onchain_votes": 0,
+      "displayed_votes": 0,
+      "db_votes": 0,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 0
+    },
+    {
+      "candidate_id": 5,
+      "name": "Pranjali N (NNM23IS135)",
+      "onchain_votes": 0,
+      "displayed_votes": 0,
+      "db_votes": 0,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 0
+    },
+    {
+      "candidate_id": 6,
+      "name": "Raksha S Suvarna (NNM23IS143)",
+      "onchain_votes": 0,
+      "displayed_votes": 0,
+      "db_votes": 0,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 0
+    },
+    {
+      "candidate_id": 7,
+      "name": "Nireeksha (NNM23IS111)",
+      "onchain_votes": 0,
+      "displayed_votes": 0,
+      "db_votes": 0,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 0
+    },
+    {
+      "candidate_id": 8,
+      "name": "H Nihal Shetty (NNM23IS074)",
+      "onchain_votes": 0,
+      "displayed_votes": 0,
+      "db_votes": 0,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 0
+    },
+    {
+      "candidate_id": 9,
+      "name": "Rishika Rajesh Kumar (NNM23IS147)",
+      "onchain_votes": 0,
+      "displayed_votes": 0,
+      "db_votes": 0,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 0
+    },
+    {
+      "candidate_id": 10,
+      "name": "Spoorthi (NNM23IS183)",
+      "onchain_votes": 0,
+      "displayed_votes": 0,
+      "db_votes": 0,
+      "matches": true,
+      "discrepancy": null,
+      "event_reconstructed_votes": 0
+    }
+  ],
+  "transactions_audit": [
+    {
+      "tx_hash": "a0c377436390d3e4ef8dc40ae065c044deb036245add1eba06e570e86d547147",
+      "voter": "0x664BC1948b657b159D002a7EA161c096b53E57Ff",
+      "candidate_id": 1,
+      "candidate_name": "Pranitha C Poojary (NNM23IS134)",
+      "block_number": 4,
+      "gas_used": 62634,
+      "status": "CONFIRMED",
+      "confirmed": true,
+      "timestamp": 1793208630,
+      "error": null
+    }
+  ],
+  "discrepancies": [],
+  "limitations": [
+    "Local Hardhat development network timestamps advance with transactions, not real-world seconds.",
+    "Audit validates cryptographic state against current block height; historical events require archive node availability.",
+    "Hardware sensor physical impedance attacks cannot be detected via blockchain state inspection alone."
+  ]
+}

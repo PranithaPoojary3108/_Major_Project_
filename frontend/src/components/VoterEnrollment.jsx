@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BiometricMatcher from './BiometricMatcher';
+import { authenticatedFetch } from '../utils/auth';
 
 const API_BASE = "http://127.0.0.1:5000";
 
@@ -107,7 +108,7 @@ export default function VoterEnrollment({ onEnrollSuccess, accounts = [], presel
     formData.append("fingerprint", fingerprintFile);
 
     try {
-      const res = await fetch(`${API_BASE}/api/enroll-voter`, {
+      const res = await authenticatedFetch(`${API_BASE}/api/enroll-voter`, {
         method: "POST",
         body: formData,
       });

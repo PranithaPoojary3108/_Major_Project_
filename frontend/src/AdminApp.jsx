@@ -5,6 +5,11 @@ import ResultsDashboard from './components/ResultsDashboard';
 import AuditExplorer from './components/AuditExplorer';
 import ElectionControl from './components/ElectionControl';
 import BiometricEvaluationDashboard from './components/BiometricEvaluationDashboard';
+import ElectionAuditDashboard from './components/ElectionAuditDashboard';
+import SecurityMonitoringDashboard from './components/SecurityMonitoringDashboard';
+import ElectionAnalyticsDashboard from './components/ElectionAnalyticsDashboard';
+import RoleLoginModal from './components/RoleLoginModal';
+import VoterPortalDashboard from './components/VoterPortalDashboard';
 
 const API_BASE = "http://127.0.0.1:5000";
 
@@ -17,6 +22,81 @@ export default function AdminApp() {
   const [systemStatus, setSystemStatus] = useState(null);
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState("");
+
+  // Role-Based Access Control State
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem("evoting_user");
+      return saved ? JSON.parse(saved) : { username: "commissioner", role: "COMMISSIONER", display_name: "Ms. Tanzila Nargis (Commissioner)" };
+    } catch {
+      return { username: "commissioner", role: "COMMISSIONER", display_name: "Ms. Tanzila Nargis (Commissioner)" };
+    }
+  });
+  const [authToken, setAuthToken] = useState(() => localStorage.getItem("evoting_token") || "");
+
+  const checkAuthSession = async () => {
+    const savedToken = localStorage.getItem("evoting_token");
+    if (savedToken) {
+      try {
+        const res = await fetch(`${API_BASE}/api/auth/me`, {
+          headers: { "Authorization": `Bearer ${savedToken}` }
+        });
+        const data = await res.json();
+        if (data.authenticated && data.user) {
+          setCurrentUser(data.user);
+          setAuthToken(savedToken);
+          return;
+        }
+      } catch {}
+    }
+    // Default initial auto-login as commissioner for seamless exhibition experience
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: "commissioner", password: "admin123" })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setAuthToken(data.token);
+        setCurrentUser(data.user);
+        localStorage.setItem("evoting_token", data.token);
+        localStorage.setItem("evoting_user", JSON.stringify(data.user));
+      }
+    } catch {}
+  };
+
+  const handleLoginSuccess = (token, user) => {
+    setAuthToken(token);
+    setCurrentUser(user);
+    localStorage.setItem("evoting_token", token);
+    localStorage.setItem("evoting_user", JSON.stringify(user));
+    if (user.role === "AUDITOR") {
+      setActiveTab("audit");
+    } else if (user.role === "VOTER") {
+      setActiveTab("voter_portal");
+    } else {
+      setActiveTab("enrollment");
+    }
+    refreshAllData();
+  };
+
+  const handleLogout = async () => {
+    if (authToken) {
+      try {
+        await fetch(`${API_BASE}/api/auth/logout`, {
+          method: "POST",
+          headers: { "Authorization": `Bearer ${authToken}` }
+        });
+      } catch {}
+    }
+    localStorage.removeItem("evoting_token");
+    localStorage.removeItem("evoting_user");
+    setAuthToken("");
+    setCurrentUser(null);
+    setAuthModalOpen(true);
+  };
 
   const fetchStatus = async () => {
     try {
@@ -62,17 +142,26 @@ export default function AdminApp() {
   };
 
   useEffect(() => {
+    checkAuthSession();
     refreshAllData();
   }, []);
 
-  const tabs = [
-    { id: "enrollment", label: "📝 Pre-Election Enrollment", desc: "Biometric Feature Extraction & On-Chain Registration" },
-    { id: "lifecycle", label: "⚡ Election Lifecycle", desc: "Commissioner Timing & Status Control" },
-    { id: "roster", label: "📋 Student Electoral Roll", desc: "235 Students (VII A, VII B, VII C)" },
-    { id: "results", label: "📊 Election Standings", desc: "Live Tally & Vote Distribution" },
-    { id: "explorer", label: "⛓️ Blockchain Explorer", desc: "Immutable Public Ledger & Transaction Log" },
-    { id: "biometrics", label: "🔬 Biometric Performance", desc: "FAR, FRR, EER & ROC Analysis" }
+  const currentRole = currentUser?.role || "COMMISSIONER";
+
+  const allTabs = [
+    { id: "enrollment", label: "📝 Pre-Election Enrollment", desc: "Biometric Feature Extraction & On-Chain Registration", roles: ["COMMISSIONER"] },
+    { id: "lifecycle", label: "⚡ Election Lifecycle", desc: "Commissioner Timing & Status Control", roles: ["COMMISSIONER"] },
+    { id: "roster", label: "📋 Student Electoral Roll", desc: "235 Students (VII A, VII B, VII C)", roles: ["COMMISSIONER"] },
+    { id: "voter_portal", label: "👤 Voter Verification", desc: "Eligibility, Window & Personal Receipt", roles: ["VOTER"] },
+    { id: "results", label: "📊 Election Standings", desc: "Live Tally & Vote Distribution", roles: ["COMMISSIONER", "AUDITOR", "VOTER"] },
+    { id: "analytics", label: "📈 Election Analytics", desc: "Turnout, Candidate Rankings & Temporal Trends", roles: ["COMMISSIONER", "AUDITOR"] },
+    { id: "audit", label: "🔍 Tamper Audit", desc: "Automated On-Chain Discrepancy & Tamper Detection", roles: ["COMMISSIONER", "AUDITOR"] },
+    { id: "security", label: "🛡️ Security Monitoring", desc: "Suspicious Activity Detection & Incident Log", roles: ["COMMISSIONER", "AUDITOR"] },
+    { id: "explorer", label: "⛓️ Blockchain Explorer", desc: "Immutable Public Ledger & Transaction Log", roles: ["COMMISSIONER", "AUDITOR", "VOTER"] },
+    { id: "biometrics", label: "🔬 Biometric Performance", desc: "FAR, FRR, EER & ROC Analysis", roles: ["COMMISSIONER", "AUDITOR"] }
   ];
+
+  const tabs = allTabs.filter(t => t.roles.includes(currentRole));
 
   return (
     <div style={appContainer}>
@@ -91,6 +180,39 @@ export default function AdminApp() {
             <div style={projectTitleBlock}>
               <div style={adminBadge}>🛡️ ELECTION COMMISSIONER &bull; ADMIN PORTAL</div>
               <h1 style={mainTitle}>Pre-Election Voter Enrollment Center</h1>
+            </div>
+
+            {/* Role-Based Access Control Switcher */}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", background: "#0f172a", border: "1px solid #334155", padding: "0.35rem 0.6rem", borderRadius: "8px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
+                <span style={{ fontSize: "1.1rem" }}>{currentRole === "COMMISSIONER" ? "👑" : (currentRole === "AUDITOR" ? "🔍" : "👤")}</span>
+                <div>
+                  <div style={{ fontSize: "0.7rem", color: currentRole === "COMMISSIONER" ? "#6ee7b7" : (currentRole === "AUDITOR" ? "#fcd34d" : "#38bdf8"), fontWeight: "800", letterSpacing: "0.05em" }}>
+                    ROLE: {currentRole}
+                  </div>
+                  <div style={{ fontSize: "0.75rem", color: "#cbd5e1", maxWidth: "160px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                    {currentUser?.display_name || "User"}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setAuthModalOpen(true)}
+                style={switchRoleBtn}
+                title="Switch Role or Log In with Credentials"
+              >
+                Switch Role
+              </button>
+
+              <button
+                type="button"
+                onClick={handleLogout}
+                style={logoutBtn}
+                title="Terminate active session"
+              >
+                Logout
+              </button>
             </div>
 
             {/* Link to Booth Client Station */}
@@ -208,14 +330,40 @@ export default function AdminApp() {
             />
           )}
 
+          {activeTab === "analytics" && (
+            <ElectionAnalyticsDashboard />
+          )}
+
+          {activeTab === "audit" && (
+            <ElectionAuditDashboard />
+          )}
+
+          {activeTab === "security" && (
+            <SecurityMonitoringDashboard />
+          )}
+
           {activeTab === "explorer" && (
             <AuditExplorer />
+          )}
+
+          {activeTab === "voter_portal" && (
+            <VoterPortalDashboard
+              currentUser={currentUser}
+              onSwitchToBooth={() => window.open("http://localhost:3000", "_blank")}
+            />
           )}
 
           {activeTab === "biometrics" && (
             <BiometricEvaluationDashboard />
           )}
         </div>
+
+        <RoleLoginModal
+          isOpen={authModalOpen}
+          onClose={() => setAuthModalOpen(false)}
+          onLoginSuccess={handleLoginSuccess}
+          currentRole={currentRole}
+        />
       </main>
 
       {/* Footer */}
@@ -335,4 +483,26 @@ const footerStyle = {
   textAlign: "center",
   fontSize: "0.8rem",
   color: "#94a3b8"
+};
+
+const switchRoleBtn = {
+  background: "#0284c7",
+  color: "#fff",
+  border: "none",
+  borderRadius: "5px",
+  padding: "0.32rem 0.65rem",
+  fontSize: "0.75rem",
+  fontWeight: "700",
+  cursor: "pointer"
+};
+
+const logoutBtn = {
+  background: "#334155",
+  color: "#f87171",
+  border: "1px solid #475569",
+  borderRadius: "5px",
+  padding: "0.32rem 0.65rem",
+  fontSize: "0.75rem",
+  fontWeight: "700",
+  cursor: "pointer"
 };

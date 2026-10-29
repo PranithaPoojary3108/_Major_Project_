@@ -194,5 +194,271 @@ When presenting the project to examiners and exhibition evaluators, follow this 
 4. **Demonstrate Audit Data Export:**
    - Click **`⬇️ Download CSV Log`** to show raw comparison records with measured Euclidean distances and individual match/reject verdicts.
    - Click **`⬇️ Download JSON Report`** to show institutional metadata and exportable audit parameters for election observers.
-#   _ M a j o r _ P r o j e c t _  
- 
+# _Major_Project_
+
+---
+
+## 🔍 Advanced Feature 3: Blockchain Audit and Automatic Tamper Detection
+
+The system includes an automated cryptographic audit subsystem designed to detect off-chain database alterations, unconfirmed transactions, double-voting violations, and candidate tally discrepancies.
+
+### 1. How the System Reads Blockchain Data
+1. **Direct Smart Contract Storage:** Queries `candidates(i).voteCount` and `candidatesCount` directly via Web3.py RPC calls to `Voting.sol`. This is the authoritative cryptographic ground truth.
+2. **Immutable Event Reconstruction:** Creates contract event filters (`VoteCasted.create_filter(from_block=0, to_block="latest")`) and tallies votes solely from mined event logs, independent of state variables.
+3. **Receipt Status Validation:** For every recorded transaction hash, calls `w3.eth.get_transaction_receipt(tx_hash)` to verify `status == 1` (Mined & Successful execution). Transactions are never assumed valid simply because a hash exists.
+4. **Off-Chain Cross-Check:** Fetches displayed and database candidate tallies from SQLite (`candidates` table) and compares them against on-chain storage.
+
+### 2. Audit Status Classifications
+- **`VERIFIED (TAMPER-FREE)`**: All on-chain counts match displayed tallies, event reconstruction matches storage, receipts are confirmed with status=1, and zero double-voting events exist.
+- **`DISCREPANCY DETECTED`**: A discrepancy was detected (e.g. displayed vote count does not match on-chain storage, or event logs differ from stored candidate totals).
+- **`WARNING`**: Non-critical issue (e.g., node running without historical archive logs or administrative lifecycle state desynchronization).
+- **`UNABLE TO VERIFY`**: The Ethereum RPC node is offline or the smart contract bytecode is missing from the target address.
+
+### 3. How to Run an Audit
+1. **Via Admin Portal UI:**
+   - Open [http://localhost:3001/admin.html](http://localhost:3001/admin.html)
+   - Click the **🔍 Tamper Audit** tab.
+   - Click **`🔄 Run Blockchain Audit`** to execute real-time cross-verification.
+2. **Via REST API:**
+   ```powershell
+   Invoke-RestMethod -Method POST -Uri "http://127.0.0.1:5000/api/audit/run"
+   ```
+
+### 4. How to Export Audit Reports
+- **CSV Audit Report:** Click **`📥 Export CSV`** in the Tamper Audit tab or access `GET /api/audit/export/csv`.
+
+### 5. Running Automated Audit Tests
+To run the automated audit test suite:
+```powershell
+.\venv\Scripts\python.exe -m unittest backend/test_blockchain_audit.py
+```
+Expected output:
+```
+Ran 13 tests in 0.085s
+OK
+```
+
+### 6. Scope, Limitations & Differences from Production Blockchain
+- **Authoritative Source:** On-chain EVM storage is always prioritized over frontend or off-chain database records.
+- **Local Hardhat Differences:** In local Hardhat development, block timestamps advance when transactions are mined rather than in continuous real-world seconds.
+- **What System Cannot Guarantee:** The audit inspects cryptographic data integrity on-chain and off-chain; it cannot prevent physical optical scanner sensor presentation attacks (addressed separately by the Siamese CNN biometric threshold).
+
+### 7. College Exhibition & Viva Demonstration
+1. **Demonstrate Verified Clean State:**
+   - Open **🔍 Tamper Audit** tab.
+   - Show examiners the green **`VERIFIED — CRYPTOGRAPHICALLY TAMPER-FREE`** banner, 3-way candidate matching, and verified transaction receipts table.
+2. **Demonstrate Live Tamper Detection (Demo Simulation):**
+   - Click **`🧪 Test Tamper Detection (Demo)`**.
+   - Show examiners how the system instantly flags a red **`DISCREPANCY DETECTED`** alert with an exact delta note (`Candidate #1: Delta: +5 votes`), proving that unauthorized tally manipulation is caught immediately without altering live data.
+   - Click **`Reset to Authoritative State`** to restore verified state directly from the smart contract.
+3. **Demonstrate Audit Report Download:**
+   - Click **`📥 Export CSV`** to inspect the cryptographic report and proof of block inclusion.
+
+---
+
+## 🛡️ Implementation 4: Security Monitoring & Suspicious Activity Detection
+
+### 1. Overview
+The **Security Monitoring and Suspicious Activity Detection** module implements defense-in-depth monitoring across authentication, rate-limiting, election administration, and blockchain transaction lifecycles. It continuously tracks anomalies and logs incidents into a persistent SQLite security ledger without ever recording sensitive biometric templates, raw images, or cryptographic secrets.
+
+### 2. Configurable Threat Detection Rules
+
+| Event Type | Trigger Condition | Severity | Action / Status |
+| :--- | :--- | :--- | :--- |
+| **`FINGERPRINT_VERIFICATION_FAILURE`** | Single biometric probe exceeds operating threshold ($\tau = 0.2385$) | `LOW` | Rejected with 401; logged as `FAILED` |
+| **`REPEATED_BIOMETRIC_FAILURES`** | $\ge 3$ consecutive biometric failures within a 5-minute sliding window | `HIGH` | Escalated incident alert; logged as `ALERT` |
+| **`RATE_LIMIT_EXCEEDED`** | $> 6$ requests within 30 seconds on sensitive endpoints (`/verify-and-vote`, `/cast-vote`) | `LOW` | HTTP 429 response with `Retry-After`; logged as `BLOCKED` |
+| **`DUPLICATE_VOTING_ATTEMPT`** | Voter attempts to vote again (caught by SQLite check or contract revert) | `HIGH` | Blocked with 400; logged as `REJECTED` |
+| **`UNREGISTERED_VOTER_ATTEMPT`** | Unenrolled wallet attempts verification or voting | `MEDIUM` | Blocked with 404; logged as `FAILED` |
+| **`UNAUTHORIZED_ADMIN_ACCESS`** | Non-commissioner address attempts restricted administrative operations | `HIGH` | Blocked with 403; logged as `FORBIDDEN` |
+| **`BLOCKCHAIN_TRANSACTION_FAILURE`** | Smart contract transaction revert, RPC error, or missing receipt | `HIGH` | Captured with error classification; logged as `ERROR` |
+| **`MALFORMED_REQUEST`** | Missing required parameters or corrupt payload bodies | `LOW` | Rejected with 400; logged as `REJECTED` |
+
+### 3. Data Privacy & Zero Biometric Leakage
+To adhere to strict zero-knowledge and privacy-preserving design principles:
+- **No Biometric Data:** Raw fingerprint images and 128-dimensional embedding vectors are **never stored** in the security audit table.
+- **Log Sanitization:** All user-supplied inputs and user-agent strings are sanitized to prevent log injection attacks and control-character pollution.
+- **Anonymized Identifiers:** Logs store truncated checksum wallet addresses, sanitized endpoint paths, and UTC timestamps.
+
+### 4. Security Monitoring Dashboard UI
+Located under the **🛡️ Security Monitoring** tab in the Election Commissioner Admin Portal:
+- **6 Key Metrics:** Total Events, High/Critical Alerts, Failed Biometric Attempts, Duplicate Vote Attempts, Unauthorized Admin Attempts, and Blockchain Tx Failures.
+- **Real-Time Filters:** Filter by Severity (`CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFO`), Event Type, Review Status (`Reviewed` vs. `Unreviewed`), and text search.
+- **Auditor Workflow:** Incident review button (`Mark Reviewed`) updates the persistent ledger with auditor identification and timestamp.
+- **Forensic Exports:** One-click downloads for RFC-4180 compliant **CSV Incident Logs** and structured **JSON Incident Logs**.
+
+### 5. Automated Testing
+Run the complete security test suite:
+```powershell
+.\venv\Scripts\python.exe backend/test_security_monitoring.py
+```
+Expected output:
+```
+Ran 11 tests in 0.497s
+OK
+```
+
+### 6. Exhibition & Viva Walkthrough
+1. **Show Live Operational Dashboard:**
+   - Navigate to [http://localhost:3001/admin.html](http://localhost:3001/admin.html) and click the **🛡️ Security Monitoring** tab.
+   - Point out the 6 real-time sensor counters and the clean baseline log.
+2. **Demonstrate Rate-Limiting Barrier:**
+   - Explain how rapid probing on biometric authentication or ballot submission endpoints triggers HTTP 429 throttling to prevent automated brute-force attacks.
+3. **Demonstrate Escalated Repeated Biometric Alert:**
+   - Explain that while isolated biometric mismatches are classified as low-severity noise, 3 consecutive failures within 5 minutes automatically elevate to a **`HIGH`** severity incident alert (`REPEATED_BIOMETRIC_FAILURES`).
+4. **Demonstrate Double-Voting Prevention & Logged Audit Trail:**
+   - Explain that duplicate ballot attempts are blocked at both the database barrier and the EVM smart contract barrier, immediately logging a **`HIGH`** alert (`DUPLICATE_VOTING_ATTEMPT`).
+5. **Demonstrate Auditor Incident Review & Log Export:**
+   - Click **`Mark Reviewed`** on an incident row to show the reviewer audit trail update.
+   - Click **`📥 Export CSV`** and **`📥 Export JSON`** to inspect the downloadable compliance logs.
+
+---
+
+## 📈 Implementation 7: Election Analytics & Results Dashboard
+
+### 1. Overview
+The **Election Analytics and Results Dashboard** provides institutional oversight, turnout analytics, smart contract candidate standings, transparent tie handling, and temporal voting participation trends. It integrates with the authoritative EVM smart contract (`Voting.sol`) while cross-verifying with the local SQLite persistence layer.
+
+### 2. Core Metrics & Mathematical Formulations
+
+- **Voter Turnout Rate:**
+  $$\text{Turnout (\%)} = \left(\frac{\text{Authoritative Votes Cast}}{\text{Total Registered Voters}}\right) \times 100$$
+  *(Safely evaluates to $0.0\%$ when registered voters $= 0$ to prevent division by zero).*
+- **Remaining Eligible Voters:**
+  $$\text{Remaining Voters} = \max(0, \text{Registered Voters} - \text{Votes Cast})$$
+- **Candidate Vote Share:**
+  $$\text{Vote Share (\%)} = \left(\frac{\text{Candidate Votes}}{\text{Total Valid Ballots Cast}}\right) \times 100$$
+- **Election Lifecycle States:** Dynamically inferred from contract timestamps into `Not Started`, `Scheduled`, `Active`, or `Completed`.
+
+### 3. Tie Handling & Authoritative Verification
+- **Competition Ranking:** Candidates are ranked descending by on-chain votes.
+- **Tie Detection:** If two or more top candidates share the highest vote tally ($>0$), the system flags **`TIE DETECTED FOR 1ST PLACE`** and displays a yellow warning banner identifying the tied candidates instead of declaring a single winner.
+- **Cross-Verification Discrepancy Alert:** If the local SQLite database disagrees with on-chain contract state, a red warning is raised referring administrators to the **Blockchain Tamper Audit** module.
+
+### 4. Temporal Voting & Security Correlation
+- **Temporal Distribution:** Groups ballots cast into hourly/daily buckets using real `ballots_cast.voted_at` timestamps.
+- **Date & Candidate Filtering:** Supports date range (`start_date`, `end_date`) and specific candidate selection.
+- **Biometric & Security Correlation:** Correlates voting turnout with biometric verification accuracy ($(\text{Successes} / \text{Total Attempts}) \times 100$), blocked double votes, unauthorized admin access denial, and transaction reverts.
+
+### 5. Exportable Forensic Reports
+- **CSV Analytics Export:** `GET /api/analytics/export/csv` generates an RFC-4180 compliance report containing metadata, turnout summary, candidate standings, hourly activity, and security statistics.
+- **JSON Analytics Export:** `GET /api/analytics/export/json` returns full structured analytics data for institutional archiving.
+
+### 6. Running Automated Analytics Tests
+```powershell
+.\venv\Scripts\python.exe backend/test_election_analytics.py
+```
+Expected output:
+```
+Ran 12 tests in 1.547s
+OK
+```
+
+### 7. College Exhibition & Viva Demonstration
+1. **Open Analytics Dashboard:**
+   - Open [http://localhost:3001/admin.html](http://localhost:3001/admin.html) and click the **📈 Election Analytics** tab.
+2. **Demonstrate Live Turnout & Metrics Cards:**
+   - Show examiners the 6 metric cards: Lifecycle Status, Turnout Rate, Registered Voters, Ballots Cast, Remaining Eligible Voters, and Contesting Candidates.
+3. **Demonstrate Tie & Leader Detection:**
+   - Point out how projected winners or tied contenders are surfaced with visual percentage progress bars.
+4. **Demonstrate Date & Candidate Filtering:**
+   - Use the date pickers or candidate selector to filter temporal participation.
+5. **Demonstrate Exportable Reports:**
+   - Click **`📥 Export CSV`** and **`📥 Export JSON`** to inspect the downloadable compliance summaries.
+
+
+---
+
+## 🔐 Implementation 8: Role-Based Access Control (RBAC) & Secure Role Dashboards
+
+### 1. Overview & Security Architecture
+The **Role-Based Access Control (RBAC)** module establishes defense-in-depth authorization across backend Flask APIs, on-chain smart contract modifiers, and frontend user interfaces. It enforces strict separation of duties among three distinct institutional roles: **Election Commissioner**, **Electoral Auditor**, and **Citizen Voter**.
+
+- **PBKDF2-HMAC-SHA256 Password Hashing:** Passwords are never stored in plaintext. They are salted with a 16-byte cryptographically secure random salt and hashed with 100,000 PBKDF2 iterations.
+- **Signed Bearer Session Tokens:** Generates tamper-proof base64 tokens cryptographically signed using HMAC-SHA256 (`<payload_b64>.<signature_hex>`) with an isolated server secret key (`auth_secret.key`).
+- **Stateful Session Revocation:** Active sessions are tracked in SQLite (`user_sessions`), enabling instantaneous single-click revocation and logout across devices.
+- **Server-Side Authoritative Enforcement:** Role permissions are validated strictly server-side using `@require_auth` and `@require_role` decorators. Requests lacking proper credentials receive HTTP 401 Unauthorized or HTTP 403 Forbidden with automatic incident logging.
+
+### 2. Role Definitions & Default Credentials
+
+For college exhibition and viva evaluation, three pre-seeded institutional accounts are provisioned:
+
+| Role | Default Username | Default Password | Associated Hardhat Address | Institutional Scope & Responsibilities |
+| :--- | :--- | :--- | :--- | :--- |
+| **👑 COMMISSIONER** | `commissioner` | `admin123` | `0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266` (Account #0) | Full election administration: open/close voting windows, factory reset, biometric enrollment, on-chain voter registration, security review, and audit inspections. |
+| **🔍 AUDITOR** | `auditor` | `audit123` | N/A (Independent Oversight) | Read-only oversight: inspect blockchain tamper audits, view forensic security event logs, mark incident reviews, monitor turnout analytics, and export CSV/JSON compliance reports. Strictly forbidden from changing election state, enrolling voters, casting ballots, or executing resets. |
+| **👤 VOTER** | `voter` | `voter123` | `0x70997970C51812dc3A010C7d01b50e0d17dc79C8` (Account #1) | Self-service voter portal: query registration and eligibility status, participate in CNN biometric fingerprint verification, cast single ballot during open window, and view immutable transaction receipt. Strictly forbidden from accessing administrative endpoints or other voters' biometric templates. |
+
+### 3. Permission Matrix
+
+| Feature / API Action | HTTP Method & Route | COMMISSIONER | AUDITOR | VOTER |
+| :--- | :--- | :---: | :---: | :---: |
+| **Open / Close Election** | `POST /api/open-election`, `POST /api/close-election` | ✅ Allow | ❌ 403 Forbidden | ❌ 403 Forbidden |
+| **Factory Reset System** | `POST /api/reset-all` | ✅ Allow | ❌ 403 Forbidden | ❌ 403 Forbidden |
+| **Enroll Voter & Biometrics** | `POST /api/enroll-voter` | ✅ Allow | ❌ 403 Forbidden | ❌ 403 Forbidden |
+| **Register Voter On-Chain** | `POST /api/register-onchain` | ✅ Allow | ❌ 403 Forbidden | ❌ 403 Forbidden |
+| **View Registered Voters Roster**| `GET /api/registered-voters` | ✅ Allow | ❌ Hidden | ❌ Hidden |
+| **Review Security Incident** | `POST /api/security/events/<id>/review` | ✅ Allow | ✅ Allow | ❌ 403 Forbidden |
+| **Run Blockchain Tamper Audit** | `POST /api/audit/run`, `GET /api/audit/status` | ✅ Allow | ✅ Allow | ❌ Hidden |
+| **View Security Monitoring** | `GET /api/security/summary`, `GET /api/security/events` | ✅ Allow | ✅ Allow | ❌ Hidden |
+| **View Election Analytics** | `GET /api/analytics/dashboard` | ✅ Allow | ✅ Allow | ❌ Hidden |
+| **Export Compliance Reports** | `GET /api/audit/export/csv`, `/api/security/export/*` | ✅ Allow | ✅ Allow | ❌ Hidden |
+| **Verify Biometric Fingerprint** | `POST /api/verify-fingerprint` | ✅ Allow | ❌ Forbidden | ✅ Allow |
+| **Cast Ballot (Polling Booth)** | `POST /api/cast-vote` | ❌ Disallowed | ❌ Disallowed | ✅ Allow |
+| **Voter Self-Service Status** | `GET /api/auth/me`, `GET /api/voter/status` | ✅ Allow | ✅ Allow | ✅ Allow |
+
+### 4. Authentication API Endpoints
+- **`POST /api/auth/login`**: Accepts `{ "username": "...", "password": "..." }` or `{ "wallet_address": "0x..." }`. Returns Bearer token, role, and profile info.
+- **`POST /api/auth/logout`**: Revokes session token in `user_sessions`.
+- **`GET /api/auth/me`**: Returns authenticated user profile, active role, permissions, and session expiry.
+- **`GET /api/auth/roles`**: Public metadata endpoint listing system roles and default credentials for viva demonstrators.
+
+### 5. Role-Specific Dashboards
+1. **Header Role Switcher & Modal:**
+   - In `http://localhost:3001/admin.html`, the top navigation bar displays the current role badge (`👑 Commissioner`, `🔍 Auditor`, or `👤 Voter`).
+   - Clicking **`🔄 Switch Role`** opens the authentication modal with 1-click role switches or custom credential login.
+2. **Dynamic Navigation Tab Filtering:**
+   - When logged in as **Commissioner**: All tabs (⚡ Lifecycle, 👥 Voters, 🔬 Biometric, 🔍 Tamper Audit, 🛡️ Security, 📈 Analytics) are visible with full operational controls.
+   - When logged in as **Auditor**: Administrative tabs (Lifecycle, Voters) are hidden. Auditor has read-only access to Tamper Audit, Security Monitoring, and Election Analytics with action banners disabled.
+   - When logged in as **Voter**: Navigates directly to the dedicated **👤 Voter Portal**, hiding all administrative and election commissioner settings.
+3. **Voter Self-Service Portal (`VoterPortalDashboard.jsx`):**
+   - Displays personal enrollment status, on-chain registration indicator, voting eligibility, and election time window.
+   - Shows ballot confirmation status (Voted vs. Not Voted) and transaction hash receipt link without exposing candidate choice or other voters' biometric data.
+
+### 6. Automated RBAC Security Tests
+Run the dedicated RBAC and role enforcement test suite:
+```powershell
+.\venv\Scripts\python.exe backend/test_rbac_security.py
+```
+Expected output:
+```
+Ran 9 tests in 0.819s
+OK
+```
+
+Test coverage validates:
+- `test_login_success_commissioner`: Successful authentication and cryptographic token generation.
+- `test_login_invalid_password`: Immediate rejection (401) on bad credentials.
+- `test_commissioner_can_access_open_election`: Commissioner successfully opens election lifecycle.
+- `test_auditor_cannot_access_open_election`: Auditor attempt to open election returns 403 Forbidden.
+- `test_voter_cannot_access_reset_all`: Voter attempt to execute factory reset returns 403 Forbidden.
+- `test_unauthenticated_request_rejected`: Sensitive admin routes reject unauthenticated requests with 401.
+- `test_auditor_can_review_security_event`: Auditor successfully completes compliance review.
+- `test_session_revocation_logout`: Calling `/api/auth/logout` invalidates token immediately.
+- `test_role_tampering_prevented`: Manipulating client-side payload roles is blocked by server-side database verification.
+
+### 7. College Exhibition & Viva Demonstration
+1. **Demonstrate Commissioner Access:**
+   - Open [http://localhost:3001/admin.html](http://localhost:3001/admin.html).
+   - Show that by default, the session is authenticated as **`👑 Commissioner`**.
+   - Point out full access to election lifecycle toggles, voter enrollment, and reset controls.
+2. **Demonstrate 1-Click Role Switch to Auditor:**
+   - Click **`🔄 Switch Role`** in the top header.
+   - Select **Auditor (`auditor` / `audit123`)**.
+   - Show how the UI dynamically adapts: ⚡ Lifecycle and 👥 Voters tabs disappear from navigation.
+   - Open the **🔍 Tamper Audit** or **🛡️ Security Monitoring** tab to demonstrate read-only compliance inspection.
+3. **Demonstrate Server-Side 403 Enforcement:**
+   - Explain to examiners that even if a malicious user manually sends an HTTP POST request to `/api/reset-all` with an Auditor token, the backend returns HTTP 403 Forbidden and logs an `UNAUTHORIZED_ADMIN_ACCESS` incident in the security monitor.
+4. **Demonstrate Voter Self-Service Portal:**
+   - Click **`🔄 Switch Role`** and select **Voter (`voter` / `voter123`)**.
+   - Show the dedicated **👤 Voter Portal** displaying real-time enrollment status, voting eligibility, election countdown, and personal ballot receipt without exposing sensitive administrative operations.

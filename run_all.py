@@ -22,6 +22,7 @@ if not os.path.exists(VENV_PYTHON):
     VENV_PYTHON = sys.executable
 
 processes = []
+node_log_handle = None
 
 def cleanup(sig=None, frame=None):
     print("\n[Shutting down Secure E-Voting System processes...]")
@@ -36,6 +37,11 @@ def cleanup(sig=None, frame=None):
                 p.kill()
             except Exception:
                 pass
+    if node_log_handle and not node_log_handle.closed:
+        try:
+            node_log_handle.close()
+        except Exception:
+            pass
     print("[All services stopped cleanly. Goodbye!]")
     sys.exit(0)
 
@@ -101,7 +107,9 @@ def main():
     if not is_blockchain_ready(blockchain_url):
         print("\n[1/5] Starting Local Hardhat Blockchain Node (RPC: http://127.0.0.1:8545)...")
         node_log_path = os.path.join(BLOCKCHAIN_DIR, "hardhat_node.log")
+        global node_log_handle
         node_log = open(node_log_path, "w", encoding="utf-8")
+        node_log_handle = node_log
         hardhat_proc = subprocess.Popen(
             ["npx.cmd", "hardhat", "node"],
             cwd=BLOCKCHAIN_DIR,

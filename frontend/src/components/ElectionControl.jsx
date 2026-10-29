@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ElectionStatusBanner from './ElectionStatusBanner';
+import { authenticatedFetch } from '../utils/auth';
 
 const API_BASE = "http://127.0.0.1:5000";
 
@@ -94,7 +95,7 @@ export default function ElectionControl({ onElectionChanged }) {
       const start = Math.floor(Date.now() / 1000);
       const end = start + Math.max(1, parseInt(durationHours, 10)) * 3600;
 
-      const res = await fetch(`${API_BASE}/api/open-election`, {
+      const res = await authenticatedFetch(`${API_BASE}/api/open-election`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ start_time: start, end_time: end })
@@ -149,7 +150,7 @@ export default function ElectionControl({ onElectionChanged }) {
 
     setOpenLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/open-election`, {
+      const res = await authenticatedFetch(`${API_BASE}/api/open-election`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ start_time: startUnix, end_time: endUnix })
@@ -179,7 +180,7 @@ export default function ElectionControl({ onElectionChanged }) {
     setCloseLoading(true);
 
     try {
-      const res = await fetch(`${API_BASE}/api/close-election`, { method: "POST" });
+      const res = await authenticatedFetch(`${API_BASE}/api/close-election`, { method: "POST" });
       const data = await res.json();
 
       if (res.ok && data.success) {
@@ -216,7 +217,7 @@ export default function ElectionControl({ onElectionChanged }) {
     setResetLoading(true);
 
     try {
-      const res = await fetch(`${API_BASE}/api/reset-all`, { method: "POST" });
+      const res = await authenticatedFetch(`${API_BASE}/api/reset-all`, { method: "POST" });
       const data = await res.json();
 
       if (res.ok && data.success) {
